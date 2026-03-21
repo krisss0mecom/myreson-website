@@ -3,466 +3,608 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyReson AI — Phase-Gated Intelligence</title>
-    <meta name="description" content="PGAN: The only AI architecture with native post-deployment learning. Validated on human brain data. Runs on $3 hardware.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <title>MyReson AI — Phase-Gated Associative Network</title>
+    <meta name="description" content="PGAN: The only AI architecture with native post-deployment learning. Mathematically proven. Validated on human hippocampal data. Runs on edge hardware.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x26A1;</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Crimson Pro', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
-                    colors: {
-                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a2e', 600: '#252540' },
-                        accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
-                        cyan: { 400: '#22d3ee', 500: '#06b6d4' },
-                        emerald: { 400: '#34d399', 500: '#10b981' },
-                    }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; }
-        .gradient-text { background: linear-gradient(135deg, #818cf8, #22d3ee, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .gradient-border { border-image: linear-gradient(135deg, #6366f1, #06b6d4) 1; }
-        .glow-indigo { box-shadow: 0 0 60px rgba(99, 102, 241, 0.15); }
-        .glow-cyan { box-shadow: 0 0 60px rgba(6, 182, 212, 0.15); }
-        .glow-emerald { box-shadow: 0 0 60px rgba(16, 185, 129, 0.15); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); }
-        .phase-animation { animation: phase-rotate 8s linear infinite; }
-        @keyframes phase-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
-        @keyframes pulse-slow { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        .hero-grid { background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px); background-size: 40px 40px; }
-        .stat-number { font-variant-numeric: tabular-nums; }
+        :root {
+            --bg: #08080c;
+            --bg2: #0e0e14;
+            --bg3: #14141e;
+            --border: rgba(255,255,255,0.06);
+            --text: #94a3b8;
+            --text2: #64748b;
+            --white: #f1f5f9;
+            --blue: #3b82f6;
+            --indigo: #6366f1;
+            --cyan: #06b6d4;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+        /* Canvas hero */
+        #phase-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.4; }
+
+        /* Typography */
+        .heading-serif { font-family: 'Crimson Pro', Georgia, serif; font-weight: 600; letter-spacing: -0.02em; }
+        .heading-sans { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.03em; }
+
+        /* Subtle gradient text */
+        .text-gradient { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* Glass card */
+        .glass { background: rgba(14,14,20,0.8); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border); }
+
+        /* Reveal animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Divider */
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+        /* Nav */
+        .nav-glass { background: rgba(8,8,12,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+        /* Metric card glow */
+        .metric-glow:hover { box-shadow: 0 0 40px rgba(99,102,241,0.08); }
+
+        /* Code highlight */
+        .code-window { background: #0c0c14; border: 1px solid rgba(255,255,255,0.06); }
+
+        /* Scroll indicator */
+        .scroll-line { width: 1px; height: 60px; background: linear-gradient(180deg, var(--indigo), transparent); }
+
+        /* Phase ring */
+        .phase-ring { border: 2px solid rgba(99,102,241,0.2); border-radius: 50%; animation: spin 20s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .phase-ring-reverse { animation-direction: reverse; animation-duration: 15s; border-color: rgba(6,182,212,0.2); }
+
+        /* Stat counter */
+        .stat-mono { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
+
+        /* Mobile menu */
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.open { transform: translateX(0); }
+
+        /* Timeline */
+        .timeline-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--indigo); background: var(--bg); }
+        .timeline-dot.active { background: var(--indigo); box-shadow: 0 0 12px rgba(99,102,241,0.4); }
+        .timeline-line { width: 2px; background: linear-gradient(180deg, var(--indigo), var(--cyan), var(--emerald)); }
     </style>
 </head>
-<body class="text-gray-300 antialiased">
+<body>
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full z-50 nav-blur bg-dark-900/80 border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-cyan-500 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+<nav class="fixed top-0 w-full z-50 nav-glass border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-md bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <span class="text-white font-bold text-lg tracking-tight">MyReson<span class="text-accent-400">.ai</span></span>
+            <span class="text-white font-semibold text-base tracking-tight">MyReson</span>
         </a>
-        <div class="hidden md:flex items-center gap-8 text-sm">
-            <a href="#architecture" class="text-gray-400 hover:text-white transition">Architecture</a>
-            <a href="#results" class="text-gray-400 hover:text-white transition">Results</a>
-            <a href="#papers" class="text-gray-400 hover:text-white transition">Papers</a>
-            <a href="#live-learning" class="text-gray-400 hover:text-white transition">Live Learning</a>
-            <a href="#contact" class="bg-accent-500/10 text-accent-400 px-4 py-2 rounded-lg hover:bg-accent-500/20 transition border border-accent-500/20">Contact</a>
+        <div class="hidden md:flex items-center gap-8 text-[13px] font-medium">
+            <a href="#about" class="text-gray-500 hover:text-white transition-colors duration-200">About</a>
+            <a href="#architecture" class="text-gray-500 hover:text-white transition-colors duration-200">Architecture</a>
+            <a href="#research" class="text-gray-500 hover:text-white transition-colors duration-200">Research</a>
+            <a href="#live-learning" class="text-gray-500 hover:text-white transition-colors duration-200">Live Learning</a>
+            <a href="#contact" class="ml-2 px-4 py-1.5 rounded-md bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200 border border-white/10">Contact</a>
         </div>
     </div>
 </nav>
 
 <!-- Hero -->
-<section class="relative min-h-screen flex items-center hero-grid overflow-hidden">
-    <!-- Background effects -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] pulse-slow"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pulse-slow" style="animation-delay: 2s;"></div>
+<section class="relative min-h-screen flex items-center overflow-hidden">
+    <canvas id="phase-canvas"></canvas>
 
-    <div class="max-w-6xl mx-auto px-6 pt-32 pb-20">
-        <div class="max-w-4xl">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-sm font-medium mb-8">
-                <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                Training in progress — PPL 13.64 on Polish Wikipedia
-            </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
+        <div class="max-w-3xl">
+            <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-6 reveal">Independent AI Research</p>
 
-            <h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-6">
-                AI That <span class="gradient-text">Learns</span><br>
-                After Deployment
+            <h1 class="heading-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.05] mb-8 reveal reveal-delay-1">
+                A Neural Architecture<br>
+                <span class="text-gradient">Grounded in Physics</span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-2xl mb-10">
-                PGAN is a new neural architecture inspired by the brain's hippocampus.
-                It learns new facts in <span class="text-white font-semibold">microseconds</span> — no backpropagation, no GPU, on a <span class="text-white font-semibold">$3 chip</span>.
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mb-12 reveal reveal-delay-2">
+                PGAN combines proven mathematical theory, hippocampal neuroscience, and phase oscillator dynamics into a single architecture that learns after deployment.
             </p>
 
-            <div class="flex flex-wrap gap-4 mb-16 relative z-10">
-                <a href="#architecture" style="cursor:pointer; -webkit-tap-highlight-color: rgba(0,0,0,0.1);" class="px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-xl transition shadow-lg shadow-accent-500/25 inline-block">
-                    Explore Architecture
+            <div class="flex flex-wrap gap-4 relative z-20 reveal reveal-delay-3">
+                <a href="#architecture" class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-colors duration-200">
+                    Explore the Architecture
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                 </a>
-                <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" style="cursor:pointer; -webkit-tap-highlight-color: rgba(0,0,0,0.1);" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl transition border border-white/10 inline-block">
-                    Read Papers
+                <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 text-gray-300 text-sm font-medium rounded-lg border border-white/10 hover:border-white/20 hover:text-white transition-all duration-200">
+                    Read the Papers
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
             </div>
+        </div>
 
-            <!-- Stats row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-black text-white stat-number">192/192</div>
-                    <div class="text-sm text-gray-500 mt-1">Human brain tests pass</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-black text-white stat-number">7.2x</div>
-                    <div class="text-sm text-gray-500 mt-1">Hopfield memory density</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-black text-white stat-number">3</div>
-                    <div class="text-sm text-gray-500 mt-1">Published papers with DOI</div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="text-3xl font-black text-white stat-number">$3</div>
-                    <div class="text-sm text-gray-500 mt-1">Hardware cost (ESP32)</div>
-                </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 reveal" style="transition-delay:1s;">
+            <span class="text-[11px] font-mono text-gray-600 tracking-widest uppercase">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Metrics bar -->
+<section class="border-y border-white/5 bg-[#0a0a10]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+            <div class="py-8 md:py-10 px-4 md:px-8 text-center reveal">
+                <div class="stat-mono text-2xl md:text-3xl font-bold text-white mb-1">192/192</div>
+                <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Brain Tests Pass</div>
+            </div>
+            <div class="py-8 md:py-10 px-4 md:px-8 text-center reveal reveal-delay-1">
+                <div class="stat-mono text-2xl md:text-3xl font-bold text-white mb-1">7.2x</div>
+                <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Hopfield Density</div>
+            </div>
+            <div class="py-8 md:py-10 px-4 md:px-8 text-center reveal reveal-delay-2">
+                <div class="stat-mono text-2xl md:text-3xl font-bold text-white mb-1">3</div>
+                <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Papers with DOI</div>
+            </div>
+            <div class="py-8 md:py-10 px-4 md:px-8 text-center reveal reveal-delay-3">
+                <div class="stat-mono text-2xl md:text-3xl font-bold text-white mb-1">245M</div>
+                <div class="text-xs text-gray-500 font-medium uppercase tracking-wider">Parameters</div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- About -->
+<section id="about" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div class="reveal">
+                <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-4">The Problem</p>
+                <h2 class="heading-serif text-3xl md:text-4xl text-white leading-tight mb-6">Every AI today is<br>frozen after training</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    GPT, Claude, Gemini, Llama &mdash; they all share the same fundamental limitation. Knowledge is distributed across billions of weight parameters with no address, no structure, no way to update a single fact without retraining the entire model.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    The industry workaround is RAG: copy-pasting retrieved text into the prompt. It is expensive, it scales poorly, and it forgets everything when you close the session.
+                </p>
+            </div>
+            <div class="reveal reveal-delay-2">
+                <p class="text-[13px] font-mono text-emerald-400 tracking-widest uppercase mb-4">Our Approach</p>
+                <h2 class="heading-serif text-3xl md:text-4xl text-white leading-tight mb-6">Build AI the way<br>the brain works</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    The hippocampus does not use matrix multiplications. It uses phase-coupled oscillators &mdash; theta rhythms that gate gamma-frequency information in real time. We implement this mechanism directly.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    The result is PGAN: an architecture where knowledge lives as explicit phase patterns. One Hebbian update &mdash; a single multiplication &mdash; writes a new fact. No backpropagation, no GPU, microseconds on a $3 chip.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider max-w-7xl mx-auto"></div>
+
 <!-- Architecture -->
-<section id="architecture" class="py-32 relative">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-20 fade-in">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Three Streams,<br><span class="gradient-text">One Architecture</span></h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Each component is mathematically proven and biologically grounded. Not a metaphor — the same equations the brain uses.</p>
+<section id="architecture" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl mb-20 reveal">
+            <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-4">Architecture</p>
+            <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">Three streams,<br>one equation</h2>
+            <p class="text-gray-400 leading-relaxed">Each component is derived from mathematical theory and validated experimentally. The CNOT gate equation is identical to hippocampal theta-gamma coupling &mdash; not an analogy, the same differential equation.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-5 mb-16">
             <!-- S1 -->
-            <div class="card-hover rounded-2xl bg-dark-800 border border-white/5 p-8 glow-indigo fade-in">
-                <div class="w-14 h-14 rounded-xl bg-accent-500/10 flex items-center justify-center mb-6">
-                    <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <div class="glass rounded-xl p-7 reveal metric-glow transition-all duration-300">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full border-2 border-indigo-400"></div>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">S1 Memory</div>
+                        <div class="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">Slow Stream</div>
+                    </div>
                 </div>
-                <div class="text-xs font-mono text-accent-400 mb-3 tracking-wider uppercase">Slow Stream</div>
-                <h3 class="text-2xl font-bold text-white mb-3">S1 Memory</h3>
-                <p class="text-gray-400 mb-6 leading-relaxed">Dense Associative Memory on the unit circle S<sup>1</sup>. Stores patterns as explicit phase vectors — addressable, readable, writable.</p>
-                <div class="space-y-3 text-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-accent-400 font-mono font-semibold">alpha* = 1.0</span>
-                        <span class="text-gray-500">proven capacity</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-accent-400 font-mono font-semibold">7.2x</span>
-                        <span class="text-gray-500">denser than Hopfield</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-accent-400 font-mono font-semibold">Hebbian</span>
-                        <span class="text-gray-500">online learning</span>
-                    </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-5">Dense Associative Memory on the unit circle S&sup1;. Patterns stored as explicit phase vectors &mdash; addressable, readable, writable in-place.</p>
+                <div class="space-y-2.5 text-[13px] font-mono">
+                    <div class="flex justify-between"><span class="text-gray-500">Capacity</span><span class="text-indigo-400">&alpha;* = 1.0 (proven)</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">vs Hopfield</span><span class="text-indigo-400">7.2x denser</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Update</span><span class="text-indigo-400">Hebbian (online)</span></div>
                 </div>
             </div>
 
             <!-- S2 -->
-            <div class="card-hover rounded-2xl bg-dark-800 border border-white/5 p-8 glow-cyan fade-in" style="transition-delay: 0.1s;">
-                <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6">
-                    <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <div class="glass rounded-xl p-7 reveal reveal-delay-1 metric-glow transition-all duration-300">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full border-2 border-cyan-400 border-dashed"></div>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">S2 Attention</div>
+                        <div class="text-[11px] font-mono text-cyan-400 uppercase tracking-wider">Fast Stream</div>
+                    </div>
                 </div>
-                <div class="text-xs font-mono text-cyan-400 mb-3 tracking-wider uppercase">Fast Stream</div>
-                <h3 class="text-2xl font-bold text-white mb-3">S2 Attention</h3>
-                <p class="text-gray-400 mb-6 leading-relaxed">Dense Associative Memory on the sphere S<sup>2</sup>. Mathematically equivalent to Transformer attention — but derived from theory.</p>
-                <div class="space-y-3 text-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-cyan-400 font-mono font-semibold">= softmax</span>
-                        <span class="text-gray-500">Transformer attention</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-cyan-400 font-mono font-semibold">alpha >= 1.56</span>
-                        <span class="text-gray-500">proven capacity</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-cyan-400 font-mono font-semibold">1-step</span>
-                        <span class="text-gray-500">closed-form retrieval</span>
-                    </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-5">Dense Associative Memory on the sphere S&sup2;. Mathematically equivalent to Transformer attention, but derived from capacity theory.</p>
+                <div class="space-y-2.5 text-[13px] font-mono">
+                    <div class="flex justify-between"><span class="text-gray-500">Capacity</span><span class="text-cyan-400">&alpha; &ge; 1.56 (proven)</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Retrieval</span><span class="text-cyan-400">1-step closed-form</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Equals</span><span class="text-cyan-400">softmax attention</span></div>
                 </div>
             </div>
 
             <!-- CNOT -->
-            <div class="card-hover rounded-2xl bg-dark-800 border border-white/5 p-8 glow-emerald fade-in" style="transition-delay: 0.2s;">
-                <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6">
-                    <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <div class="glass rounded-xl p-7 reveal reveal-delay-2 metric-glow transition-all duration-300">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">CNOT Gate</div>
+                        <div class="text-[11px] font-mono text-emerald-400 uppercase tracking-wider">Phase Gating</div>
+                    </div>
                 </div>
-                <div class="text-xs font-mono text-emerald-400 mb-3 tracking-wider uppercase">Gating</div>
-                <h3 class="text-2xl font-bold text-white mb-3">CNOT Gate</h3>
-                <p class="text-gray-400 mb-6 leading-relaxed">Injection-locking dynamics validated on hippocampal theta-gamma coupling. Not a metaphor — identical equations.</p>
-                <div class="space-y-3 text-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="text-emerald-400 font-mono font-semibold">192/192</span>
-                        <span class="text-gray-500">human brain tests</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-emerald-400 font-mono font-semibold">8 patients</span>
-                        <span class="text-gray-500">hippocampal data</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-emerald-400 font-mono font-semibold">Turing</span>
-                        <span class="text-gray-500">complete (proven)</span>
-                    </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-5">Injection-locking dynamics that couple S1 and S2. Validated against hippocampal theta-gamma recordings from human patients.</p>
+                <div class="space-y-2.5 text-[13px] font-mono">
+                    <div class="flex justify-between"><span class="text-gray-500">Validation</span><span class="text-emerald-400">192/192 tests</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Patients</span><span class="text-emerald-400">8 (hippocampal)</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Logic</span><span class="text-emerald-400">Turing complete</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- Equation -->
-        <div class="mt-16 text-center fade-in">
-            <div class="inline-block bg-dark-800 border border-white/10 rounded-2xl px-10 py-6">
-                <div class="text-xs font-mono text-gray-500 mb-3 tracking-wider uppercase">CNOT Phase Gate Dynamics</div>
-                <div class="text-xl md:text-2xl font-mono text-white">
-                    d<span class="text-accent-400">phi</span>/dt = <span class="text-gray-500">omega</span> + <span class="text-cyan-400">K</span> &middot; cos(<span class="text-accent-400">phi<sub>slow</sub></span>) &middot; sin(<span class="text-cyan-400">phi<sub>fast</sub></span> - <span class="text-emerald-400">phi<sub>out</sub></span>)
+        <!-- Equation block -->
+        <div class="reveal">
+            <div class="glass rounded-xl px-8 py-6 max-w-2xl mx-auto text-center">
+                <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest mb-3">CNOT Phase Gate &mdash; Injection-Locking Dynamics</div>
+                <div class="text-lg md:text-xl font-mono text-white leading-relaxed">
+                    d<span class="text-indigo-400">&phi;</span>/dt = <span class="text-gray-500">&omega;</span> + <span class="text-cyan-400">K</span> &middot; cos(<span class="text-indigo-400">&phi;<sub>slow</sub></span>) &middot; sin(<span class="text-cyan-400">&phi;<sub>fast</sub></span> &minus; <span class="text-emerald-400">&phi;<sub>out</sub></span>)
                 </div>
-                <div class="text-sm text-gray-500 mt-3">= Hippocampal theta-gamma coupling equation</div>
+                <div class="text-[13px] text-gray-500 mt-3">Identical to the hippocampal theta-gamma coupling equation</div>
             </div>
         </div>
     </div>
 </section>
 
+<div class="divider max-w-7xl mx-auto"></div>
+
 <!-- Live Learning -->
-<section id="live-learning" class="py-32 bg-dark-800/50 relative">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="fade-in">
-                <div class="text-xs font-mono text-emerald-400 mb-4 tracking-wider uppercase">What No Transformer Can Do</div>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Learn New Facts<br>in <span class="gradient-text">Microseconds</span></h2>
-                <p class="text-lg text-gray-400 mb-8 leading-relaxed">
-                    Every LLM today is frozen after training. GPT, Claude, Gemini — they forget everything when you close the chat.
-                    PGAN remembers. One Hebbian update, no GPU needed.
+<section id="live-learning" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
+            <div class="reveal">
+                <p class="text-[13px] font-mono text-emerald-400 tracking-widest uppercase mb-4">Capability</p>
+                <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">Post-deployment<br>learning</h2>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    No existing language model can learn new facts after deployment without full retraining. PGAN can. S1 phase patterns are updated with a single Hebbian multiplication &mdash; no optimizer, no gradient computation, no GPU.
                 </p>
 
-                <div class="space-y-4">
+                <div class="space-y-5">
                     <div class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
+                        <div class="w-px h-12 bg-gradient-to-b from-emerald-500 to-transparent mt-1 flex-shrink-0"></div>
                         <div>
-                            <div class="text-white font-semibold">No backpropagation</div>
-                            <div class="text-gray-500 text-sm">Single multiplication: xi += eta * sin(phi - xi)</div>
+                            <div class="text-white font-medium text-sm mb-1">Day: fast encoding in S1</div>
+                            <div class="text-gray-500 text-sm">Hebbian update writes associations to phase memory. Microseconds.</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
+                        <div class="w-px h-12 bg-gradient-to-b from-indigo-500 to-transparent mt-1 flex-shrink-0"></div>
                         <div>
-                            <div class="text-white font-semibold">No catastrophic forgetting</div>
-                            <div class="text-gray-500 text-sm">Different facts live in different phases — they don't collide</div>
+                            <div class="text-white font-medium text-sm mb-1">Night: consolidation to permanent weights</div>
+                            <div class="text-gray-500 text-sm">Dream replay trains FFN/S2, then S1 resets. Like hippocampal replay.</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
+                        <div class="w-px h-12 bg-gradient-to-b from-cyan-500 to-transparent mt-1 flex-shrink-0"></div>
                         <div>
-                            <div class="text-white font-semibold">Persistent memory</div>
-                            <div class="text-gray-500 text-sm">Save/load S1 patterns — model remembers between sessions</div>
+                            <div class="text-white font-medium text-sm mb-1">Privacy by architecture</div>
+                            <div class="text-gray-500 text-sm">Remove S1 = remove all personal knowledge. A 4MB file. No differential privacy needed.</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Code block -->
-            <div class="fade-in" style="transition-delay: 0.2s;">
-                <div class="rounded-2xl bg-dark-900 border border-white/10 overflow-hidden">
-                    <div class="flex items-center gap-2 px-5 py-3 border-b border-white/5">
-                        <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
-                        <span class="text-xs text-gray-500 ml-2 font-mono">live_learning.py</span>
+            <div class="reveal reveal-delay-2">
+                <div class="code-window rounded-xl overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/20">
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                        <span class="text-[11px] text-gray-600 ml-2 font-mono">live_learning.py</span>
                     </div>
-                    <pre class="p-6 text-sm font-mono leading-relaxed overflow-x-auto"><code><span class="text-gray-500"># Day: learn a new fact (microseconds, no GPU)</span>
-<span class="text-accent-400">learner</span>.<span class="text-cyan-400">associate</span>(model, tokenizer,
-    <span class="text-emerald-400">"Krakow"</span>, <span class="text-emerald-400">"Wawel"</span>)
+                    <pre class="p-5 text-[13px] font-mono leading-[1.8] overflow-x-auto"><code><span class="text-gray-600"># Learn a new fact &mdash; microseconds, no GPU</span>
+<span class="text-indigo-400">learner</span>.<span class="text-cyan-400">associate</span>(
+    model, tokenizer,
+    <span class="text-emerald-400">"Krakow"</span>, <span class="text-emerald-400">"Wawel"</span>
+)
+<span class="text-gray-600"># Overlap: 0.17 &rarr; 0.75 (4.4x)</span>
 
-<span class="text-gray-500"># Overlap: 0.17 -> 0.75 (4.4x increase)</span>
+<span class="text-gray-600"># Consolidate to permanent weights</span>
+<span class="text-indigo-400">consolidator</span>.<span class="text-cyan-400">consolidate</span>(
+    model, tokenizer, learner
+)
 
-<span class="text-gray-500"># Night: consolidate to permanent weights</span>
-<span class="text-accent-400">consolidator</span>.<span class="text-cyan-400">consolidate</span>(
-    model, tokenizer, learner)
+<span class="text-gray-600"># Export without personal knowledge</span>
+<span class="text-indigo-400">learner</span>.<span class="text-cyan-400">export_public</span>(
+    model, <span class="text-emerald-400">"pgan_public.pt"</span>
+)
+<span class="text-gray-600"># Personal data: 4MB S1 file</span>
+<span class="text-gray-600"># Public model: zero private data</span></code></pre>
+                </div>
 
-<span class="text-gray-500"># Morning: model knows Krakow = Wawel</span>
-<span class="text-gray-500"># No retraining. No GPU. No cloud.</span>
-
-<span class="text-gray-500"># Privacy: remove S1 = remove all</span>
-<span class="text-gray-500"># personal knowledge (4MB file)</span>
-<span class="text-accent-400">learner</span>.<span class="text-cyan-400">export_public</span>(model, <span class="text-emerald-400">"public.pt"</span>)</code></pre>
+                <!-- Comparison mini -->
+                <div class="mt-5 glass rounded-xl p-5">
+                    <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest mb-4">Transformer vs PGAN</div>
+                    <div class="space-y-3 text-[13px]">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Post-deployment learning</span>
+                            <div class="flex gap-4">
+                                <span class="text-red-400/60 line-through">Impossible</span>
+                                <span class="text-emerald-400">Native</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Catastrophic forgetting</span>
+                            <div class="flex gap-4">
+                                <span class="text-red-400/60 line-through">Yes</span>
+                                <span class="text-emerald-400">No</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Memory theory</span>
+                            <div class="flex gap-4">
+                                <span class="text-red-400/60 line-through">None</span>
+                                <span class="text-emerald-400">&alpha;* = 1.0</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Edge inference</span>
+                            <div class="flex gap-4">
+                                <span class="text-red-400/60 line-through">GPU</span>
+                                <span class="text-emerald-400">$3 ESP32</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Results -->
-<section id="results" class="py-32">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-20 fade-in">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Proven <span class="gradient-text">Results</span></h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto">From 3,422 perplexity to 13.64. Eight versions. $350 total compute cost.</p>
+<div class="divider max-w-7xl mx-auto"></div>
+
+<!-- Research -->
+<section id="research" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl mb-16 reveal">
+            <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-4">Publications</p>
+            <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">Peer-reviewable<br>research</h2>
+            <p class="text-gray-400 leading-relaxed">Three papers deposited on Zenodo with DOI. Covering capacity theory, spherical attention, and neuroscience validation.</p>
         </div>
 
-        <!-- Comparison table -->
-        <div class="rounded-2xl bg-dark-800 border border-white/5 overflow-hidden fade-in">
-            <table class="w-full text-sm">
-                <thead>
-                    <tr class="border-b border-white/5">
-                        <th class="text-left px-6 py-4 text-gray-500 font-medium">Capability</th>
-                        <th class="text-center px-6 py-4 text-gray-500 font-medium">Transformer</th>
-                        <th class="text-center px-6 py-4 text-accent-400 font-medium">PGAN</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm">
-                    <tr class="border-b border-white/5">
-                        <td class="px-6 py-4 text-gray-300">Formal memory theory</td>
-                        <td class="text-center px-6 py-4 text-gray-600">None</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">alpha* = 1.0 (proven)</td>
-                    </tr>
-                    <tr class="border-b border-white/5">
-                        <td class="px-6 py-4 text-gray-300">Post-deployment learning</td>
-                        <td class="text-center px-6 py-4 text-gray-600">Impossible</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">Native (Hebbian S1)</td>
-                    </tr>
-                    <tr class="border-b border-white/5">
-                        <td class="px-6 py-4 text-gray-300">Brain validation</td>
-                        <td class="text-center px-6 py-4 text-gray-600">None</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">192/192 tests (8 patients)</td>
-                    </tr>
-                    <tr class="border-b border-white/5">
-                        <td class="px-6 py-4 text-gray-300">Hardware path</td>
-                        <td class="text-center px-6 py-4 text-gray-600">GPU only</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">Analog oscillators</td>
-                    </tr>
-                    <tr class="border-b border-white/5">
-                        <td class="px-6 py-4 text-gray-300">Catastrophic forgetting</td>
-                        <td class="text-center px-6 py-4 text-gray-600">Yes</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">No (phase isolation)</td>
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4 text-gray-300">Edge deployment</td>
-                        <td class="text-center px-6 py-4 text-gray-600">Limited</td>
-                        <td class="text-center px-6 py-4 text-emerald-400">$3 ESP32 with live learning</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Papers -->
-<section id="papers" class="py-32 bg-dark-800/50">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Published <span class="gradient-text">Research</span></h2>
-            <p class="text-lg text-gray-400">Three peer-reviewable papers deposited on Zenodo with DOI</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" class="card-hover rounded-2xl bg-dark-900 border border-white/5 p-8 block fade-in group">
-                <div class="text-xs font-mono text-accent-400 mb-4">Paper I</div>
-                <h3 class="text-lg font-bold text-white mb-3 group-hover:text-accent-400 transition">Dense Associative Memory on S<sup>1</sup></h3>
-                <p class="text-gray-500 text-sm mb-4">Phase-Gate Computing and Superlinear Capacity in Circular Oscillator Networks</p>
-                <div class="text-xs text-gray-600 font-mono">DOI: 10.5281/zenodo.18800042</div>
+        <div class="space-y-4">
+            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" class="block glass rounded-xl p-6 md:p-7 hover:border-indigo-500/20 transition-all duration-300 reveal group">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                    <div class="text-[11px] font-mono text-indigo-400 tracking-wider uppercase whitespace-nowrap">Paper I</div>
+                    <div class="flex-1">
+                        <div class="text-white font-medium group-hover:text-indigo-400 transition-colors duration-200">Dense Associative Memory on S&sup1;: Phase-Gate Computing and Superlinear Capacity</div>
+                        <div class="text-sm text-gray-500 mt-1">Circular oscillator networks &middot; &alpha;* = 1.0 &middot; Turing completeness &middot; Boolean gates</div>
+                    </div>
+                    <div class="text-[11px] font-mono text-gray-600">10.5281/zenodo.18800042</div>
+                </div>
             </a>
 
-            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" class="card-hover rounded-2xl bg-dark-900 border border-white/5 p-8 block fade-in group" style="transition-delay: 0.1s;">
-                <div class="text-xs font-mono text-cyan-400 mb-4">Paper II</div>
-                <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-400 transition">Dense Associative Memory on S<sup>2</sup></h3>
-                <p class="text-gray-500 text-sm mb-4">Theory of Directional Associative Memories: Dense Hopfield Networks on the Unit Sphere</p>
-                <div class="text-xs text-gray-600 font-mono">Zenodo with DOI</div>
+            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" class="block glass rounded-xl p-6 md:p-7 hover:border-cyan-500/20 transition-all duration-300 reveal reveal-delay-1 group">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                    <div class="text-[11px] font-mono text-cyan-400 tracking-wider uppercase whitespace-nowrap">Paper II</div>
+                    <div class="flex-1">
+                        <div class="text-white font-medium group-hover:text-cyan-400 transition-colors duration-200">Theory of Directional Associative Memories on S&sup2;</div>
+                        <div class="text-sm text-gray-500 mt-1">Spherical attention &middot; &alpha; &ge; 1.56 &middot; Dense Hopfield on unit sphere &middot; = Transformer</div>
+                    </div>
+                    <div class="text-[11px] font-mono text-gray-600">Zenodo DOI</div>
+                </div>
             </a>
 
-            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" class="card-hover rounded-2xl bg-dark-900 border border-white/5 p-8 block fade-in group" style="transition-delay: 0.2s;">
-                <div class="text-xs font-mono text-emerald-400 mb-4">Paper III</div>
-                <h3 class="text-lg font-bold text-white mb-3 group-hover:text-emerald-400 transition">CNOT Gate = Theta-Gamma Coupling</h3>
-                <p class="text-gray-500 text-sm mb-4">A CNOT Phase Gate Equation Unifies Digital Logic and Hippocampal Theta-Gamma Coupling</p>
-                <div class="text-xs text-gray-600 font-mono">Zenodo with DOI</div>
+            <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" class="block glass rounded-xl p-6 md:p-7 hover:border-emerald-500/20 transition-all duration-300 reveal reveal-delay-2 group">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                    <div class="text-[11px] font-mono text-emerald-400 tracking-wider uppercase whitespace-nowrap">Paper III</div>
+                    <div class="flex-1">
+                        <div class="text-white font-medium group-hover:text-emerald-400 transition-colors duration-200">CNOT Phase Gate Unifies Digital Logic and Hippocampal Theta-Gamma Coupling</div>
+                        <div class="text-sm text-gray-500 mt-1">192/192 human tests &middot; 8 patients &middot; Phase synchronization &middot; Stochastic resonance</div>
+                    </div>
+                    <div class="text-[11px] font-mono text-gray-600">Zenodo DOI</div>
+                </div>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Vision -->
-<section class="py-32">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">The <span class="gradient-text">Vision</span></h2>
+<div class="divider max-w-7xl mx-auto"></div>
+
+<!-- Roadmap -->
+<section class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl mb-16 reveal">
+            <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-4">Roadmap</p>
+            <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight">From software<br>to silicon</h2>
         </div>
 
-        <div class="grid md:grid-cols-4 gap-6 fade-in">
-            <div class="text-center p-6">
-                <div class="text-3xl mb-4">💻</div>
-                <div class="text-white font-bold mb-2">Today</div>
-                <div class="text-gray-500 text-sm">Software PGAN on GPU & Jetson</div>
+        <div class="grid md:grid-cols-4 gap-6 reveal">
+            <div class="glass rounded-xl p-6 border-t-2 border-indigo-500">
+                <div class="text-[11px] font-mono text-indigo-400 uppercase tracking-widest mb-3">Now</div>
+                <div class="text-white font-medium mb-2">Software PGAN</div>
+                <div class="text-sm text-gray-500">245M parameters training on Polish Wikipedia. Knowledge distillation from Bielik 11B.</div>
             </div>
-            <div class="text-center p-6">
-                <div class="text-3xl mb-4">🗣️</div>
-                <div class="text-white font-bold mb-2">Near</div>
-                <div class="text-gray-500 text-sm">Instruction-tuned chatbot on edge</div>
+            <div class="glass rounded-xl p-6 border-t-2 border-cyan-500">
+                <div class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-3">Next</div>
+                <div class="text-white font-medium mb-2">Edge Deployment</div>
+                <div class="text-sm text-gray-500">Instruction-tuned model on NVIDIA Jetson and Raspberry Pi. Offline voice assistant.</div>
             </div>
-            <div class="text-center p-6">
-                <div class="text-3xl mb-4">🧠</div>
-                <div class="text-white font-bold mb-2">Medium</div>
-                <div class="text-gray-500 text-sm">Live learning AI that remembers</div>
+            <div class="glass rounded-xl p-6 border-t-2 border-emerald-500">
+                <div class="text-[11px] font-mono text-emerald-400 uppercase tracking-widest mb-3">Medium</div>
+                <div class="text-white font-medium mb-2">Live Learning</div>
+                <div class="text-sm text-gray-500">Persistent S1 memory between sessions. AI that remembers without retraining or cloud.</div>
             </div>
-            <div class="text-center p-6">
-                <div class="text-3xl mb-4">⚡</div>
-                <div class="text-white font-bold mb-2">Far</div>
-                <div class="text-gray-500 text-sm">Analog oscillator chip — AI on $1</div>
+            <div class="glass rounded-xl p-6 border-t-2 border-amber-500">
+                <div class="text-[11px] font-mono text-amber-400 uppercase tracking-widest mb-3">Vision</div>
+                <div class="text-white font-medium mb-2">Analog Hardware</div>
+                <div class="text-sm text-gray-500">FPGA prototype with real oscillators. Path to ASIC. LLM without GPU, on $1 hardware.</div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="divider max-w-7xl mx-auto"></div>
 
 <!-- Contact -->
-<section id="contact" class="py-32 bg-dark-800/50">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="max-w-2xl mx-auto text-center fade-in">
-            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Get in <span class="gradient-text">Touch</span></h2>
-            <p class="text-lg text-gray-400 mb-12">Interested in PGAN? Looking for collaboration, funding, or want to learn more?</p>
+<section id="contact" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-xl mx-auto text-center reveal">
+            <p class="text-[13px] font-mono text-indigo-400 tracking-widest uppercase mb-4">Contact</p>
+            <h2 class="heading-serif text-3xl md:text-4xl text-white leading-tight mb-6">Let's talk</h2>
+            <p class="text-gray-400 mb-12">Research collaboration, investment, or technical questions.</p>
 
-            <div class="grid sm:grid-cols-2 gap-6 mb-12">
-                <div class="rounded-2xl bg-dark-900 border border-white/5 p-6">
-                    <div class="text-sm text-gray-500 mb-2">Founder & Researcher</div>
-                    <div class="text-white font-semibold mb-1">Krzysztof Gwozdz</div>
-                    <a href="mailto:krzysztof.gwozdz@myreson.ai" class="text-accent-400 hover:text-accent-300 transition text-sm">krzysztof.gwozdz@myreson.ai</a>
+            <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                <div class="glass rounded-xl p-5 text-left">
+                    <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest mb-2">Founder</div>
+                    <div class="text-white font-medium text-sm mb-1">Krzysztof Gwozdz</div>
+                    <a href="mailto:krzysztof.gwozdz@myreson.ai" class="text-indigo-400 hover:text-indigo-300 transition-colors text-sm">krzysztof.gwozdz@myreson.ai</a>
                 </div>
-                <div class="rounded-2xl bg-dark-900 border border-white/5 p-6">
-                    <div class="text-sm text-gray-500 mb-2">General Inquiries</div>
-                    <div class="text-white font-semibold mb-1">MyReson AI</div>
-                    <a href="mailto:office@myreson.ai" class="text-accent-400 hover:text-accent-300 transition text-sm">office@myreson.ai</a>
+                <div class="glass rounded-xl p-5 text-left">
+                    <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest mb-2">General</div>
+                    <div class="text-white font-medium text-sm mb-1">MyReson AI</div>
+                    <a href="mailto:office@myreson.ai" class="text-indigo-400 hover:text-indigo-300 transition-colors text-sm">office@myreson.ai</a>
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-6 text-sm">
-                <a href="https://orcid.org/0009-0005-1546-3256" target="_blank" class="text-gray-500 hover:text-white transition flex items-center gap-2">
-                    <span>ORCID</span>
-                </a>
-                <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" class="text-gray-500 hover:text-white transition flex items-center gap-2">
-                    <span>Zenodo</span>
-                </a>
+            <div class="flex justify-center gap-6 text-[13px]">
+                <a href="https://orcid.org/0009-0005-1546-3256" target="_blank" rel="noopener" class="text-gray-600 hover:text-white transition-colors">ORCID</a>
+                <span class="text-gray-800">/</span>
+                <a href="https://doi.org/10.5281/zenodo.18800042" target="_blank" rel="noopener" class="text-gray-600 hover:text-white transition-colors">Zenodo</a>
+                <span class="text-gray-800">/</span>
+                <a href="https://github.com/krisss0mecom" target="_blank" rel="noopener" class="text-gray-600 hover:text-white transition-colors">GitHub</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="py-8 border-t border-white/5">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-sm text-gray-600">&copy; 2026 MyReson AI. All rights reserved.</div>
-        <div class="text-sm text-gray-600">Built with phase oscillators, not attention mechanisms.</div>
+<footer class="py-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="text-[12px] text-gray-700">&copy; 2026 MyReson AI</div>
+        <div class="text-[12px] text-gray-700 font-mono">Phase-Gated Associative Network</div>
     </div>
 </footer>
 
-<!-- Scroll animation -->
+<!-- Phase oscillator canvas -->
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+(function() {
+    const canvas = document.getElementById('phase-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [];
+    const N = 60;
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < N; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                phase: Math.random() * Math.PI * 2,
+                freq: 0.005 + Math.random() * 0.015,
+                radius: 1 + Math.random() * 2,
+                connections: []
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const t = Date.now() * 0.001;
+
+        // Update phases
+        particles.forEach(p => {
+            p.phase += p.freq;
+            p.px = p.x + Math.cos(p.phase) * 20;
+            p.py = p.y + Math.sin(p.phase) * 20;
+        });
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].px - particles[j].px;
+                const dy = particles[i].py - particles[j].py;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 150) {
+                    const phaseDiff = Math.cos(particles[i].phase - particles[j].phase);
+                    const alpha = (1 - dist/150) * 0.15 * (0.5 + 0.5 * phaseDiff);
+                    if (alpha > 0.01) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].px, particles[i].py);
+                        ctx.lineTo(particles[j].px, particles[j].py);
+                        const sync = phaseDiff > 0;
+                        ctx.strokeStyle = sync
+                            ? 'rgba(99, 102, 241,' + alpha + ')'
+                            : 'rgba(6, 182, 212,' + alpha + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Draw particles
+        particles.forEach(p => {
+            const brightness = 0.3 + 0.3 * Math.sin(p.phase);
+            ctx.beginPath();
+            ctx.arc(p.px, p.py, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(148, 163, 184,' + brightness + ')';
+            ctx.fill();
+        });
+
+        requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+    window.addEventListener('resize', () => { resize(); });
+})();
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
