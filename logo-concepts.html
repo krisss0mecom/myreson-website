@@ -3,259 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyReson AI — Logo Concepts</title>
+    <title>MyReson AI — Logo Concepts v2</title>
     <style>
-        body { background: #08080c; color: #f1f5f9; font-family: 'Inter', system-ui, sans-serif; padding: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .concept { background: #12121a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 40px; text-align: center; }
-        .concept:hover { border-color: rgba(99,102,241,0.3); }
-        .concept h3 { margin: 20px 0 8px; font-size: 18px; }
-        .concept p { color: #64748b; font-size: 13px; line-height: 1.6; }
-        .logo-area { height: 200px; display: flex; align-items: center; justify-content: center; }
-        h1 { text-align: center; font-size: 32px; margin-bottom: 10px; }
-        .sub { text-align: center; color: #64748b; margin-bottom: 60px; font-size: 15px; }
-        .variants { display: flex; gap: 30px; justify-content: center; margin-top: 20px; }
-        .variant { opacity: 0.7; }
-        .variant:hover { opacity: 1; }
+        body { background: #08080c; color: #f1f5f9; font-family: 'Inter', system-ui, sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .concept { background: #12121a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 30px; text-align: center; }
+        .concept h3 { margin: 16px 0 6px; font-size: 16px; }
+        .concept p { color: #64748b; font-size: 12px; line-height: 1.6; }
+        .logo-area { height: 180px; display: flex; align-items: center; justify-content: center; }
+        h1 { text-align: center; font-size: 24px; margin-bottom: 6px; }
+        .sub { text-align: center; color: #64748b; margin-bottom: 40px; font-size: 13px; }
     </style>
 </head>
 <body>
 
-<h1>MyReson AI — Logo Concepts</h1>
-<p class="sub">Golden ratio proportions. Phase oscillator symbolism. Simple geometry.</p>
+<h1>MyReson AI — Logo v2</h1>
+<p class="sub">S1 (private, detachable) + S2 (public, shareable) + CNOT (gate between them)</p>
 
 <div class="grid">
 
-    <!-- Concept 1: Golden Phi -->
+    <!-- Concept A: Lock & Share -->
     <div class="concept">
         <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Golden ratio: large circle r=50, medium r=30.9 (50/1.618), small r=19.1 -->
-                <!-- Three circles: S1 (indigo), S2 (cyan), CNOT (emerald) -->
-                <!-- Arranged vertically with golden spacing -->
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- S1 - private (left, solid, with lock hint) -->
+                <circle cx="45" cy="70" r="30" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.08)"/>
+                <text x="45" y="75" text-anchor="middle" fill="#6366f1" font-size="11" font-weight="600" font-family="system-ui">S1</text>
+                <text x="45" y="108" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">private</text>
 
-                <!-- S2 - large circle (attention, the foundation) -->
-                <circle cx="80" cy="85" r="50" stroke="#6366f1" stroke-width="2.5" fill="none" opacity="0.9"/>
+                <!-- S2 - public (right, open) -->
+                <circle cx="115" cy="70" r="30" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.08)"/>
+                <text x="115" y="75" text-anchor="middle" fill="#06b6d4" font-size="11" font-weight="600" font-family="system-ui">S2</text>
+                <text x="115" y="108" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">public</text>
 
-                <!-- S1 - medium circle (memory, offset) -->
-                <circle cx="80" cy="55" r="31" stroke="#06b6d4" stroke-width="2.5" fill="none" opacity="0.9"/>
+                <!-- CNOT gate - connecting bridge, detachable -->
+                <rect x="70" y="60" width="20" height="20" rx="4" fill="#10b981" opacity="0.9"/>
+                <text x="80" y="74" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="system-ui">CNOT</text>
 
-                <!-- CNOT - small circle (gate, at intersection) -->
-                <circle cx="80" cy="38" r="19" stroke="#10b981" stroke-width="2.5" fill="none" opacity="0.9"/>
-
-                <!-- Vertical axis (phase line) -->
-                <line x1="80" y1="15" x2="80" y2="140" stroke="url(#grad1)" stroke-width="1.5" opacity="0.4"/>
-
-                <!-- Phase dot - golden ratio point -->
-                <circle cx="80" cy="38" r="4" fill="#10b981" opacity="0.8"/>
-                <circle cx="80" cy="55" r="3.5" fill="#06b6d4" opacity="0.8"/>
-                <circle cx="80" cy="85" r="3" fill="#6366f1" opacity="0.8"/>
-
-                <defs>
-                    <linearGradient id="grad1" x1="80" y1="15" x2="80" y2="140" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#10b981"/>
-                        <stop offset="0.5" stop-color="#06b6d4"/>
-                        <stop offset="1" stop-color="#6366f1"/>
-                    </linearGradient>
-                </defs>
+                <!-- Dashed lines = detachable connection -->
+                <line x1="55" y1="70" x2="70" y2="70" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 3"/>
+                <line x1="90" y1="70" x2="105" y2="70" stroke="#06b6d4" stroke-width="2"/>
             </svg>
         </div>
-        <h3>Concept 1 — Three Circles</h3>
-        <p>S1 + S2 + CNOT as concentric circles in golden ratio proportions (r = 50, 31, 19). Phase axis through center.</p>
+        <h3>A — Detachable Gate</h3>
+        <p>S1 connected by dashed line (detachable). CNOT square gate between. S2 solid line (permanent). Remove S1 = privacy.</p>
     </div>
 
-    <!-- Concept 2: Phi Symbol -->
+    <!-- Concept B: Shield & Globe -->
     <div class="concept">
         <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Stylized phi (φ) from golden ratio circles -->
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- S1 as shield (private, protected) -->
+                <path d="M 35 40 L 55 32 L 55 70 Q 55 95 35 100 Q 15 95 15 70 L 15 32 Z" stroke="#6366f1" stroke-width="2.5" fill="rgba(99,102,241,0.06)"/>
+                <circle cx="35" cy="62" r="8" fill="none" stroke="#6366f1" stroke-width="2"/>
+                <circle cx="35" cy="62" r="3" fill="#6366f1"/>
 
-                <!-- Main circle (the O of phi) -->
-                <ellipse cx="80" cy="80" rx="35" ry="45" stroke="url(#grad2)" stroke-width="3" fill="none"/>
+                <!-- CNOT as lightning bolt between -->
+                <path d="M 62 55 L 72 48 L 68 63 L 78 56" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-                <!-- Vertical stroke of phi -->
-                <line x1="80" y1="15" x2="80" y2="145" stroke="url(#grad2)" stroke-width="3" stroke-linecap="round"/>
-
-                <!-- Phase nodes on the vertical -->
-                <circle cx="80" cy="35" r="5" fill="#10b981"/>
-                <circle cx="80" cy="80" r="4" fill="#06b6d4"/>
-                <circle cx="80" cy="125" r="5" fill="#6366f1"/>
-
-                <!-- Small orbital arcs suggesting oscillation -->
-                <path d="M 60 50 Q 45 65 60 80" stroke="#6366f1" stroke-width="1" fill="none" opacity="0.3"/>
-                <path d="M 100 50 Q 115 65 100 80" stroke="#06b6d4" stroke-width="1" fill="none" opacity="0.3"/>
-
-                <defs>
-                    <linearGradient id="grad2" x1="80" y1="15" x2="80" y2="145" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#10b981"/>
-                        <stop offset="0.5" stop-color="#06b6d4"/>
-                        <stop offset="1" stop-color="#6366f1"/>
-                    </linearGradient>
-                </defs>
+                <!-- S2 as open circle/globe (shareable) -->
+                <circle cx="110" cy="65" r="32" stroke="#06b6d4" stroke-width="2.5" fill="rgba(6,182,212,0.06)"/>
+                <!-- Globe lines -->
+                <ellipse cx="110" cy="65" rx="15" ry="32" stroke="#06b6d4" stroke-width="1" fill="none" opacity="0.3"/>
+                <line x1="78" y1="65" x2="142" y2="65" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+                <line x1="110" y1="33" x2="110" y2="97" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
             </svg>
         </div>
-        <h3>Concept 2 — Phi (φ)</h3>
-        <p>Stylized φ symbol. φ = golden ratio AND phase variable in PGAN. Three nodes: CNOT (top), S2 (middle), S1 (bottom).</p>
+        <h3>B — Shield & Globe</h3>
+        <p>S1 = shield (your private knowledge, protected). S2 = globe (shared model, open). CNOT = lightning connecting them.</p>
     </div>
 
-    <!-- Concept 3: Golden Spiral + Nodes -->
+    <!-- Concept C: Plug & Socket -->
     <div class="concept">
         <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Golden spiral approximation with phase nodes -->
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- S1 as plug (removable) -->
+                <rect x="10" y="50" width="50" height="40" rx="8" stroke="#6366f1" stroke-width="2.5" fill="rgba(99,102,241,0.06)"/>
+                <rect x="60" y="58" width="12" height="10" rx="2" fill="#6366f1" opacity="0.7"/>
+                <rect x="60" y="72" width="12" height="10" rx="2" fill="#6366f1" opacity="0.7"/>
+                <text x="35" y="74" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="600" font-family="system-ui">S1</text>
 
-                <!-- Spiral arcs (quarter circles with golden ratio radii) -->
-                <path d="M 80 80 Q 80 30 130 30" stroke="#6366f1" stroke-width="2.5" fill="none" opacity="0.8"/>
-                <path d="M 130 30 Q 130 80 100 80" stroke="#06b6d4" stroke-width="2.5" fill="none" opacity="0.8"/>
-                <path d="M 100 80 Q 100 60 115 60" stroke="#10b981" stroke-width="2.5" fill="none" opacity="0.8"/>
-                <path d="M 115 60 Q 115 72 108 72" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.6"/>
+                <!-- Gap (detachable!) -->
+                <line x1="72" y1="63" x2="78" y2="63" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <line x1="72" y1="77" x2="78" y2="77" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 2"/>
 
-                <!-- Outer frame - golden rectangle hint -->
-                <rect x="35" y="25" width="95" height="58.7" rx="2" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+                <!-- S2 as socket (always there) -->
+                <rect x="78" y="50" width="70" height="40" rx="8" stroke="#06b6d4" stroke-width="2.5" fill="rgba(6,182,212,0.06)"/>
+                <rect x="78" y="58" width="12" height="10" rx="2" stroke="#06b6d4" stroke-width="2" fill="none"/>
+                <rect x="78" y="72" width="12" height="10" rx="2" stroke="#06b6d4" stroke-width="2" fill="none"/>
+                <text x="120" y="74" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="600" font-family="system-ui">S2</text>
 
-                <!-- Phase nodes at spiral points -->
-                <circle cx="80" cy="80" r="6" fill="#6366f1"/>
-                <circle cx="130" cy="30" r="5" fill="#06b6d4"/>
-                <circle cx="100" cy="80" r="4" fill="#10b981"/>
-                <circle cx="115" cy="60" r="3" fill="#f59e0b" opacity="0.8"/>
+                <!-- CNOT label at connection -->
+                <rect x="68" y="88" width="24" height="14" rx="3" fill="#10b981" opacity="0.8"/>
+                <text x="80" y="98" text-anchor="middle" fill="white" font-size="7" font-weight="600" font-family="system-ui">CNOT</text>
 
-                <!-- Connection lines -->
-                <line x1="80" y1="80" x2="100" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <!-- Labels -->
+                <text x="35" y="40" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">yours (4MB)</text>
+                <text x="120" y="40" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">shared model</text>
             </svg>
         </div>
-        <h3>Concept 3 — Golden Spiral</h3>
-        <p>Golden spiral with phase oscillator nodes at key points. Each arc = one stream (S1, S2, CNOT). Growth = learning.</p>
+        <h3>C — Plug & Socket</h3>
+        <p>S1 = plug (your knowledge, 4MB, removable). S2 = socket (base model, shareable). CNOT at the interface. Unplug = private.</p>
     </div>
 
-    <!-- Concept 4: Phase Coupling -->
+    <!-- Concept D: Two Hemispheres Separating -->
     <div class="concept">
         <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Two interlocking circles (theta-gamma coupling) -->
-                <!-- Golden ratio: r1=40, r2=24.7, overlap defined by golden section -->
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- Full circle split in two halves with gap -->
 
-                <!-- Slow oscillation (theta/S1) - larger -->
-                <circle cx="68" cy="80" r="40" stroke="#6366f1" stroke-width="2.5" fill="none" opacity="0.8"/>
+                <!-- Left half - S1 (private) -->
+                <path d="M 72 30 A 40 40 0 0 0 72 110" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.06)" stroke-linecap="round"/>
 
-                <!-- Fast oscillation (gamma/S2) - smaller, golden ratio -->
-                <circle cx="96" cy="80" r="25" stroke="#06b6d4" stroke-width="2.5" fill="none" opacity="0.8"/>
+                <!-- Right half - S2 (public) -->
+                <path d="M 88 30 A 40 40 0 0 1 88 110" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.06)" stroke-linecap="round"/>
 
-                <!-- Coupling point (CNOT) - at intersection -->
-                <circle cx="85" cy="80" r="8" fill="none" stroke="#10b981" stroke-width="2.5"/>
-                <circle cx="85" cy="80" r="3" fill="#10b981"/>
-
-                <!-- Phase arrows suggesting rotation -->
-                <path d="M 38 55 Q 28 70 32 85" stroke="#6366f1" stroke-width="1.5" fill="none" opacity="0.4" marker-end="url(#arrow1)"/>
-                <path d="M 112 62 Q 118 72 116 82" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity="0.4"/>
-
-                <!-- Resonance waves -->
-                <circle cx="85" cy="80" r="15" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.2"/>
-                <circle cx="85" cy="80" r="22" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.1"/>
-            </svg>
-        </div>
-        <h3>Concept 4 — Phase Coupling</h3>
-        <p>Two circles (theta + gamma) interlocked at golden ratio sizes. CNOT gate at the coupling point. Resonance waves emanating.</p>
-    </div>
-
-    <!-- Concept 5: Minimal Mark -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Ultra-minimal: circle + line + dot -->
-                <!-- Circle = oscillator, line = phase, dot = pattern -->
-
-                <!-- Main circle -->
-                <circle cx="80" cy="80" r="45" stroke="url(#grad5)" stroke-width="3" fill="none"/>
-
-                <!-- Phase line (tilted at golden angle 137.5deg) -->
-                <line x1="50" y1="30" x2="110" y2="130" stroke="url(#grad5)" stroke-width="3" stroke-linecap="round"/>
-
-                <!-- Three dots at golden ratio positions along the line -->
-                <circle cx="65" cy="55" r="5" fill="#10b981"/>
-                <circle cx="80" cy="80" r="4.5" fill="#06b6d4"/>
-                <circle cx="92" cy="100" r="4" fill="#6366f1"/>
-
-                <defs>
-                    <linearGradient id="grad5" x1="50" y1="30" x2="110" y2="130" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#10b981"/>
-                        <stop offset="0.5" stop-color="#06b6d4"/>
-                        <stop offset="1" stop-color="#6366f1"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
-        <h3>Concept 5 — Minimal Mark</h3>
-        <p>Circle (oscillator) + line (phase axis at golden angle 137.5) + three dots (S1, S2, CNOT at golden ratio spacing).</p>
-    </div>
-
-    <!-- Concept 6: Brain Resonance -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Abstract brain from two golden ratio circles + coupling wave -->
-
-                <!-- Left hemisphere (S1 - memory) -->
-                <path d="M 75 45 Q 35 45 35 80 Q 35 120 75 120" stroke="#6366f1" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-                <!-- Right hemisphere (S2 - attention) -->
-                <path d="M 85 45 Q 125 45 125 80 Q 125 120 85 120" stroke="#06b6d4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-                <!-- Central coupling wave (CNOT - sine wave connecting hemispheres) -->
-                <path d="M 80 40 Q 90 55 80 65 Q 70 75 80 85 Q 90 95 80 105 Q 70 115 80 125" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Gap between halves = detachable -->
+                <!-- CNOT sine wave in the gap -->
+                <path d="M 80 35 Q 86 48 80 55 Q 74 62 80 70 Q 86 78 80 85 Q 74 92 80 100 Q 86 108 80 112" stroke="#10b981" stroke-width="2" fill="none" opacity="0.8"/>
 
                 <!-- Phase dots -->
-                <circle cx="80" cy="40" r="4" fill="#10b981"/>
-                <circle cx="80" cy="80" r="3.5" fill="#10b981" opacity="0.7"/>
-                <circle cx="80" cy="125" r="4" fill="#10b981"/>
+                <circle cx="80" cy="35" r="3.5" fill="#10b981"/>
+                <circle cx="80" cy="70" r="3" fill="#10b981" opacity="0.7"/>
+                <circle cx="80" cy="112" r="3.5" fill="#10b981"/>
+
+                <!-- Labels -->
+                <text x="48" y="74" text-anchor="middle" fill="#6366f1" font-size="12" font-weight="600" font-family="system-ui">S1</text>
+                <text x="112" y="74" text-anchor="middle" fill="#06b6d4" font-size="12" font-weight="600" font-family="system-ui">S2</text>
             </svg>
         </div>
-        <h3>Concept 6 — Brain Resonance</h3>
-        <p>Two hemispheres (S1 memory + S2 attention) connected by sine wave (CNOT phase coupling). Brain meets oscillator.</p>
+        <h3>D — Split Circle</h3>
+        <p>One circle split in two. S1 (left, private) can separate from S2 (right, public). CNOT sine wave flows between. Pull apart = privacy.</p>
+    </div>
+
+    <!-- Concept E: Nested with Escape -->
+    <div class="concept">
+        <div class="logo-area">
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- S2 outer ring (public, always there) -->
+                <circle cx="80" cy="70" r="45" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
+
+                <!-- CNOT ring (gate) -->
+                <circle cx="80" cy="70" r="30" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+
+                <!-- S1 inner (private, solid, can be extracted) -->
+                <circle cx="80" cy="70" r="16" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.1)"/>
+                <circle cx="80" cy="70" r="5" fill="#6366f1"/>
+
+                <!-- Arrow showing S1 can leave -->
+                <line x1="80" y1="54" x2="80" y2="18" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
+                <polygon points="76,20 80,12 84,20" fill="#6366f1" opacity="0.5"/>
+
+                <!-- Labels -->
+                <text x="80" y="130" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">S1 extractable / S2 shareable</text>
+            </svg>
+        </div>
+        <h3>E — Core Extract</h3>
+        <p>S2 = outer ring (public model). CNOT = dashed middle ring (gate). S1 = solid core (private). Arrow: S1 can be extracted, S2 stays.</p>
+    </div>
+
+    <!-- Concept F: Golden Ratio Phi with separation -->
+    <div class="concept">
+        <div class="logo-area">
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <!-- Phi symbol where the circle = S2 (public) and vertical = S1 (private, detachable) -->
+
+                <!-- S2: the circle part of phi (public, permanent) -->
+                <ellipse cx="80" cy="70" rx="30" ry="38" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.04)"/>
+
+                <!-- S1: the vertical line of phi (private, dashed = detachable) -->
+                <line x1="80" y1="15" x2="80" y2="125" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 5"/>
+
+                <!-- CNOT: nodes at intersections -->
+                <circle cx="80" cy="32" r="6" fill="#10b981"/>
+                <circle cx="80" cy="108" r="6" fill="#10b981"/>
+
+                <!-- Center resonance -->
+                <circle cx="80" cy="70" r="4" fill="white" opacity="0.3"/>
+                <circle cx="80" cy="70" r="8" stroke="white" stroke-width="0.5" fill="none" opacity="0.15"/>
+            </svg>
+        </div>
+        <h3>F — Phi Detachable</h3>
+        <p>Phi (golden ratio + phase). Circle = S2 (solid, public model). Vertical dashed line = S1 (private, removable). CNOT nodes at intersections.</p>
     </div>
 
 </div>
 
-<div style="text-align:center; margin-top:60px; padding: 40px;">
-    <h2>Wordmark Variants</h2>
-    <p class="sub">Logo + company name</p>
+<div style="text-align:center; margin-top:50px; padding: 30px;">
+    <h2 style="font-size:20px;">Wordmarks</h2>
+    <p class="sub">Logo + MyReson</p>
 
-    <div style="display:flex; flex-direction:column; gap:40px; align-items:center; margin-top:40px;">
-        <!-- Wordmark with Concept 2 (Phi) -->
-        <div style="display:flex; align-items:center; gap:16px;">
-            <svg width="48" height="48" viewBox="0 0 160 160" fill="none">
-                <ellipse cx="80" cy="80" rx="35" ry="45" stroke="url(#wg1)" stroke-width="5" fill="none"/>
-                <line x1="80" y1="15" x2="80" y2="145" stroke="url(#wg1)" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="80" cy="35" r="7" fill="#10b981"/>
-                <circle cx="80" cy="80" r="6" fill="#06b6d4"/>
-                <circle cx="80" cy="125" r="7" fill="#6366f1"/>
-                <defs><linearGradient id="wg1" x1="80" y1="15" x2="80" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#10b981"/><stop offset="0.5" stop-color="#06b6d4"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+    <div style="display:flex; flex-direction:column; gap:30px; align-items:center; margin-top:30px;">
+
+        <!-- D + MyReson -->
+        <div style="display:flex; align-items:center; gap:14px;">
+            <svg width="44" height="44" viewBox="0 0 160 140" fill="none">
+                <path d="M 72 30 A 40 40 0 0 0 72 110" stroke="#6366f1" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M 88 30 A 40 40 0 0 1 88 110" stroke="#06b6d4" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M 80 35 Q 86 48 80 55 Q 74 62 80 70 Q 86 78 80 85 Q 74 92 80 100 Q 86 108 80 112" stroke="#10b981" stroke-width="3" fill="none"/>
             </svg>
-            <span style="font-size:32px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
+            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
         </div>
 
-        <!-- Wordmark with Concept 4 (Coupling) -->
-        <div style="display:flex; align-items:center; gap:16px;">
-            <svg width="56" height="48" viewBox="0 0 160 160" fill="none">
-                <circle cx="68" cy="80" r="40" stroke="#6366f1" stroke-width="4" fill="none" opacity="0.8"/>
-                <circle cx="96" cy="80" r="25" stroke="#06b6d4" stroke-width="4" fill="none" opacity="0.8"/>
-                <circle cx="85" cy="80" r="8" fill="none" stroke="#10b981" stroke-width="4"/>
-                <circle cx="85" cy="80" r="3.5" fill="#10b981"/>
+        <!-- E + MyReson -->
+        <div style="display:flex; align-items:center; gap:14px;">
+            <svg width="44" height="44" viewBox="0 0 160 140" fill="none">
+                <circle cx="80" cy="70" r="45" stroke="#06b6d4" stroke-width="4" fill="none"/>
+                <circle cx="80" cy="70" r="30" stroke="#10b981" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+                <circle cx="80" cy="70" r="16" stroke="#6366f1" stroke-width="4" fill="rgba(99,102,241,0.15)"/>
+                <circle cx="80" cy="70" r="6" fill="#6366f1"/>
             </svg>
-            <span style="font-size:32px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
+            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
         </div>
 
-        <!-- Wordmark with Concept 5 (Minimal) -->
-        <div style="display:flex; align-items:center; gap:16px;">
-            <svg width="48" height="48" viewBox="0 0 160 160" fill="none">
-                <circle cx="80" cy="80" r="45" stroke="url(#wg3)" stroke-width="5" fill="none"/>
-                <line x1="50" y1="30" x2="110" y2="130" stroke="url(#wg3)" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="65" cy="55" r="7" fill="#10b981"/>
-                <circle cx="80" cy="80" r="6" fill="#06b6d4"/>
-                <circle cx="92" cy="100" r="5.5" fill="#6366f1"/>
-                <defs><linearGradient id="wg3" x1="50" y1="30" x2="110" y2="130" gradientUnits="userSpaceOnUse"><stop stop-color="#10b981"/><stop offset="0.5" stop-color="#06b6d4"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+        <!-- F + MyReson -->
+        <div style="display:flex; align-items:center; gap:14px;">
+            <svg width="40" height="44" viewBox="0 0 160 140" fill="none">
+                <ellipse cx="80" cy="70" rx="30" ry="38" stroke="#06b6d4" stroke-width="4" fill="none"/>
+                <line x1="80" y1="15" x2="80" y2="125" stroke="#6366f1" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 5"/>
+                <circle cx="80" cy="32" r="8" fill="#10b981"/>
+                <circle cx="80" cy="108" r="8" fill="#10b981"/>
             </svg>
-            <span style="font-size:32px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
+            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
         </div>
+
     </div>
 </div>
 
