@@ -4,25 +4,26 @@
             <stop offset="0%" style="stop-color:#007CF0;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#00DFD8;stop-opacity:1" />
         </linearGradient>
-        
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
         </filter>
     </defs>
 
-    <g transform="translate(30, 40)" filter="url(#glow)">
-        <path d="M40,60 Q60,10 90,40 T140,50 Q160,90 130,120 T70,110 Q30,90 40,60" fill="none" stroke="url(#phaseGradient)" stroke-width="3" opacity="0.8"/>
-        <path d="M50,70 Q75,30 100,60 T130,80" fill="none" stroke="#00DFD8" stroke-width="2" opacity="0.6"/>
-        <path d="M45,85 Q80,110 120,70" fill="none" stroke="#007CF0" stroke-width="2" opacity="0.5"/>
-        <path d="M70,40 Q100,20 120,50" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
-        
-        <circle cx="90" cy="40" r="2" fill="white" />
-        <circle cx="140" cy="50" r="2" fill="white" />
-        <circle cx="70" cy="110" r="2" fill="white" />
+    <g transform="translate(30, 30)" filter="url(#glow)">
+        <path d="M40,60 Q60,10 90,40 T140,50 Q160,90 130,120 T70,110 Q30,90 40,60" fill="none" stroke="url(#phaseGradient)" stroke-width="4" opacity="0.9"/>
+        <path d="M50,70 Q75,30 100,60 T130,80" fill="none" stroke="#00DFD8" stroke-width="3" opacity="0.7"/>
+        <path d="M45,85 Q80,110 120,70" fill="none" stroke="#007CF0" stroke-width="3" opacity="0.6"/>
+
+        <circle cx="90" cy="40" r="3" fill="white" />
+        <circle cx="140" cy="50" r="3" fill="white" />
+        <circle cx="70" cy="110" r="3" fill="white" />
+        <circle cx="110" cy="80" r="2" fill="white" opacity="0.5" />
     </g>
 
-    <text x="200" y="115" font-family="Arial, sans-serif" font-weight="bold" font-size="52" fill="#E0E0E0">
-        myreson<tspan fill="url(#phaseGradient)">.AI</tspan>
-    </text>
+    <text x="200" y="115" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="52" fill="#E0E0E0">myreson<tspan fill="url(#phaseGradient)" font-weight="700">.AI</tspan></text>
 </svg>
