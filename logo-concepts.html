@@ -3,230 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyReson AI — Logo Concepts v2</title>
+    <title>MyReson AI — Logo v3</title>
     <style>
-        body { background: #08080c; color: #f1f5f9; font-family: 'Inter', system-ui, sans-serif; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .concept { background: #12121a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 30px; text-align: center; }
-        .concept h3 { margin: 16px 0 6px; font-size: 16px; }
-        .concept p { color: #64748b; font-size: 12px; line-height: 1.6; }
-        .logo-area { height: 180px; display: flex; align-items: center; justify-content: center; }
-        h1 { text-align: center; font-size: 24px; margin-bottom: 6px; }
-        .sub { text-align: center; color: #64748b; margin-bottom: 40px; font-size: 13px; }
+        body { background: #08080c; color: #f1f5f9; font-family: system-ui, sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; max-width: 900px; margin: 40px auto; }
+        .c { background: #0e0e14; border: 1px solid rgba(255,255,255,0.04); border-radius: 16px; padding: 30px 20px; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; }
+        h1 { text-align: center; font-size: 20px; margin-bottom: 4px; }
+        .sub { text-align: center; color: #444; font-size: 12px; margin-bottom: 10px; }
+        .row { display: flex; gap: 30px; justify-content: center; align-items: center; margin: 50px auto; flex-wrap: wrap; }
+        .wm { display: flex; align-items: center; gap: 12px; }
+        .wm span { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; color: #f1f5f9; }
+        .dark { background: #08080c; border-radius: 16px; padding: 30px 40px; }
+        .light { background: #f8f8f8; border-radius: 16px; padding: 30px 40px; }
+        .light span { color: #111; }
     </style>
 </head>
 <body>
 
-<h1>MyReson AI — Logo v2</h1>
-<p class="sub">S1 (private, detachable) + S2 (public, shareable) + CNOT (gate between them)</p>
+<h1>MyReson AI</h1>
+<p class="sub">v3 — pure, no labels</p>
 
 <div class="grid">
 
-    <!-- Concept A: Lock & Share -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- S1 - private (left, solid, with lock hint) -->
-                <circle cx="45" cy="70" r="30" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.08)"/>
-                <text x="45" y="75" text-anchor="middle" fill="#6366f1" font-size="11" font-weight="600" font-family="system-ui">S1</text>
-                <text x="45" y="108" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">private</text>
-
-                <!-- S2 - public (right, open) -->
-                <circle cx="115" cy="70" r="30" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.08)"/>
-                <text x="115" y="75" text-anchor="middle" fill="#06b6d4" font-size="11" font-weight="600" font-family="system-ui">S2</text>
-                <text x="115" y="108" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">public</text>
-
-                <!-- CNOT gate - connecting bridge, detachable -->
-                <rect x="70" y="60" width="20" height="20" rx="4" fill="#10b981" opacity="0.9"/>
-                <text x="80" y="74" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="system-ui">CNOT</text>
-
-                <!-- Dashed lines = detachable connection -->
-                <line x1="55" y1="70" x2="70" y2="70" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 3"/>
-                <line x1="90" y1="70" x2="105" y2="70" stroke="#06b6d4" stroke-width="2"/>
-            </svg>
-        </div>
-        <h3>A — Detachable Gate</h3>
-        <p>S1 connected by dashed line (detachable). CNOT square gate between. S2 solid line (permanent). Remove S1 = privacy.</p>
+    <!-- 1: Resonance — two arcs synchronizing -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M 20 60 Q 20 20 40 20 Q 60 20 60 40" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M 60 20 Q 60 60 40 60 Q 20 60 20 40" stroke="#06b6d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="40" r="4" fill="#10b981"/>
+        </svg>
     </div>
 
-    <!-- Concept B: Shield & Globe -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- S1 as shield (private, protected) -->
-                <path d="M 35 40 L 55 32 L 55 70 Q 55 95 35 100 Q 15 95 15 70 L 15 32 Z" stroke="#6366f1" stroke-width="2.5" fill="rgba(99,102,241,0.06)"/>
-                <circle cx="35" cy="62" r="8" fill="none" stroke="#6366f1" stroke-width="2"/>
-                <circle cx="35" cy="62" r="3" fill="#6366f1"/>
-
-                <!-- CNOT as lightning bolt between -->
-                <path d="M 62 55 L 72 48 L 68 63 L 78 56" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- S2 as open circle/globe (shareable) -->
-                <circle cx="110" cy="65" r="32" stroke="#06b6d4" stroke-width="2.5" fill="rgba(6,182,212,0.06)"/>
-                <!-- Globe lines -->
-                <ellipse cx="110" cy="65" rx="15" ry="32" stroke="#06b6d4" stroke-width="1" fill="none" opacity="0.3"/>
-                <line x1="78" y1="65" x2="142" y2="65" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
-                <line x1="110" y1="33" x2="110" y2="97" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
-            </svg>
-        </div>
-        <h3>B — Shield & Globe</h3>
-        <p>S1 = shield (your private knowledge, protected). S2 = globe (shared model, open). CNOT = lightning connecting them.</p>
+    <!-- 2: Phase lock — two crescents meeting -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M 35 15 A 25 25 0 0 0 35 65" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M 45 15 A 25 25 0 0 1 45 65" stroke="#06b6d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="40" r="4.5" fill="#10b981"/>
+        </svg>
     </div>
 
-    <!-- Concept C: Plug & Socket -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- S1 as plug (removable) -->
-                <rect x="10" y="50" width="50" height="40" rx="8" stroke="#6366f1" stroke-width="2.5" fill="rgba(99,102,241,0.06)"/>
-                <rect x="60" y="58" width="12" height="10" rx="2" fill="#6366f1" opacity="0.7"/>
-                <rect x="60" y="72" width="12" height="10" rx="2" fill="#6366f1" opacity="0.7"/>
-                <text x="35" y="74" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="600" font-family="system-ui">S1</text>
-
-                <!-- Gap (detachable!) -->
-                <line x1="72" y1="63" x2="78" y2="63" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 2"/>
-                <line x1="72" y1="77" x2="78" y2="77" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 2"/>
-
-                <!-- S2 as socket (always there) -->
-                <rect x="78" y="50" width="70" height="40" rx="8" stroke="#06b6d4" stroke-width="2.5" fill="rgba(6,182,212,0.06)"/>
-                <rect x="78" y="58" width="12" height="10" rx="2" stroke="#06b6d4" stroke-width="2" fill="none"/>
-                <rect x="78" y="72" width="12" height="10" rx="2" stroke="#06b6d4" stroke-width="2" fill="none"/>
-                <text x="120" y="74" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="600" font-family="system-ui">S2</text>
-
-                <!-- CNOT label at connection -->
-                <rect x="68" y="88" width="24" height="14" rx="3" fill="#10b981" opacity="0.8"/>
-                <text x="80" y="98" text-anchor="middle" fill="white" font-size="7" font-weight="600" font-family="system-ui">CNOT</text>
-
-                <!-- Labels -->
-                <text x="35" y="40" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">yours (4MB)</text>
-                <text x="120" y="40" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">shared model</text>
-            </svg>
-        </div>
-        <h3>C — Plug & Socket</h3>
-        <p>S1 = plug (your knowledge, 4MB, removable). S2 = socket (base model, shareable). CNOT at the interface. Unplug = private.</p>
+    <!-- 3: Infinity resonance — twisted loop -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 100 60" fill="none">
+            <path d="M 50 30 C 50 10 20 5 15 30 C 10 55 50 50 50 30 C 50 10 80 5 85 30 C 90 55 50 50 50 30" stroke="url(#g3)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="50" cy="30" r="4" fill="#10b981"/>
+            <defs><linearGradient id="g3" x1="10" y1="30" x2="90" y2="30"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
     </div>
 
-    <!-- Concept D: Two Hemispheres Separating -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- Full circle split in two halves with gap -->
-
-                <!-- Left half - S1 (private) -->
-                <path d="M 72 30 A 40 40 0 0 0 72 110" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.06)" stroke-linecap="round"/>
-
-                <!-- Right half - S2 (public) -->
-                <path d="M 88 30 A 40 40 0 0 1 88 110" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.06)" stroke-linecap="round"/>
-
-                <!-- Gap between halves = detachable -->
-                <!-- CNOT sine wave in the gap -->
-                <path d="M 80 35 Q 86 48 80 55 Q 74 62 80 70 Q 86 78 80 85 Q 74 92 80 100 Q 86 108 80 112" stroke="#10b981" stroke-width="2" fill="none" opacity="0.8"/>
-
-                <!-- Phase dots -->
-                <circle cx="80" cy="35" r="3.5" fill="#10b981"/>
-                <circle cx="80" cy="70" r="3" fill="#10b981" opacity="0.7"/>
-                <circle cx="80" cy="112" r="3.5" fill="#10b981"/>
-
-                <!-- Labels -->
-                <text x="48" y="74" text-anchor="middle" fill="#6366f1" font-size="12" font-weight="600" font-family="system-ui">S1</text>
-                <text x="112" y="74" text-anchor="middle" fill="#06b6d4" font-size="12" font-weight="600" font-family="system-ui">S2</text>
-            </svg>
-        </div>
-        <h3>D — Split Circle</h3>
-        <p>One circle split in two. S1 (left, private) can separate from S2 (right, public). CNOT sine wave flows between. Pull apart = privacy.</p>
+    <!-- 4: Orbital — electron-like paths crossing -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(-30 40 40)" stroke="#6366f1" stroke-width="2.5" fill="none"/>
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(30 40 40)" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="40" r="5" fill="#10b981"/>
+        </svg>
     </div>
 
-    <!-- Concept E: Nested with Escape -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- S2 outer ring (public, always there) -->
-                <circle cx="80" cy="70" r="45" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
-
-                <!-- CNOT ring (gate) -->
-                <circle cx="80" cy="70" r="30" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-
-                <!-- S1 inner (private, solid, can be extracted) -->
-                <circle cx="80" cy="70" r="16" stroke="#6366f1" stroke-width="3" fill="rgba(99,102,241,0.1)"/>
-                <circle cx="80" cy="70" r="5" fill="#6366f1"/>
-
-                <!-- Arrow showing S1 can leave -->
-                <line x1="80" y1="54" x2="80" y2="18" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
-                <polygon points="76,20 80,12 84,20" fill="#6366f1" opacity="0.5"/>
-
-                <!-- Labels -->
-                <text x="80" y="130" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">S1 extractable / S2 shareable</text>
-            </svg>
-        </div>
-        <h3>E — Core Extract</h3>
-        <p>S2 = outer ring (public model). CNOT = dashed middle ring (gate). S1 = solid core (private). Arrow: S1 can be extracted, S2 stays.</p>
+    <!-- 5: Wave convergence — two sine waves meeting -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 100 80" fill="none">
+            <path d="M 10 25 Q 30 10 50 25 Q 70 40 90 25" stroke="#6366f1" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M 10 55 Q 30 70 50 55 Q 70 40 90 55" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="50" cy="40" r="4.5" fill="#10b981"/>
+        </svg>
     </div>
 
-    <!-- Concept F: Golden Ratio Phi with separation -->
-    <div class="concept">
-        <div class="logo-area">
-            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
-                <!-- Phi symbol where the circle = S2 (public) and vertical = S1 (private, detachable) -->
+    <!-- 6: Nested pulse — heartbeat of AI -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="28" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="40" r="17" stroke="#6366f1" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="40" r="6" fill="#10b981"/>
+            <!-- Pulse ray -->
+            <line x1="40" y1="12" x2="40" y2="6" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="68" x2="40" y2="74" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="40" x2="6" y2="40" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+            <line x1="68" y1="40" x2="74" y2="40" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
 
-                <!-- S2: the circle part of phi (public, permanent) -->
-                <ellipse cx="80" cy="70" rx="30" ry="38" stroke="#06b6d4" stroke-width="3" fill="rgba(6,182,212,0.04)"/>
+    <!-- 7: Yin yang resonance — fluid, organic -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="30" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/>
+            <path d="M 40 10 A 30 30 0 0 1 40 70 A 15 15 0 0 1 40 40 A 15 15 0 0 0 40 10 Z" fill="#6366f1" opacity="0.15"/>
+            <path d="M 40 10 A 30 30 0 0 1 40 70 A 15 15 0 0 1 40 40 A 15 15 0 0 0 40 10 Z" stroke="#6366f1" stroke-width="2" fill="none"/>
+            <path d="M 40 70 A 30 30 0 0 1 40 10 A 15 15 0 0 1 40 40 A 15 15 0 0 0 40 70 Z" stroke="#06b6d4" stroke-width="2" fill="none"/>
+            <circle cx="40" cy="25" r="4" fill="#6366f1"/>
+            <circle cx="40" cy="55" r="4" fill="#06b6d4"/>
+        </svg>
+    </div>
 
-                <!-- S1: the vertical line of phi (private, dashed = detachable) -->
-                <line x1="80" y1="15" x2="80" y2="125" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 5"/>
+    <!-- 8: Tuning fork — resonance literal -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 60 80" fill="none">
+            <path d="M 20 15 Q 20 45 30 50" stroke="#6366f1" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M 40 15 Q 40 45 30 50" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <line x1="30" y1="50" x2="30" y2="72" stroke="url(#g8)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="30" cy="42" r="3.5" fill="#10b981" opacity="0.8"/>
+            <!-- Vibration lines -->
+            <path d="M 12 20 Q 8 25 12 30" stroke="#6366f1" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <path d="M 48 20 Q 52 25 48 30" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <defs><linearGradient id="g8" x1="30" y1="50" x2="30" y2="72"><stop stop-color="#10b981"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+        </svg>
+    </div>
 
-                <!-- CNOT: nodes at intersections -->
-                <circle cx="80" cy="32" r="6" fill="#10b981"/>
-                <circle cx="80" cy="108" r="6" fill="#10b981"/>
+    <!-- 9: DNA helix — double spiral, two streams intertwined -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 50 80" fill="none">
+            <path d="M 12 10 Q 38 20 38 30 Q 38 40 12 50 Q 12 60 38 70" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M 38 10 Q 12 20 12 30 Q 12 40 38 50 Q 38 60 12 70" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- Crossing points -->
+            <circle cx="25" cy="25" r="3" fill="#10b981"/>
+            <circle cx="25" cy="45" r="3" fill="#10b981"/>
+            <circle cx="25" cy="65" r="3" fill="#10b981" opacity="0.6"/>
+        </svg>
+    </div>
 
-                <!-- Center resonance -->
-                <circle cx="80" cy="70" r="4" fill="white" opacity="0.3"/>
-                <circle cx="80" cy="70" r="8" stroke="white" stroke-width="0.5" fill="none" opacity="0.15"/>
-            </svg>
-        </div>
-        <h3>F — Phi Detachable</h3>
-        <p>Phi (golden ratio + phase). Circle = S2 (solid, public model). Vertical dashed line = S1 (private, removable). CNOT nodes at intersections.</p>
+    <!-- 10: Eye — consciousness, awareness, seeing patterns -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 90 60" fill="none">
+            <path d="M 5 30 Q 45 0 85 30" stroke="#6366f1" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M 5 30 Q 45 60 85 30" stroke="#06b6d4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="45" cy="30" r="12" stroke="#10b981" stroke-width="2.5" fill="rgba(16,185,129,0.1)"/>
+            <circle cx="45" cy="30" r="5" fill="#10b981"/>
+        </svg>
+    </div>
+
+    <!-- 11: Abstract R — for Reson -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 60 80" fill="none">
+            <path d="M 15 65 L 15 15 Q 15 10 20 10 L 35 10 Q 50 10 50 22 Q 50 34 35 34 L 15 34" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 30 34 L 48 65" stroke="#06b6d4" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="40" cy="22" r="3.5" fill="#10b981"/>
+        </svg>
+    </div>
+
+    <!-- 12: Phase flower — petals from oscillator paths -->
+    <div class="c">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <ellipse cx="40" cy="40" rx="22" ry="10" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.8"/>
+            <ellipse cx="40" cy="40" rx="22" ry="10" transform="rotate(60 40 40)" stroke="#06b6d4" stroke-width="2" fill="none" opacity="0.8"/>
+            <ellipse cx="40" cy="40" rx="22" ry="10" transform="rotate(120 40 40)" stroke="#10b981" stroke-width="2" fill="none" opacity="0.8"/>
+            <circle cx="40" cy="40" r="5" fill="white" opacity="0.15"/>
+            <circle cx="40" cy="40" r="3" fill="white" opacity="0.4"/>
+        </svg>
     </div>
 
 </div>
 
-<div style="text-align:center; margin-top:50px; padding: 30px;">
-    <h2 style="font-size:20px;">Wordmarks</h2>
-    <p class="sub">Logo + MyReson</p>
+<!-- Wordmarks with best concepts -->
+<div style="text-align:center; margin-top:30px;">
+    <p class="sub">with wordmark</p>
+</div>
 
-    <div style="display:flex; flex-direction:column; gap:30px; align-items:center; margin-top:30px;">
+<div class="row">
+    <div class="dark wm">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <path d="M 35 15 A 25 25 0 0 0 35 65" stroke="#6366f1" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <path d="M 45 15 A 25 25 0 0 1 45 65" stroke="#06b6d4" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="40" r="5.5" fill="#10b981"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
 
-        <!-- D + MyReson -->
-        <div style="display:flex; align-items:center; gap:14px;">
-            <svg width="44" height="44" viewBox="0 0 160 140" fill="none">
-                <path d="M 72 30 A 40 40 0 0 0 72 110" stroke="#6366f1" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M 88 30 A 40 40 0 0 1 88 110" stroke="#06b6d4" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M 80 35 Q 86 48 80 55 Q 74 62 80 70 Q 86 78 80 85 Q 74 92 80 100 Q 86 108 80 112" stroke="#10b981" stroke-width="3" fill="none"/>
-            </svg>
-            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
-        </div>
+    <div class="dark wm">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(-30 40 40)" stroke="#6366f1" stroke-width="3.5" fill="none"/>
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(30 40 40)" stroke="#06b6d4" stroke-width="3.5" fill="none"/>
+            <circle cx="40" cy="40" r="6" fill="#10b981"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
 
-        <!-- E + MyReson -->
-        <div style="display:flex; align-items:center; gap:14px;">
-            <svg width="44" height="44" viewBox="0 0 160 140" fill="none">
-                <circle cx="80" cy="70" r="45" stroke="#06b6d4" stroke-width="4" fill="none"/>
-                <circle cx="80" cy="70" r="30" stroke="#10b981" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
-                <circle cx="80" cy="70" r="16" stroke="#6366f1" stroke-width="4" fill="rgba(99,102,241,0.15)"/>
-                <circle cx="80" cy="70" r="6" fill="#6366f1"/>
-            </svg>
-            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
-        </div>
+    <div class="dark wm">
+        <svg width="36" height="36" viewBox="0 0 90 60" fill="none">
+            <path d="M 5 30 Q 45 0 85 30" stroke="#6366f1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M 5 30 Q 45 60 85 30" stroke="#06b6d4" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <circle cx="45" cy="30" r="12" stroke="#10b981" stroke-width="3" fill="rgba(16,185,129,0.15)"/>
+            <circle cx="45" cy="30" r="5.5" fill="#10b981"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
+</div>
 
-        <!-- F + MyReson -->
-        <div style="display:flex; align-items:center; gap:14px;">
-            <svg width="40" height="44" viewBox="0 0 160 140" fill="none">
-                <ellipse cx="80" cy="70" rx="30" ry="38" stroke="#06b6d4" stroke-width="4" fill="none"/>
-                <line x1="80" y1="15" x2="80" y2="125" stroke="#6366f1" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 5"/>
-                <circle cx="80" cy="32" r="8" fill="#10b981"/>
-                <circle cx="80" cy="108" r="8" fill="#10b981"/>
-            </svg>
-            <span style="font-size:28px; font-weight:700; letter-spacing:-0.03em;">MyReson</span>
-        </div>
+<div class="row">
+    <div class="dark wm">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <ellipse cx="40" cy="40" rx="22" ry="10" stroke="#6366f1" stroke-width="2.5" fill="none"/>
+            <ellipse cx="40" cy="40" rx="22" ry="10" transform="rotate(60 40 40)" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
+            <ellipse cx="40" cy="40" rx="22" ry="10" transform="rotate(120 40 40)" stroke="#10b981" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="40" r="3.5" fill="white" opacity="0.5"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
 
+    <div class="dark wm">
+        <svg width="30" height="36" viewBox="0 0 50 80" fill="none">
+            <path d="M 12 10 Q 38 20 38 30 Q 38 40 12 50 Q 12 60 38 70" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M 38 10 Q 12 20 12 30 Q 12 40 38 50 Q 38 60 12 70" stroke="#06b6d4" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="25" cy="25" r="4" fill="#10b981"/>
+            <circle cx="25" cy="45" r="4" fill="#10b981"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
+
+    <div class="dark wm">
+        <svg width="36" height="36" viewBox="0 0 60 80" fill="none">
+            <path d="M 20 15 Q 20 45 30 50" stroke="#6366f1" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M 40 15 Q 40 45 30 50" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <line x1="30" y1="50" x2="30" y2="72" stroke="url(#wg8)" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="30" cy="42" r="4" fill="#10b981"/>
+            <defs><linearGradient id="wg8" x1="30" y1="50" x2="30" y2="72"><stop stop-color="#10b981"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+        </svg>
+        <span>MyReson</span>
+    </div>
+</div>
+
+<!-- On light background -->
+<div style="text-align:center; margin-top:40px;">
+    <p class="sub">on light background</p>
+</div>
+<div class="row">
+    <div class="light wm">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <path d="M 35 15 A 25 25 0 0 0 35 65" stroke="#4f46e5" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <path d="M 45 15 A 25 25 0 0 1 45 65" stroke="#0891b2" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="40" r="5.5" fill="#059669"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
+
+    <div class="light wm">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(-30 40 40)" stroke="#4f46e5" stroke-width="3.5" fill="none"/>
+            <ellipse cx="40" cy="40" rx="30" ry="14" transform="rotate(30 40 40)" stroke="#0891b2" stroke-width="3.5" fill="none"/>
+            <circle cx="40" cy="40" r="6" fill="#059669"/>
+        </svg>
+        <span>MyReson</span>
+    </div>
+
+    <div class="light wm">
+        <svg width="36" height="36" viewBox="0 0 90 60" fill="none">
+            <path d="M 5 30 Q 45 0 85 30" stroke="#4f46e5" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M 5 30 Q 45 60 85 30" stroke="#0891b2" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <circle cx="45" cy="30" r="12" stroke="#059669" stroke-width="3" fill="rgba(5,150,105,0.1)"/>
+            <circle cx="45" cy="30" r="5.5" fill="#059669"/>
+        </svg>
+        <span>MyReson</span>
     </div>
 </div>
 
