@@ -294,101 +294,121 @@
 <!-- Live Learning -->
 <section id="live-learning" class="py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
-            <div class="reveal">
-                <p class="text-[13px] font-mono text-emerald-400 tracking-widest uppercase mb-4">Capability</p>
-                <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">Post-deployment<br>learning</h2>
-                <p class="text-gray-400 leading-relaxed mb-8">
-                    No existing language model can learn new facts after deployment without full retraining. PGAN can. S1 phase patterns are updated with a single Hebbian multiplication &mdash; no optimizer, no gradient computation, no GPU.
-                </p>
+        <div class="max-w-3xl mb-16 reveal">
+            <p class="text-[13px] font-mono text-emerald-400 tracking-widest uppercase mb-4">What No Other AI Can Do</p>
+            <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">An AI that remembers<br>after you close the chat</h2>
+            <p class="text-gray-400 leading-relaxed">Every language model today &mdash; GPT, Claude, Gemini, Llama &mdash; is frozen after training. Close the session and everything is forgotten. PGAN is fundamentally different. It learns new facts on the device, in microseconds, without cloud, without GPU, without retraining.</p>
+        </div>
 
-                <div class="space-y-5">
-                    <div class="flex items-start gap-4">
-                        <div class="w-px h-12 bg-gradient-to-b from-emerald-500 to-transparent mt-1 flex-shrink-0"></div>
-                        <div>
-                            <div class="text-white font-medium text-sm mb-1">Day: fast encoding in S1</div>
-                            <div class="text-gray-500 text-sm">Hebbian update writes associations to phase memory. Microseconds.</div>
-                        </div>
+        <!-- Day/Night Cycle -->
+        <div class="grid md:grid-cols-2 gap-6 mb-16">
+            <!-- Day -->
+            <div class="glass rounded-xl p-8 reveal border-t-2 border-amber-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-2xl">&#9728;</div>
+                    <div>
+                        <div class="text-white font-semibold">Day &mdash; Fast Learning</div>
+                        <div class="text-[11px] font-mono text-amber-400 uppercase tracking-wider">Microseconds per fact</div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-px h-12 bg-gradient-to-b from-indigo-500 to-transparent mt-1 flex-shrink-0"></div>
-                        <div>
-                            <div class="text-white font-medium text-sm mb-1">Night: consolidation to permanent weights</div>
-                            <div class="text-gray-500 text-sm">Dream replay trains FFN/S2, then S1 resets. Like hippocampal replay.</div>
-                        </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">You talk to the model. It instantly encodes new associations into its phase memory &mdash; a dedicated, addressable memory layer inspired by the hippocampus. No training loop, no optimizer, no gradient computation. A single mathematical operation.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                        <span class="text-sm text-gray-400">Pattern association strength increases <span class="text-white font-medium">4.4x</span> in seconds</span>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-px h-12 bg-gradient-to-b from-cyan-500 to-transparent mt-1 flex-shrink-0"></div>
-                        <div>
-                            <div class="text-white font-medium text-sm mb-1">Privacy by architecture</div>
-                            <div class="text-gray-500 text-sm">Remove S1 = remove all personal knowledge. A 4MB file. No differential privacy needed.</div>
-                        </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                        <span class="text-sm text-gray-400">Works on CPU &mdash; tested on <span class="text-white font-medium">$80 NVIDIA Jetson</span></span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                        <span class="text-sm text-gray-400">No catastrophic forgetting &mdash; new facts don't overwrite old ones</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Code block -->
-            <div class="reveal reveal-delay-2">
-                <div class="code-window rounded-xl overflow-hidden">
-                    <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/20">
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
-                        <span class="text-[11px] text-gray-600 ml-2 font-mono">live_learning.py</span>
+            <!-- Night -->
+            <div class="glass rounded-xl p-8 reveal reveal-delay-1 border-t-2 border-indigo-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-2xl">&#9790;</div>
+                    <div>
+                        <div class="text-white font-semibold">Night &mdash; Consolidation</div>
+                        <div class="text-[11px] font-mono text-indigo-400 uppercase tracking-wider">Like sleep in the brain</div>
                     </div>
-                    <pre class="p-5 text-[13px] font-mono leading-[1.8] overflow-x-auto"><code><span class="text-gray-600"># Learn a new fact &mdash; microseconds, no GPU</span>
-<span class="text-indigo-400">learner</span>.<span class="text-cyan-400">associate</span>(
-    model, tokenizer,
-    <span class="text-emerald-400">"Krakow"</span>, <span class="text-emerald-400">"Wawel"</span>
-)
-<span class="text-gray-600"># Overlap: 0.17 &rarr; 0.75 (4.4x)</span>
-
-<span class="text-gray-600"># Consolidate to permanent weights</span>
-<span class="text-indigo-400">consolidator</span>.<span class="text-cyan-400">consolidate</span>(
-    model, tokenizer, learner
-)
-
-<span class="text-gray-600"># Export without personal knowledge</span>
-<span class="text-indigo-400">learner</span>.<span class="text-cyan-400">export_public</span>(
-    model, <span class="text-emerald-400">"pgan_public.pt"</span>
-)
-<span class="text-gray-600"># Personal data: 4MB S1 file</span>
-<span class="text-gray-600"># Public model: zero private data</span></code></pre>
                 </div>
-
-                <!-- Comparison mini -->
-                <div class="mt-5 glass rounded-xl p-5">
-                    <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest mb-4">Transformer vs PGAN</div>
-                    <div class="space-y-3 text-[13px]">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-500">Post-deployment learning</span>
-                            <div class="flex gap-4">
-                                <span class="text-red-400/60 line-through">Impossible</span>
-                                <span class="text-emerald-400">Native</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-500">Catastrophic forgetting</span>
-                            <div class="flex gap-4">
-                                <span class="text-red-400/60 line-through">Yes</span>
-                                <span class="text-emerald-400">No</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-500">Memory theory</span>
-                            <div class="flex gap-4">
-                                <span class="text-red-400/60 line-through">None</span>
-                                <span class="text-emerald-400">&alpha;* = 1.0</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-500">Edge inference</span>
-                            <div class="flex gap-4">
-                                <span class="text-red-400/60 line-through">GPU</span>
-                                <span class="text-emerald-400">$3 ESP32</span>
-                            </div>
-                        </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">While idle, the model consolidates daily memories into permanent weights &mdash; exactly like the hippocampus replays experiences during sleep. The temporary memory resets, ready for the next day. Knowledge becomes permanent without cloud computing.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-400"></div>
+                        <span class="text-sm text-gray-400">Consolidation runs <span class="text-white font-medium">locally on device</span> &mdash; no data leaves</span>
                     </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-400"></div>
+                        <span class="text-sm text-gray-400">Automatic rollback if quality degrades &mdash; built-in safety</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-400"></div>
+                        <span class="text-sm text-gray-400">Inspired by <span class="text-white font-medium">hippocampal replay</span> in neuroscience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy -->
+        <div class="glass rounded-xl p-8 reveal mb-16">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <div class="text-white font-semibold">Privacy by Architecture</div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Your personal knowledge lives in one separable layer. Remove it &mdash; and the model is clean, shareable, with zero private data. No differential privacy algorithms, no federated learning infrastructure, no "machine unlearning" research needed. The architecture enforces privacy by design.</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-mono text-4xl font-bold text-cyan-400 mb-2">4 MB</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">Your entire private<br>knowledge footprint</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="glass rounded-xl overflow-hidden reveal">
+            <div class="px-6 py-4 border-b border-white/5">
+                <div class="text-[11px] font-mono text-gray-500 uppercase tracking-widest">Why This Is Impossible in Transformers</div>
+            </div>
+            <div class="divide-y divide-white/5">
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Post-deployment learning</span>
+                    <span class="text-center text-red-400/50 line-through">Requires full retraining</span>
+                    <span class="text-center text-emerald-400 font-medium">Single operation, microseconds</span>
+                </div>
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Memory between sessions</span>
+                    <span class="text-center text-red-400/50 line-through">Everything forgotten</span>
+                    <span class="text-center text-emerald-400 font-medium">Persistent, save/load</span>
+                </div>
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Adding a single fact</span>
+                    <span class="text-center text-red-400/50 line-through">GPU + hours + $$$</span>
+                    <span class="text-center text-emerald-400 font-medium">CPU + microseconds + free</span>
+                </div>
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Catastrophic forgetting</span>
+                    <span class="text-center text-red-400/50 line-through">New overwrites old</span>
+                    <span class="text-center text-emerald-400 font-medium">Phase isolation prevents it</span>
+                </div>
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Removing personal data</span>
+                    <span class="text-center text-red-400/50 line-through">Impossible (distributed)</span>
+                    <span class="text-center text-emerald-400 font-medium">Delete one 4MB file</span>
+                </div>
+                <div class="grid grid-cols-3 px-6 py-4 text-sm">
+                    <span class="text-gray-400">Hardware requirement</span>
+                    <span class="text-center text-red-400/50 line-through">Cloud GPU</span>
+                    <span class="text-center text-emerald-400 font-medium">$3 microcontroller</span>
                 </div>
             </div>
         </div>
