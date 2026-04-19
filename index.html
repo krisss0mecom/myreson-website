@@ -490,7 +490,7 @@
         <div class="max-w-2xl mb-16 reveal">
             <p class="text-[13px] font-mono text-emerald-400 tracking-widest uppercase mb-4">Labs · Live Demo</p>
             <h2 class="heading-serif text-3xl md:text-5xl text-white leading-tight mb-6">Phase oscillators,<br>applied to <em style="font-style: italic; font-weight: 500;">proteins</em></h2>
-            <p class="text-gray-400 leading-relaxed">The same coupled-oscillator physics that powers PGAN's S1 memory generalises to molecular dynamics. <span class="text-white">DynamicsFold</span> is a 349K-parameter neural MD propagator that predicts protein trajectories directly on the torus manifold, without the κ-rescaling heuristic that plagues first-generation methods.</p>
+            <p class="text-gray-400 leading-relaxed">The same coupled-oscillator physics that powers PGAN's S1 memory generalises to molecular dynamics. <span class="text-white">DynamicsFold</span> runs two complementary propagators: a <span class="text-white">zero-shot v3 head</span> (129 K trainable params + frozen ESM-2) that predicts trajectories directly from sequence, and a <span class="text-white">per-system v2</span> model (349 K params per domain) trained on a short MD seed. Both evolve the torus manifold without the κ-rescaling heuristic that plagues first-generation methods.</p>
         </div>
 
         <div class="grid md:grid-cols-12 gap-6 reveal">
@@ -517,25 +517,25 @@
                     </div>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6 text-[15px]">
-                    Upload a PDB structure. A Ramachandran-basin-aware phase-flow ODE is trained on a short molecular-dynamics seed, then generates thousands of predicted frames 14× faster than the MD simulation itself. The resulting trajectory streams to an NGL Viewer canvas so you can watch the protein breathe.
+                    Upload a PDB structure, pick a mode. <span class="text-white">Zero-shot</span> — ESM-2 reads the sequence and the v3 head generates a trajectory in ~2 minutes, no training. <span class="text-white">Per-system</span> — a phase-flow ODE trains on a short MD seed, then rolls out thousands of frames 14× faster than classical MD. The trajectory streams to an NGL Viewer canvas so you can watch the protein breathe.
                 </p>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7">
                     <div class="rounded-md bg-black/40 border border-white/5 p-3">
-                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Params</div>
+                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">v3 Trainable</div>
+                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">129K</div>
+                    </div>
+                    <div class="rounded-md bg-black/40 border border-white/5 p-3">
+                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">v2 /domain</div>
                         <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">349K</div>
                     </div>
                     <div class="rounded-md bg-black/40 border border-white/5 p-3">
-                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Rollout KL</div>
-                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">0.33</div>
+                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">v3 beats v2</div>
+                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">4/5 hold-out</div>
                     </div>
                     <div class="rounded-md bg-black/40 border border-white/5 p-3">
-                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">vs v1</div>
-                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">5/5 win</div>
-                    </div>
-                    <div class="rounded-md bg-black/40 border border-white/5 p-3">
-                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Inference</div>
-                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">16 ms/fr</div>
+                        <div class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Zero-shot</div>
+                        <div class="font-mono text-emerald-400 text-lg font-semibold mt-1">~2 min</div>
                     </div>
                 </div>
 
@@ -555,20 +555,21 @@
             <!-- Side cards -->
             <div class="md:col-span-5 flex flex-col gap-5">
                 <div class="glass rounded-xl p-6 metric-glow transition-all duration-300">
-                    <p class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-3">Result · rollout fidelity</p>
+                    <p class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-3">Result · zero-shot generalisation</p>
                     <div class="flex items-baseline gap-3 mb-3">
-                        <span class="font-mono text-4xl text-white font-bold">5/5</span>
-                        <span class="text-sm text-gray-500 -mb-0.5">domains · v2 beats v1</span>
+                        <span class="font-mono text-4xl text-white font-bold">4/5</span>
+                        <span class="text-sm text-gray-500 -mb-0.5">hold-out · v3 beats v2</span>
                     </div>
                     <p class="text-[13px] text-gray-400 leading-relaxed">
-                        On the mdCATH benchmark (CHARMM36m + TIP3P water, 5 replicas), the Ramachandran-basin-aware model wins on every tested domain with kappa_mult = 1 (no inference hack).
+                        On five mdCATH domains the model never saw during training, zero-shot v3 beats per-system v2 on <span class="text-white">4/5</span> in NLL and <span class="text-white">4/5</span> in KL. Sequence generalises the phase-flow dynamics — the head does not need to retrain.
                     </p>
                 </div>
                 <div class="glass rounded-xl p-6 metric-glow transition-all duration-300">
                     <p class="text-[11px] font-mono text-indigo-400 uppercase tracking-widest mb-3">Stack</p>
                     <div class="space-y-2 font-mono text-[12px]">
+                        <div class="flex justify-between"><span class="text-gray-500">Sequence</span><span class="text-indigo-300">ESM-2 t12_35M (frozen)</span></div>
                         <div class="flex justify-between"><span class="text-gray-500">Encoder</span><span class="text-indigo-300">Phase-flow ODE (T&#8320; = 4, RK4 adjoint)</span></div>
-                        <div class="flex justify-between"><span class="text-gray-500">Memory</span><span class="text-indigo-300">S&sup1; Dense AM, 24 basins</span></div>
+                        <div class="flex justify-between"><span class="text-gray-500">Memory</span><span class="text-indigo-300">S&sup1; Dense AM, 24 basins (v2)</span></div>
                         <div class="flex justify-between"><span class="text-gray-500">Coupling</span><span class="text-indigo-300">CNOT, cos(&phi;) sin(&phi;&minus;&phi;&prime;)</span></div>
                         <div class="flex justify-between"><span class="text-gray-500">Head</span><span class="text-indigo-300">Mixture von&nbsp;Mises &#8712; T<sup>2N</sup></span></div>
                         <div class="flex justify-between"><span class="text-gray-500">Hosting</span><span class="text-indigo-300">Jetson Orin · Cloudflare Tunnel</span></div>
@@ -586,13 +587,13 @@
             </div>
             <div class="glass rounded-xl p-6 border-t-2 border-cyan-500">
                 <div class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest mb-3">Step 2</div>
-                <div class="text-white font-medium mb-2">Seed MD</div>
-                <div class="text-sm text-gray-500">OpenMM implicit-water Langevin at 300&nbsp;K. Ships training data to the model in minutes.</div>
+                <div class="text-white font-medium mb-2">Choose mode</div>
+                <div class="text-sm text-gray-500">Zero-shot (v3 + ESM-2, no training) for speed. Per-system (v2, seed MD + 4000 steps) for sharper fidelity.</div>
             </div>
             <div class="glass rounded-xl p-6 border-t-2 border-indigo-500">
                 <div class="text-[11px] font-mono text-indigo-400 uppercase tracking-widest mb-3">Step 3</div>
-                <div class="text-white font-medium mb-2">Train AlphaDynamics v2</div>
-                <div class="text-sm text-gray-500">4000 steps on the per-residue torus. Basin-memory layer absorbs &alpha;&#8339;, &beta;, &alpha;&#8343;, P&#8322; inductively.</div>
+                <div class="text-white font-medium mb-2">Model propagates</div>
+                <div class="text-sm text-gray-500">Per-residue torus dynamics on <span class="font-mono">T<sup>2N</sup></span>. Basin-memory layer absorbs &alpha;&#8339;, &beta;, &alpha;&#8343;, P&#8322; inductively.</div>
             </div>
             <div class="glass rounded-xl p-6 border-t-2 border-amber-500">
                 <div class="text-[11px] font-mono text-amber-400 uppercase tracking-widest mb-3">Step 4</div>
