@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaDynamics | Peptide Therapeutics Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">AlphaDynamics</div>
+      <nav>
+        <button style="background: transparent; border: 1px solid var(--glass-border); color: var(--text-main); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">API Docs</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Peptide Dynamics <span class="highlight">Reimagined</span></h1>
+        <p>The world's fastest sequence-only neural propagator for torsion dynamics. Outperforming Microsoft Timewarp by 2.39x in JSD with 3000x fewer parameters.</p>
+      </section>
+
+      <section class="dashboard">
+        <!-- Input Panel -->
+        <div class="glass-panel input-section">
+          <h2>Sequence Input (4-15 aa)</h2>
+          <textarea id="sequence-input" class="sequence-input" rows="3" placeholder="Enter peptide sequence (e.g. AAAAA)"></textarea>
+          <button id="run-btn" class="btn-run">Generate Torsion Ensemble</button>
+          
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div class="stat-value">2.39x</div>
+              <div class="stat-label">JSD Improvement vs Timewarp</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">1/3000</div>
+              <div class="stat-label">Parameter Count</div>
+            </div>
+            <div class="stat-box" style="grid-column: span 2;">
+              <div class="stat-value">Torus T²</div>
+              <div class="stat-label">Mathematical Substrate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="glass-panel visualization">
+          <h2 style="font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Ensemble Visualization</h2>
+          <div class="viewer-placeholder" id="viewer">
+            Awaiting Sequence Input...
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
