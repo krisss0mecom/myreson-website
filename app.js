@@ -1,8 +1,6 @@
-// AlphaDynamics live predictor — calls the public Hugging Face Space.
-// No token in the browser: the Space is public, the Gradio API is open.
-import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
-
-const SPACE = "krissss0/alphadynamics";
+// AlphaDynamics live predictor — calls the public Hugging Face Space directly
+// over the raw Gradio HTTP API (no @gradio/client dependency, no token).
+const BASE = "https://krissss0-alphadynamics.hf.space";
 const AA = /^[ACDEFGHIKLMNPQRSTVWY]+$/;
 
 const $ = (id) => document.getElementById(id);
@@ -12,8 +10,6 @@ const runBtn = $("run"), errEl = $("err");
 const placeholder = $("placeholder"), plotEl = $("rama-plot");
 const basinsEl = $("basins"), dlEl = $("downloads");
 
-let client = null;
-
 // --- controls ---
 trajEl.addEventListener("input", () => (trajVal.textContent = trajEl.value));
 stepsEl.addEventListener("input", () => (stepVal.textContent = stepsEl.value));
@@ -21,21 +17,21 @@ document.querySelectorAll(".examples button").forEach((b) =>
   b.addEventListener("click", () => { seqEl.value = b.dataset.seq; errEl.textContent = ""; })
 );
 
-function cleanSeq() {
-  return seqEl.value.trim().toUpperCase().replace(/\s+/g, "");
-}
+function cleanSeq() { return seqEl.value.trim().toUpperCase().replace(/\s+/g, ""); }
 function validate(seq) {
   if (!seq) return "Enter a peptide sequence.";
-  if (seq.length < 4 || seq.length > 15) return "Sequence must be 4–15 residues.";
+  if (seq.length < 4 || seq.length > 20) return "Sequence must be 4–20 residues.";
   if (!AA.test(seq)) return "Use one-letter amino-acid codes only (ACDEFGHIKLMNPQRSTVWY).";
   return null;
 }
 
-// pull a usable URL out of a Gradio file output (string | {url} | {path})
+// turn a Gradio file output into a usable URL
 function fileUrl(f) {
   if (!f) return null;
-  if (typeof f === "string") return f.startsWith("http") ? f : null;
-  return f.url || f.path || null;
+  if (typeof f === "string") return f.startsWith("http") ? f : `${BASE}/gradio_api/file=${f}`;
+  if (f.url) return f.url;
+  if (f.path) return `${BASE}/gradio_api/file=${f.path}`;
+  return null;
 }
 
 function downloadLink(href, label, name) {
@@ -47,6 +43,41 @@ function downloadLink(href, label, name) {
   return a;
 }
 
+// raw Gradio API: POST -> event_id, then GET SSE stream until "complete"
+async function callPredict(payload) {
+  const post = await fetch(`${BASE}/gradio_api/call/predict`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ data: payload }),
+  });
+  if (!post.ok) throw new Error("POST " + post.status);
+  const { event_id } = await post.json();
+  if (!event_id) throw new Error("no event_id from Space");
+
+  const res = await fetch(`${BASE}/gradio_api/call/predict/${event_id}`);
+  if (!res.ok || !res.body) throw new Error("stream " + res.status);
+
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  let buf = "", ev = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let nl;
+    while ((nl = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, nl); buf = buf.slice(nl + 1);
+      if (line.startsWith("event:")) ev = line.slice(6).trim();
+      else if (line.startsWith("data:")) {
+        const d = line.slice(5).trim();
+        if (ev === "complete") return JSON.parse(d);
+        if (ev === "error") throw new Error("Space error" + (d ? ": " + d : ""));
+      }
+    }
+  }
+  throw new Error("stream ended before completion");
+}
+
 async function run() {
   const seq = cleanSeq();
   seqEl.value = seq;
@@ -55,17 +86,11 @@ async function run() {
   if (v) { errEl.textContent = v; return; }
 
   runBtn.disabled = true;
-  runBtn.innerHTML = '<span class="spin"></span>' + (client ? "Propagating…" : "Waking model… (~30–60 s)");
+  runBtn.innerHTML = '<span class="spin"></span>Propagating dynamics… (first run wakes the model, ~30–60 s)';
   basinsEl.innerHTML = ""; dlEl.innerHTML = "";
 
   try {
-    if (!client) client = await Client.connect(SPACE);
-    runBtn.innerHTML = '<span class="spin"></span>Propagating dynamics…';
-
-    const res = await client.predict("/predict", [
-      seq, Number(trajEl.value), Number(stepsEl.value),
-    ]);
-    const data = res.data || res;
+    const data = await callPredict([seq, Number(trajEl.value), Number(stepsEl.value)]);
 
     // 0: Ramachandran density (plotly)
     const plot = data[0];
@@ -81,9 +106,7 @@ async function run() {
     }
 
     // 1: basin populations (markdown)
-    if (data[1]) {
-      basinsEl.innerHTML = window.marked ? marked.parse(data[1]) : "<pre>" + data[1] + "</pre>";
-    }
+    if (data[1]) basinsEl.innerHTML = window.marked ? marked.parse(data[1]) : "<pre>" + data[1] + "</pre>";
 
     // 2,3: downloads (.npz, .pdb)
     const npz = fileUrl(data[2]), pdb = fileUrl(data[3]);
@@ -101,3 +124,14 @@ async function run() {
 
 runBtn.addEventListener("click", run);
 seqEl.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) run(); });
+
+// --- visitor counter (counterapi.dev) ---
+(async () => {
+  const box = $("counter"), n = $("counter-n");
+  try {
+    const r = await fetch("https://api.counterapi.dev/v1/myreson/alphadynamics/up");
+    const j = await r.json();
+    const c = j.count ?? j.value;
+    if (typeof c === "number") { n.textContent = c.toLocaleString("en-US"); box.classList.remove("hidden"); }
+  } catch (_) { /* if the counter service is down, just hide it — no fake number */ }
+})();
