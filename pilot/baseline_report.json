@@ -1,0 +1,166 @@
+{
+  "dataset_sha256": "c02e485dab719891544a5370cec0d2a03dc1a50ad4ed08702416081d5c1c91d9",
+  "interpretation": "public_synthetic_development_cases_not_model_or_migration_evaluation",
+  "reports": {
+    "latest_import": {
+      "cases": 12,
+      "exact": 4,
+      "known_predictions": 12,
+      "unsafe_known_predictions": 8,
+      "results": [
+        {
+          "case_id": "single",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "chronological",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "reverse-import",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "unknown-order",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "same-time-conflict",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "retracted-update",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "tombstone-first",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "duplicate-idempotence",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "identifier-collision",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "entity-boundary",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "all-retracted",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        },
+        {
+          "case_id": "partial-time",
+          "exact": false,
+          "known_prediction": true,
+          "unsafe_known_prediction": true
+        }
+      ]
+    },
+    "reference_contract": {
+      "cases": 12,
+      "exact": 12,
+      "known_predictions": 7,
+      "unsafe_known_predictions": 0,
+      "results": [
+        {
+          "case_id": "single",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "chronological",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "reverse-import",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "unknown-order",
+          "exact": true,
+          "known_prediction": false,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "same-time-conflict",
+          "exact": true,
+          "known_prediction": false,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "retracted-update",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "tombstone-first",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "duplicate-idempotence",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "identifier-collision",
+          "exact": true,
+          "known_prediction": false,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "entity-boundary",
+          "exact": true,
+          "known_prediction": true,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "all-retracted",
+          "exact": true,
+          "known_prediction": false,
+          "unsafe_known_prediction": false
+        },
+        {
+          "case_id": "partial-time",
+          "exact": true,
+          "known_prediction": false,
+          "unsafe_known_prediction": false
+        }
+      ]
+    }
+  }
+}

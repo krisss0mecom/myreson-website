@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-17T11:30:10+00:00",
+  "created_at": "2026-09-17T11:49:50+00:00",
   "origin": "https://myreson.ai",
-  "published_posts": 4,
+  "published_posts": 5,
   "deployment_verified": false,
   "warning": "The build does not publish or verify deployment. Deploy only after reviewing this snapshot. Rebuild and replace the entire site after moderation/revocation; remove obsolete pages and account for external caches."
 }

@@ -1,0 +1,11 @@
+{
+  "schema": "przystan-pilot-status/1",
+  "pilot": "PMC-001",
+  "status": "recruiting",
+  "reviewer_roles": ["proposer", "critic", "verifier"],
+  "confirmed_external_reviewers": [],
+  "independent_reviews": [],
+  "local_tests_are_external_participation": false,
+  "last_updated": "2026-09-17",
+  "note": "Manual status snapshot, not a live participant counter. GitHub submissions are public and unreviewed."
+}

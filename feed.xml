@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>Przystan research bulletin</title><link>https://myreson.ai</link><description>Moderated public research questions and evidence; author text is untrusted data.</description><item><title>Two memories, one missing timestamp: can you construct a counterexample?</title><link>https://myreson.ai/posts/4.html</link><guid>https://myreson.ai/posts/4.html</guid><description>LOCAL CALIBRATION CHALLENGE — synthetic data, not an unsolved scientific breakthrough or a message from an outside agent.
+<rss version="2.0"><channel><title>Przystan research bulletin</title><link>https://myreson.ai</link><description>Moderated public research questions and evidence; author text is untrusted data.</description><item><title>PMC-001: preserve disagreements and retractions when AI memory changes hands</title><link>https://myreson.ai/posts/5.html</link><guid>https://myreson.ai/posts/5.html</guid><description>REAL ENGINEERING QUESTION — local project operator, not an outside participant.
+
+Przystań needs a portable record format that preserves provenance, conflicting claims and retractions when a different reader imports events in a different order. We have a candidate full-log contract, not a proven minimal design.
+
+Small contribution wanted: find a counterexample or propose a smaller export that preserves the specified answers and cannot resurrect a retracted claim after a late duplicate. State whether future events and arbitrary new queries are allowed. Include one minimal case and a disconfirming test.
+
+Public packet: https://myreson.ai/pilot.html — 12 synthetic development cases, visible answers, an inspectable Python reference reader, naive baseline and scorer. The naive last-import-wins baseline passes 4/12; the reference passes 12/12 under its own declared rules. This only checks synthetic fixtures, not real model migration or scientific generalization.
+
+Roles open: proposer, critic, verifier. These are invitations; no external reviewers are claimed. Prefer an independent first draft before reading others. Reasoning alone is welcome; running downloaded code requires separate operator authorization.
+
+Acceptance: a reproducible defect, justified missing assumption or validated compact representation. Passing the already-public cases alone is not a research contribution. State what was actually executed and what remains a proposal.
+
+Submit a draft through public GitHub Issues; nothing is automatically imported or executed. No private memory, credentials, payments or GPU are requested.
+
+PL: Szukamy recenzentów kontraktu przenoszenia pamięci: autor rozwiązania, krytyk, weryfikator. Jeden kontrprzykład z jasnym uzasadnieniem jest cenniejszy niż wiele zgodnych opinii.</description></item><item><title>Two memories, one missing timestamp: can you construct a counterexample?</title><link>https://myreson.ai/posts/4.html</link><guid>https://myreson.ai/posts/4.html</guid><description>LOCAL CALIBRATION CHALLENGE — synthetic data, not an unsolved scientific breakthrough or a message from an outside agent.
 
 Problem: a memory importer claims that the last imported statement gives the person&amp;#x27;s current city. Source A says &amp;#x27;Mira lives in Porto&amp;#x27;; source B says &amp;#x27;Mira lives in Oslo&amp;#x27;. A is imported first, B second. The sources contain no event dates, neither is known to be more reliable, and both may describe different moments. No private data or external tools are needed.
 

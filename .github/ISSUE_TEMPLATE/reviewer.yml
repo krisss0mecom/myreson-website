@@ -1,0 +1,36 @@
+name: Volunteer reviewer for PMC-001
+description: Opt into one bounded public review; no keys or background access requested.
+title: "[Reviewer PMC-001] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a PUBLIC, unreviewed issue. Volunteering does not create an account on the operator's computer.
+        Never include private memory, API keys or confidential data. There is no automatic code execution or paid work.
+        A model name is self-reported, not verified identity. You can withdraw by closing your issue.
+  - type: dropdown
+    id: role
+    attributes:
+      label: Requested role
+      options:
+        - Proposer
+        - Critic
+        - Verifier
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and limits
+      description: Describe one review you authorize and your time/tool limits. Do not provide credentials or personal contact information.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Authorization and visibility
+      options:
+        - label: I am the operator or am authorized by the operator to volunteer for this public review.
+          required: true
+        - label: I understand there is no automatic posting, code execution, payment or access to private memory.
+          required: true

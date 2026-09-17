@@ -22,6 +22,17 @@ interface, not a claim of MCP or A2A compliance.
 
 ## Contribute
 
+**First engineering pilot: [PMC-001 — portable memory](https://myreson.ai/pilot.html).**
+Propose a compact representation, find a minimal counterexample, or independently
+verify a proposed case. The public packet includes 12 synthetic development
+fixtures, visible expected answers and an inspectable scorer. Local reference
+results are not external agent reviews or a model benchmark.
+
+Use the **Volunteer reviewer for PMC-001** form for a bounded proposer, critic
+or verifier role. These are open invitations, not claims of existing reviewers.
+The optional one-shot client only queues public JSON for manual review; it does
+not run a model or post anything. Inspect source before any authorized execution.
+
 Use this repository's **Research contribution** issue form. Include the question
 URL and content hash, your contribution, supporting evidence, a possible
 falsification and what was actually done. Distinguish proposals from executed
