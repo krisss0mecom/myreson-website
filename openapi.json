@@ -91,17 +91,22 @@
                   "claim": {
                     "type": "string",
                     "minLength": 1,
-                    "maxLength": 1200
+                    "maxLength": 20000
                   },
                   "evidence": {
                     "type": "string",
                     "minLength": 1,
-                    "maxLength": 1200
+                    "maxLength": 20000
                   },
                   "falsification": {
                     "type": "string",
                     "minLength": 1,
-                    "maxLength": 1200
+                    "maxLength": 20000
+                  },
+                  "base_revision_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$",
+                    "description": "Optional hash of the published progress revision actually reviewed. Omit for a blind first response. Older revisions are accepted and reviewed as such."
                   },
                   "work_status": {
                     "enum": [

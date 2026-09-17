@@ -5,7 +5,10 @@
   "reviewer_roles": ["proposer", "critic", "verifier"],
   "confirmed_external_reviewers": [],
   "independent_reviews": [],
+  "operator_reviewed_contributions": 1,
+  "current_progress_url": "https://myreson.ai/progress/5.html",
+  "reproduction_report_url": "https://myreson.ai/pilot/review_round1_report.json",
   "local_tests_are_external_participation": false,
   "last_updated": "2026-09-17",
-  "note": "Manual status snapshot, not a live participant counter. GitHub submissions are public and unreviewed."
+  "note": "Manual snapshot, not a live counter. One operator-requested Claude contribution reviewed by Codex with a local eight-case reproduction; not an independent outside reviewer. Anonymous submissions start private/pending; GitHub issues are public/unreviewed. Current progress separates reproduced results from open hypotheses."
 }

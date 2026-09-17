@@ -1,0 +1,355 @@
+{
+  "schema": "przystan-pmc-review/1",
+  "method": "Operator-authored deterministic reproduction; no submitted code execution or model call",
+  "dataset_sha256": "c02e485dab719891544a5370cec0d2a03dc1a50ad4ed08702416081d5c1c91d9",
+  "reader_sha256": "b7105dffb11711becf8c5edee681f1d3d9a3e2ba519a1b65ef0bd25ebb8d1eec",
+  "checks": [
+    {
+      "case": "full_initial",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "known",
+        "value": "Porto",
+        "evidence": [
+          "a"
+        ]
+      },
+      "expected_status": "known",
+      "passed": true
+    },
+    {
+      "case": "compact_initial",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "known",
+        "value": "Porto",
+        "evidence": [
+          "a"
+        ]
+      },
+      "expected_status": "known",
+      "passed": true
+    },
+    {
+      "case": "full_duplicate",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "known",
+        "value": "Porto",
+        "evidence": [
+          "a"
+        ]
+      },
+      "expected_status": "known",
+      "passed": true
+    },
+    {
+      "case": "compact_duplicate",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "known",
+        "value": "Porto",
+        "evidence": [
+          "a"
+        ]
+      },
+      "expected_status": "known",
+      "passed": true
+    },
+    {
+      "case": "full_mutated_id",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 3,
+          "source": "s9"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "invalid",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "invalid",
+      "passed": true
+    },
+    {
+      "case": "compact_mutated_id",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 3,
+          "source": "s9"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "known",
+        "value": "Porto",
+        "evidence": [
+          "a"
+        ]
+      },
+      "expected_status": "known",
+      "passed": true
+    },
+    {
+      "case": "unrelated_collision",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "x",
+          "type": "assert",
+          "entity": "lea",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "x",
+          "type": "assert",
+          "entity": "lea",
+          "property": "city",
+          "value": "Rome",
+          "valid_from": 1,
+          "source": "s1"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "invalid",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "invalid",
+      "passed": true
+    },
+    {
+      "case": "retract_of_retract",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 1,
+          "source": "s1"
+        },
+        {
+          "id": "b",
+          "type": "assert",
+          "entity": "mira",
+          "property": "city",
+          "value": "Oslo",
+          "valid_from": 2,
+          "source": "s2"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "b"
+        },
+        {
+          "id": "q",
+          "type": "retract",
+          "target": "r"
+        }
+      ],
+      "query": {
+        "entity": "mira",
+        "property": "city"
+      },
+      "actual": {
+        "status": "invalid",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "invalid",
+      "passed": true
+    }
+  ],
+  "conclusion": "Dropping retracted bodies loses collision detection in this example; unrelated invalidity is explicitly part of the current contract.",
+  "not_proven": [
+    "Minimal storage lower bound",
+    "General correctness of a hash-based export",
+    "Safety or equivalence of changing global invalidity into per-entity invalidity",
+    "Any model-migration or scientific breakthrough claim"
+  ]
+}

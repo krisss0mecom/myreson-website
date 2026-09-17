@@ -1,0 +1,177 @@
+{
+  "schema": "przystan-evidence-graph/1",
+  "nodes": [
+    {
+      "id": "problem_4",
+      "type": "problem",
+      "title": "Two memories, one missing timestamp: can you construct a counterexample?",
+      "revision_sha256": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
+    },
+    {
+      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "type": "finding",
+      "text": "The same A-then-B import order can arise from Porto-to-Oslo or Oslo-to-Porto event histories. The actual current city is underdetermined; an additional later move is also compatible with the inputs.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "Same two statements, same import order, opposite answers, because import order and event order are independent.",
+      "verification": "Compared the two constructed histories against the stated inputs. Neither requires import order to equal event order. This is a synthetic logical counterexample, not a measurement of a real person's location.",
+      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
+      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
+      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+    },
+    {
+      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "type": "finding",
+      "text": "A date on only one conflicting assertion does not generally order both. A document date need not be the event date, and knowing the last recorded value still does not prove the actual current value without assumptions about later changes.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "Any ONE of the following would permit an answer:",
+      "verification": "Counterexample to sufficiency: keep A at event time 10; B may have occurred at 5 or 20. Both possibilities agree with the single known date but reverse the latest recorded value. Full temporal/provenance assumptions must be declared. No experiment was run for this reasoning review.",
+      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
+      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
+      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+    },
+    {
+      "id": "problem_5",
+      "type": "problem",
+      "title": "PMC-001: preserve disagreements and retractions when AI memory changes hands",
+      "revision_sha256": "6839eb928883cc4319575a282e80ee86a6b45c4bf5c81f2b9cfcf993e4b4c370"
+    },
+    {
+      "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
+      "type": "finding",
+      "text": "An export retaining active assertions and tombstones but dropping retracted assertion bodies loses ID-collision detection when a changed record with a retired ID arrives. Preserving the present answer and resisting exact duplicates does not establish equivalence under later mutations.",
+      "status": "reproduced",
+      "source_field": "claim",
+      "quote": "E resists resurrection (rule 3) but silently loses collision detection (rule 2).",
+      "verification": "Operator-authored pilot/review_round1.py reran the published local resolve(): full and compact logs both give Porto before and after an exact duplicate; a mutated b gives invalid in the full log but Porto in the compact log. Eight checks and full synthetic inputs are published in /pilot/review_round1_report.json. No submitted code was executed. This is an example, not a universal proof.",
+      "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
+      "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
+      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+    },
+    {
+      "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "type": "finding",
+      "text": "A collision for another entity or a retraction of a retraction makes the entire ledger invalid under the declared contract. This is an intentional rule with a denial-of-service concern for untrusted writers, not a newly discovered reader implementation bug.",
+      "status": "reproduced",
+      "source_field": "evidence",
+      "quote": "This is the contract as stated (rule 2 'even outside the queried entity'), not a reader bug",
+      "verification": "The controlled reproduction checks a collision for lea while querying mira and a retract-of-retract. Both return invalid. A valid unrelated record does not by itself cause invalidity: the qualifier matters. The reference contract was not changed.",
+      "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
+      "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
+      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+    },
+    {
+      "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "type": "finding",
+      "text": "A per-ID fingerprint plus retained active records and tombstone information is a candidate repair, not yet an established equivalent compact representation. It needs an explicit importer and tests covering record kinds, invalid retractions, cross-entity arrivals, query assumptions and resource limits.",
+      "status": "hypothesis",
+      "source_field": "claim",
+      "quote": "Invariant: answers equal the full-log answers under any reordering, duplication or late arrival.",
+      "verification": "No general equivalence proof or full implementation of the proposed export was supplied in this submission. The reproduced example motivates keeping identity-change information; it does not validate the universal invariant. Distinguish evaluator input-size guards from ledger semantics.",
+      "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
+      "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
+      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+    },
+    {
+      "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
+      "type": "finding",
+      "text": "The necessity of distinguishing certain past records does not prove that every valid representation must store one hash per ID. A finite cryptographic hash is a practical collision-resistant approximation, not an exact injective encoding of arbitrary records. Minimality and collision assumptions must be stated separately.",
+      "status": "needs_revision",
+      "source_field": "claim",
+      "quote": "a content-change detector, at least a hash",
+      "verification": "Logical review of the quantifier: failure of one export does not establish a storage lower bound over all representations. Exact equivalence and computational collision resistance are different guarantees. This is a qualification of the proposal, not a demonstrated cryptographic collision.",
+      "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
+      "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
+      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+    },
+    {
+      "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
+      "type": "finding",
+      "text": "Scoping invalidity to affected IDs or entities could improve isolation, but it defines a different contract. Study it as a separately versioned policy rather than claiming it is a drop-in implementation of the current global-invalidity rules.",
+      "status": "hypothesis",
+      "source_field": "falsification",
+      "quote": "scope invalidity to the colliding ids (poison set)",
+      "verification": "No implementation or reproduction of this changed policy was performed in this review. Dependencies between assertions and tombstones need explicit semantics and tests before adopting it.",
+      "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
+      "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
+      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+    }
+  ],
+  "edges": [
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "kind": "qualifies",
+      "reason": "Preserves the valid counterexample while correcting the overly broad proposed condition for resolving it."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "supports",
+      "reason": "Motivates retaining change-detection information; does not establish sufficiency of the proposed export."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "qualifies",
+      "reason": "Exact equivalence, practical collision resistance and a minimal storage lower bound are separate claims."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
+      "kind": "qualifies",
+      "reason": "Localizing invalidity changes the declared semantics and requires a separate policy version."
+    }
+  ],
+  "warning": "Reviewed relations, not automatic truth or source independence."
+}

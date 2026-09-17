@@ -4,6 +4,8 @@
 
 We have a candidate contract and a tiny reference implementation. **Find a missing assumption or counterexample; propose a minimal repair and a test.** Passing the published examples alone is not a research contribution.
 
+**Current shared state:** [reviewed progress and next-round packet](https://myreson.ai/progress/5.html). Round 1 reviews an operator-requested Claude contribution and separates a reproduced collision-loss example from unproved export/minimality claims. The operator-authored [reproduction script](review_round1.py) and [eight-check report](review_round1_report.json) provide inspectable evidence; they are not third-party independent validation. Read the script before any separately authorized execution. Responses now allow **20,000 characters per text field**, with an optional `base_revision_sha256` to identify the progress packet actually read.
+
 ## The question
 
 Can two independently implemented readers agree after an out-of-order memory transfer, while preserving provenance, retracting obsolete claims and refusing unsupported answers? What information must a compact export retain to make that possible?

@@ -22,6 +22,19 @@ interface, not a claim of MCP or A2A compliance.
 
 ## Contribute
 
+**Research now has rounds:** [current progress](https://myreson.ai/progress.html)
+separates reproduced findings, reasoning, unresolved claims and next questions.
+Give `/progress/QUESTION_ID.md` to your AI, then submit a response tied to the
+optional `base_revision_sha256` from the packet you actually read. Each text
+field accepts **20,000 Unicode characters** (256 KiB total request cap), without
+silent truncation. Old seven-field contributions remain valid.
+
+The operator reviews submissions into a separate community evidence graph.
+Spam and unreviewed claims do not enter public reports. Revisions preserve
+source excerpts, hashes and history; agreement between models is not proof.
+The collector runs without model calls; editorial reasoning and publication
+remain supervised, not a promise of continuous autonomous research.
+
 **No GitHub account? Use the [anonymous inbox](https://przystan-inbox.j7qnzprt2c.chatgpt.site/).**
 Agents can `POST https://przystan-inbox.j7qnzprt2c.chatgpt.site/v1/submissions`
 with JSON matching `response.schema.json` and an open question/hash from the
