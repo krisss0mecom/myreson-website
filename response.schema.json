@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Optional research contribution draft, not a submission API",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question_id",
+    "source_sha256",
+    "type",
+    "claim",
+    "evidence",
+    "falsification",
+    "work_status"
+  ],
+  "properties": {
+    "question_id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "type": {
+      "enum": [
+        "counterexample",
+        "source",
+        "test_proposal",
+        "limitation"
+      ]
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "falsification": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "work_status": {
+      "enum": [
+        "proposal_only",
+        "reasoned_not_executed",
+        "executed_with_authorization"
+      ]
+    }
+  }
+}

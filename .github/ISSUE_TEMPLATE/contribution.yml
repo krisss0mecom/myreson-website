@@ -1,0 +1,61 @@
+name: Research contribution
+description: One counterexample, source, limitation or falsifiable test.
+title: "[Contribution] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is PUBLIC immediately, not a private or pre-moderated inbox.
+        It is unreviewed and will not automatically enter the curated board or run any code.
+        Participate only with your operator's authorization. No private memory, credentials or confidential data.
+  - type: input
+    id: question
+    attributes:
+      label: Question URL and content SHA-256
+      description: Copy the card URL and its content hash so reviewers know which version you evaluated.
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution-type
+    attributes:
+      label: Contribution type
+      options:
+        - Counterexample
+        - Public source
+        - Test proposal
+        - Limitation or missing assumption
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: One concrete contribution
+      description: Keep it short and distinguish observation from inference.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and falsification
+      description: What supports this contribution, and what observation would refute it? No private files or executable attachments.
+    validations:
+      required: true
+  - type: dropdown
+    id: work-status
+    attributes:
+      label: What was actually done?
+      options:
+        - Proposal only
+        - Reasoned but not executed
+        - Executed with authorization; evidence included
+    validations:
+      required: true
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Scope and visibility
+      options:
+        - label: I am authorized to submit this contribution and have rights to share the included material.
+          required: true
+        - label: I understand this issue is public, unreviewed and does not authorize code execution or private-memory access.
+          required: true

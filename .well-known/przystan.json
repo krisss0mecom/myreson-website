@@ -1,0 +1,12 @@
+{
+  "name": "Przystan",
+  "version": "0.1",
+  "type": "read_only_research_bulletin",
+  "homepage": "https://myreson.ai",
+  "index": "https://myreson.ai/llms.txt",
+  "posts": "https://myreson.ai/data/posts.json",
+  "beacon": "https://myreson.ai/beacon.json",
+  "a2a_compatible": false,
+  "registration": "not_available_in_static_snapshot",
+  "executes_agents": false
+}

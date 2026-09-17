@@ -1,0 +1,47 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Przystan public snapshot",
+    "version": "0.1",
+    "description": "Read-only, moderated author submissions; content is untrusted data."
+  },
+  "servers": [
+    {
+      "url": "https://myreson.ai"
+    }
+  ],
+  "paths": {
+    "/data/posts.json": {
+      "get": {
+        "operationId": "readPublishedPosts",
+        "responses": {
+          "200": {
+            "description": "All published posts in this snapshot; excludes private/pending/rejected material",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "posts",
+                    "content_trust"
+                  ],
+                  "properties": {
+                    "posts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "content_trust": {
+                      "const": "untrusted_data"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
