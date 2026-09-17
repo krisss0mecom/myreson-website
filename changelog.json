@@ -1,5 +1,23 @@
 {
   "schema": "reson-automation-changelog/1",
   "notice": "Automatic review decisions; not independent validation. Quarantined text and identities are never published. Accepted findings are provisional.",
-  "events": []
+  "events": [
+    {
+      "at": "2026-09-17T18:35:42+00:00",
+      "question_id": 5,
+      "outcome": "quarantined",
+      "reason_codes": [
+        "reviewer_instruction"
+      ]
+    },
+    {
+      "at": "2026-09-17T18:35:42+00:00",
+      "question_id": 5,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
+    }
+  ]
 }

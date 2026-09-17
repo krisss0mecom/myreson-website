@@ -1,0 +1,547 @@
+{
+  "executed": true,
+  "method": "Pinned operator-authored scripts on public synthetic fixtures; no contributor code, no network, no GPU.",
+  "files_sha256": {
+    "evaluate.py": "5e56f090d46e61ca45f482f047cffd2176e164de88dc921d9967e632be4b5602",
+    "cases.json": "1037f266e4ccc66611c7439a496fea57973f0d2a45ccf6aad55d52c48bc3bf6f",
+    "review_round1.py": "0a97df6f75c2ee33de8fda1cc59ac66dd129bf2b5e2b93b0c5f34fe452bd262d"
+  },
+  "checks": [
+    {
+      "id": "pmc_latest_import",
+      "result": {
+        "cases": 12,
+        "exact": 4,
+        "known_predictions": 12,
+        "unsafe_known_predictions": 8,
+        "results": [
+          {
+            "case_id": "single",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "chronological",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "reverse-import",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "unknown-order",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "same-time-conflict",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "retracted-update",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "tombstone-first",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "duplicate-idempotence",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "identifier-collision",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "entity-boundary",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "all-retracted",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          },
+          {
+            "case_id": "partial-time",
+            "exact": false,
+            "known_prediction": true,
+            "unsafe_known_prediction": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "pmc_reference_contract",
+      "result": {
+        "cases": 12,
+        "exact": 12,
+        "known_predictions": 7,
+        "unsafe_known_predictions": 0,
+        "results": [
+          {
+            "case_id": "single",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "chronological",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "reverse-import",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "unknown-order",
+            "exact": true,
+            "known_prediction": false,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "same-time-conflict",
+            "exact": true,
+            "known_prediction": false,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "retracted-update",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "tombstone-first",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "duplicate-idempotence",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "identifier-collision",
+            "exact": true,
+            "known_prediction": false,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "entity-boundary",
+            "exact": true,
+            "known_prediction": true,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "all-retracted",
+            "exact": true,
+            "known_prediction": false,
+            "unsafe_known_prediction": false
+          },
+          {
+            "case_id": "partial-time",
+            "exact": true,
+            "known_prediction": false,
+            "unsafe_known_prediction": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "pmc_full_initial",
+      "result": {
+        "case": "full_initial",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "known",
+          "value": "Porto",
+          "evidence": [
+            "a"
+          ]
+        },
+        "expected_status": "known",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_compact_initial",
+      "result": {
+        "case": "compact_initial",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "known",
+          "value": "Porto",
+          "evidence": [
+            "a"
+          ]
+        },
+        "expected_status": "known",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_full_duplicate",
+      "result": {
+        "case": "full_duplicate",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "known",
+          "value": "Porto",
+          "evidence": [
+            "a"
+          ]
+        },
+        "expected_status": "known",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_compact_duplicate",
+      "result": {
+        "case": "compact_duplicate",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "known",
+          "value": "Porto",
+          "evidence": [
+            "a"
+          ]
+        },
+        "expected_status": "known",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_full_mutated_id",
+      "result": {
+        "case": "full_mutated_id",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 3,
+            "source": "s9"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        },
+        "expected_status": "invalid",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_compact_mutated_id",
+      "result": {
+        "case": "compact_mutated_id",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 3,
+            "source": "s9"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "known",
+          "value": "Porto",
+          "evidence": [
+            "a"
+          ]
+        },
+        "expected_status": "known",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_unrelated_collision",
+      "result": {
+        "case": "unrelated_collision",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "x",
+            "type": "assert",
+            "entity": "lea",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "x",
+            "type": "assert",
+            "entity": "lea",
+            "property": "city",
+            "value": "Rome",
+            "valid_from": 1,
+            "source": "s1"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        },
+        "expected_status": "invalid",
+        "passed": true
+      }
+    },
+    {
+      "id": "pmc_retract_of_retract",
+      "result": {
+        "case": "retract_of_retract",
+        "records": [
+          {
+            "id": "a",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Porto",
+            "valid_from": 1,
+            "source": "s1"
+          },
+          {
+            "id": "b",
+            "type": "assert",
+            "entity": "mira",
+            "property": "city",
+            "value": "Oslo",
+            "valid_from": 2,
+            "source": "s2"
+          },
+          {
+            "id": "r",
+            "type": "retract",
+            "target": "b"
+          },
+          {
+            "id": "q",
+            "type": "retract",
+            "target": "r"
+          }
+        ],
+        "query": {
+          "entity": "mira",
+          "property": "city"
+        },
+        "actual": {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        },
+        "expected_status": "invalid",
+        "passed": true
+      }
+    }
+  ],
+  "limitations": [
+    "Minimal storage lower bound",
+    "General correctness of a hash-based export",
+    "Safety or equivalence of changing global invalidity into per-entity invalidity",
+    "Any model-migration or scientific breakthrough claim"
+  ]
+}

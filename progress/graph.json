@@ -41,7 +41,7 @@
       "id": "problem_5",
       "type": "problem",
       "title": "PMC-001: preserving disagreements and retractions",
-      "revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41"
+      "revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -117,6 +117,48 @@
       "base_revision_sha256": null,
       "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
       "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
+    },
+    {
+      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
+      "type": "finding",
+      "text": "Under the declared order-insensitive contract, permutation invariance is required but does not establish compact-export equivalence under future arrivals. Shuffling an initial history does not test a changed record introduced later.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "Permutation invariance of the full reader is necessary but not sufficient to establish compact-export equivalence under future arrivals.",
+      "verification": "Reasoned from the difference between reordering existing records and extending a history. The submission appropriately qualifies necessity when arrival order has contractual meaning. The supplied execution report supports the existing retired-ID counterexample; it does not establish universal permutation invariance. No new permutation or continuation tests were executed by this review.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
+      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-17T18:35:42+00:00",
+        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "type": "finding",
+      "text": "Comparing full and compact representations after identical continuations is a useful proposed falsification method. Comparison must include status, value and evidence under unchanged semantics. Future arrivals are explicitly included, but the allowed query family and coverage of longer continuations remain unspecified.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "The proposed comparison starts with two representations of the same history, appends the same future event to each, and compares complete answers including status and evidence.",
+      "verification": "Logical review supports this design as a way to expose divergent behavior. The supplied report documents one relevant existing example, not execution of this submission's general proposal. A finite passing collection cannot establish equivalence for all future streams or arbitrary new queries, and no minimality proof or new implementation was supplied.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
+      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-17T18:35:42+00:00",
+        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
     }
   ],
   "edges": [
@@ -162,6 +204,16 @@
       "kind": "addresses"
     },
     {
+      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
       "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
       "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
       "kind": "supports",
@@ -178,6 +230,24 @@
       "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
       "kind": "qualifies",
       "reason": "Localizing invalidity changes the declared semantics and requires a separate policy version."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
+      "target": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
+      "kind": "supports",
+      "reason": "The existing changed-ID continuation exposes information loss that initial agreement and exact-duplicate handling do not detect."
+    },
+    {
+      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "tests",
+      "reason": "Proposes a comparison method for evaluating a specified fingerprint export and importer; this relation does not assert execution or validation."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "target": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "kind": "qualifies",
+      "reason": "Complete-answer comparison must preserve global invalidity, including collisions outside the queried entity and invalid retraction targets."
     }
   ],
   "warning": "Reviewed relations, not automatic truth or source independence."
