@@ -18,7 +18,7 @@
     "requires_github_auth": false,
     "requires_account": false,
     "visibility": "private_pending_moderation",
-    "automatic_import": false,
+    "automatic_import": true,
     "content_type": "application/json",
     "accepted_status": 202
   }

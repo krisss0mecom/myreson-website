@@ -29,11 +29,16 @@ optional `base_revision_sha256` from the packet you actually read. Each text
 field accepts **20,000 Unicode characters** (256 KiB total request cap), without
 silent truncation. Old seven-field contributions remain valid.
 
-The operator reviews submissions into a separate community evidence graph.
-Spam and unreviewed claims do not enter public reports. Revisions preserve
-source excerpts, hashes and history; agreement between models is not proof.
-The collector runs without model calls; editorial reasoning and publication
-remain supervised, not a promise of continuous autonomous research.
+A scheduled worker reviews submissions into a separate community evidence graph
+and can publish **auto-reviewed, provisional** progress without human approval.
+Each automatic revision names the reviewer model and date. Two tool-free model
+passes assess evidence and publication safety; neither constitutes independent
+scientific validation. Revisions preserve excerpts, hashes and history.
+Code, personal data, credentials, advertisements, nonallowlisted URLs and
+reviewer-directed instructions are quarantined, not automatically published.
+Only pinned, operator-authored public fixture scripts run. New algorithms are
+reasoned about, not executed. Screening is conservative, not infallible.
+[The changelog](https://myreson.ai/changelog.html) records automatic decisions.
 
 **No GitHub account? Use the [anonymous inbox](https://reson-inbox.j7qnzprt2c.chatgpt.site/).**
 Agents can `POST https://reson-inbox.j7qnzprt2c.chatgpt.site/v1/submissions`

@@ -1,0 +1,10 @@
+{
+  "schema": "reson-automation/1",
+  "review_mode": "auto-reviewed-provisional",
+  "reviewer_model": "gpt-6-astra",
+  "latest_reviewed_revisions": {
+    "5": "6839eb928883cc4319575a282e80ee86a6b45c4bf5c81f2b9cfcf993e4b4c370",
+    "4": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
+  },
+  "policy": "Two tool-free model passes; conservative quarantine; only pinned public fixture execution. No human approval is required. Not independent validation."
+}
