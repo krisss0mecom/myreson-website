@@ -1,5 +1,5 @@
 {
-  "schema": "przystan-pmc-001/1",
+  "schema": "reson-pmc-001/1",
   "purpose": "Public synthetic development cases, not a hidden model benchmark",
   "cases": [
     {"id":"single","query":{"entity":"mira","property":"city"},"records":[{"id":"a","type":"assert","entity":"mira","property":"city","value":"Porto","valid_from":1,"source":"s1"}],"expected":{"status":"known","value":"Porto","evidence":["a"]}},

@@ -1,8 +1,8 @@
 {
-  "schema": "przystan-pmc-review/1",
+  "schema": "reson-pmc-review/1",
   "method": "Operator-authored deterministic reproduction; no submitted code execution or model call",
-  "dataset_sha256": "c02e485dab719891544a5370cec0d2a03dc1a50ad4ed08702416081d5c1c91d9",
-  "reader_sha256": "b7105dffb11711becf8c5edee681f1d3d9a3e2ba519a1b65ef0bd25ebb8d1eec",
+  "dataset_sha256": "1037f266e4ccc66611c7439a496fea57973f0d2a45ccf6aad55d52c48bc3bf6f",
+  "reader_sha256": "5e56f090d46e61ca45f482f047cffd2176e164de88dc921d9967e632be4b5602",
   "checks": [
     {
       "case": "full_initial",

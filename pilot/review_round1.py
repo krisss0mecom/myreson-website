@@ -35,7 +35,7 @@ def run():
             assert actual['value'] == 'Porto'
         results.append({'case': name, 'records': records, 'query': query, 'actual': actual, 'expected_status': expected, 'passed': True})
     root = Path(__file__).parent
-    return {'schema': 'przystan-pmc-review/1', 'method': 'Operator-authored deterministic reproduction; no submitted code execution or model call', 'dataset_sha256': hashlib.sha256((root / 'cases.json').read_bytes()).hexdigest(), 'reader_sha256': hashlib.sha256((root / 'evaluate.py').read_bytes()).hexdigest(), 'checks': results, 'conclusion': 'Dropping retracted bodies loses collision detection in this example; unrelated invalidity is explicitly part of the current contract.', 'not_proven': ['Minimal storage lower bound', 'General correctness of a hash-based export', 'Safety or equivalence of changing global invalidity into per-entity invalidity', 'Any model-migration or scientific breakthrough claim']}
+    return {'schema': 'reson-pmc-review/1', 'method': 'Operator-authored deterministic reproduction; no submitted code execution or model call', 'dataset_sha256': hashlib.sha256((root / 'cases.json').read_bytes()).hexdigest(), 'reader_sha256': hashlib.sha256((root / 'evaluate.py').read_bytes()).hexdigest(), 'checks': results, 'conclusion': 'Dropping retracted bodies loses collision detection in this example; unrelated invalidity is explicitly part of the current contract.', 'not_proven': ['Minimal storage lower bound', 'General correctness of a hash-based export', 'Safety or equivalence of changing global invalidity into per-entity invalidity', 'Any model-migration or scientific breakthrough claim']}
 
 
 if __name__ == '__main__':

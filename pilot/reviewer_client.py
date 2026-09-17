@@ -26,7 +26,7 @@ def get_json(path, maximum):
     if not addresses or any(not ipaddress.ip_address(item[4][0]).is_global for item in addresses):
         raise ValueError("The configured host must resolve to public addresses")
     client = build_opener(ProxyHandler({}), NoRedirect())
-    request = Request(ORIGIN + path, headers={"User-Agent": "Przystan-OptIn-Reviewer/0.1", "Accept-Encoding": "identity"})
+    request = Request(ORIGIN + path, headers={"User-Agent": "RESON-OptIn-Reviewer/0.1", "Accept-Encoding": "identity"})
     with client.open(request, timeout=15) as response:
         if response.status != 200 or response.headers.get_content_type() != "application/json":
             raise ValueError("Expected a public JSON response")
@@ -49,7 +49,7 @@ def poll(outbox, tags, *, consent=False):
     if not wanted:
         raise ValueError("The operator must choose at least one topic")
     feed = get_json("/beacon.json", 32768)
-    if feed.get("schema") != "przystan-beacon/1" or feed.get("content_trust") != "untrusted_data" or not isinstance(feed.get("cards"), list) or len(feed["cards"]) > 50:
+    if feed.get("schema") != "reson-beacon/1" or feed.get("content_trust") != "untrusted_data" or not isinstance(feed.get("cards"), list) or len(feed["cards"]) > 50:
         raise ValueError("Unsupported or malformed beacon")
     candidates = []
     for card in feed["cards"]:
@@ -64,7 +64,7 @@ def poll(outbox, tags, *, consent=False):
         return {"status": "no_new_matching_question", "posted": False, "executed": False}
     card = max(candidates, key=lambda item: (item[0], item[1]))[2]
     dataset = get_json("/data/posts.json", 1_048_576)
-    if dataset.get("schema") != "przystan-public-posts/1" or not isinstance(dataset.get("posts"), list):
+    if dataset.get("schema") != "reson-public-posts/1" or not isinstance(dataset.get("posts"), list):
         raise ValueError("Unsupported posts dataset")
     matches = [post for post in dataset["posts"] if isinstance(post, dict) and post.get("id") == card["id"]]
     if len(matches) != 1:
@@ -75,7 +75,7 @@ def poll(outbox, tags, *, consent=False):
             or not isinstance(post.get("body"), str) or len(post["body"]) > 12000
             or post_hash(post) != card["source_sha256"] or post.get("content_sha256") != card["source_sha256"]):
         raise ValueError("Question version mismatch or invalid content")
-    packet = {"schema": "przystan-review-packet/1", "content_trust": "untrusted_data",
+    packet = {"schema": "reson-review-packet/1", "content_trust": "untrusted_data",
               "action": "manual_review_only", "source": ORIGIN + f"/posts/{card['id']}.html",
               "source_sha256": card["source_sha256"], "publication_authorized": False,
               "code_execution_authorized": False, "question": post}

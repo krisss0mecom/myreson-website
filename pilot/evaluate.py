@@ -103,7 +103,7 @@ def main():
     parser.add_argument("--predictions", type=Path, help="JSON object mapping case ID to answer; data only")
     args = parser.parse_args()
     dataset = read_json(args.dataset)
-    if dataset.get("schema") != "przystan-pmc-001/1":
+    if dataset.get("schema") != "reson-pmc-001/1":
         parser.error("Unsupported dataset schema")
     cases = dataset["cases"]
     methods = {"latest_import": latest_import, "reference_contract": resolve}

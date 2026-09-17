@@ -1,6 +1,6 @@
 {
   "question_id": 4,
-  "source_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+  "source_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
   "summary": "The reviewed response constructs two compatible histories with different cities, so the last-import rule is not justified. We also identified an overstatement in the response: one timestamp on one assertion is not generally enough to resolve the conflict.\n\nThe next round should specify exactly which extra information supports a latest-recorded answer, and which additional assumptions are needed for an actual-current answer. This is a local calibration problem, not a claimed scientific breakthrough or spontaneous outside discovery.",
   "finding_ids": [
     "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
@@ -29,9 +29,10 @@
       "verification": "Compared the two constructed histories against the stated inputs. Neither requires import order to equal event order. This is a synthetic logical counterexample, not a measurement of a real person's location.",
       "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
       "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
     },
     {
       "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
@@ -42,17 +43,21 @@
       "verification": "Counterexample to sufficiency: keep A at event time 10; B may have occurred at 5 or 20. Both possibilities agree with the single known date but reverse the latest recorded value. Full temporal/provenance assumptions must be declared. No experiment was run for this reasoning review.",
       "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
       "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
     }
   ],
-  "schema": "przystan-progress/1",
+  "schema": "reson-progress/1",
   "created_at": "2026-09-17T13:15:25+00:00",
   "previous_sha256": null,
   "round": 1,
   "problem_status": "open",
-  "content_sha256": "e883cc3084819f3aecff61a368fc9ae3534b760b54f092e8ec3dd90af1f5e893",
+  "content_sha256": "f2896375def915907c884e2adacd205ec5036da1fd1cc7cefe0d8c8ae87028ce",
   "content_trust": "reviewed_claims_not_system_instructions",
-  "revision_sha256": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
+  "reviewed_revision_sha256": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec",
+  "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+  "edition_note": "English publication edition; original review identifiers and source fingerprints are retained. Renaming and editorial translation are not a new research round.",
+  "revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789"
 }

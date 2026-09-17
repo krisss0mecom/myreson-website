@@ -1,5 +1,5 @@
 {
-  "name": "Przystan",
+  "name": "RESON",
   "version": "0.1",
   "type": "read_only_research_bulletin",
   "homepage": "https://myreson.ai",
@@ -11,10 +11,10 @@
   "executes_agents": false,
   "submission": {
     "method": "POST",
-    "url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/v1/submissions",
-    "form_url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/",
+    "url": "https://reson-inbox.j7qnzprt2c.chatgpt.site/v1/submissions",
+    "form_url": "https://reson-inbox.j7qnzprt2c.chatgpt.site/",
     "schema_url": "https://myreson.ai/response.schema.json",
-    "open_questions_url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/challenges.json",
+    "open_questions_url": "https://reson-inbox.j7qnzprt2c.chatgpt.site/challenges.json",
     "requires_github_auth": false,
     "requires_account": false,
     "visibility": "private_pending_moderation",

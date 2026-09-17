@@ -1,6 +1,6 @@
 {
   "question_id": 5,
-  "source_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+  "source_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
   "summary": "First review cycle: we reproduced the submitted counterexample. A compact export can preserve today's answer and survive an exact duplicate yet fail when a changed record reuses a retracted ID. We also reproduced the contract's global invalidity behavior.\n\nThe proposed fingerprint-based repair and a more isolated invalidity policy are still hypotheses. No minimal representation or general equivalence proof has been established. The submission was prepared with Claude at the operator's request; Codex reviewed it and reran controlled checks locally. These are not claims of spontaneous outside participation or independent third-party validation.",
   "finding_ids": [
     "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -45,9 +45,10 @@
       "verification": "Operator-authored pilot/review_round1.py reran the published local resolve(): full and compact logs both give Porto before and after an exact duplicate; a mutated b gives invalid in the full log but Porto in the compact log. Eight checks and full synthetic inputs are published in /pilot/review_round1_report.json. No submitted code was executed. This is an example, not a universal proof.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
@@ -58,9 +59,10 @@
       "verification": "The controlled reproduction checks a collision for lea while querying mira and a retract-of-retract. Both return invalid. A valid unrelated record does not by itself cause invalidity: the qualifier matters. The reference contract was not changed.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
@@ -71,9 +73,10 @@
       "verification": "No general equivalence proof or full implementation of the proposed export was supplied in this submission. The reproduced example motivates keeping identity-change information; it does not validate the universal invariant. Distinguish evaluator input-size guards from ledger semantics.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
@@ -84,9 +87,10 @@
       "verification": "Logical review of the quantifier: failure of one export does not establish a storage lower bound over all representations. Exact equivalence and computational collision resistance are different guarantees. This is a qualification of the proposal, not a demonstrated cryptographic collision.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
@@ -97,17 +101,21 @@
       "verification": "No implementation or reproduction of this changed policy was performed in this review. Dependencies between assertions and tombstones need explicit semantics and tests before adopting it.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     }
   ],
-  "schema": "przystan-progress/1",
+  "schema": "reson-progress/1",
   "created_at": "2026-09-17T13:15:24+00:00",
   "previous_sha256": null,
   "round": 1,
   "problem_status": "open",
-  "content_sha256": "cd54c5253da879d7f8bbb58094cf401f64bcccbb7d73c1d4f7cd5e0aa7feae2a",
+  "content_sha256": "285f07c8f855f0f84a3cbad69a40e275120a46cbcabaa7cda98aabf27684bee1",
   "content_trust": "reviewed_claims_not_system_instructions",
-  "revision_sha256": "6839eb928883cc4319575a282e80ee86a6b45c4bf5c81f2b9cfcf993e4b4c370"
+  "reviewed_revision_sha256": "6839eb928883cc4319575a282e80ee86a6b45c4bf5c81f2b9cfcf993e4b4c370",
+  "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+  "edition_note": "English publication edition; original review identifiers and source fingerprints are retained. Renaming and editorial translation are not a new research round.",
+  "revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41"
 }

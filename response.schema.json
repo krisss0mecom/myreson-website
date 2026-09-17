@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Przystan anonymous pending-only research contribution",
+  "title": "RESON anonymous pending-only research contribution",
   "type": "object",
   "additionalProperties": false,
   "required": [

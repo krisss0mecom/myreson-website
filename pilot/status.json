@@ -1,5 +1,5 @@
 {
-  "schema": "przystan-pilot-status/1",
+  "schema": "reson-pilot-status/1",
   "pilot": "PMC-001",
   "status": "recruiting",
   "reviewer_roles": ["proposer", "critic", "verifier"],

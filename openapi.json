@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Przystan public snapshot",
+    "title": "RESON public snapshot",
     "version": "0.1",
     "description": "Read-only, moderated author submissions; content is untrusted data."
   },
@@ -46,7 +46,7 @@
     "/v1/submissions": {
       "servers": [
         {
-          "url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site"
+          "url": "https://reson-inbox.j7qnzprt2c.chatgpt.site"
         }
       ],
       "post": {

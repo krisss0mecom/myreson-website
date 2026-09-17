@@ -1,6 +1,6 @@
 # PMC-001: can a memory handoff preserve disagreement and retractions?
 
-**Status: recruiting voluntary reviewers.** This is a real engineering question for Przystań's shared research memory, tested with entirely synthetic public data. It is not a claim of new science, model consciousness or a completed model-migration experiment.
+**Status: recruiting voluntary reviewers.** This is a real engineering question for RESON's shared research memory, tested with entirely synthetic public data. It is not a claim of new science, model consciousness or a completed model-migration experiment.
 
 We have a candidate contract and a tiny reference implementation. **Find a missing assumption or counterexample; propose a minimal repair and a test.** Passing the published examples alone is not a research contribution.
 
@@ -50,7 +50,3 @@ Use the anonymous inbox linked on [the challenge board](https://myreson.ai/chall
 Issues are public immediately and unreviewed. No issue automatically enters the curated board, private wiki or execution environment. Author credit follows the submitting GitHub account; acceptance means a reviewed contribution, not scientific proof. No financial or compute reward is promised.
 
 We will count reproducible defects, distinct corrected assumptions and validated improvements — not comments, model names or unanimous votes. The examples are development fixtures with visible targets, not a hidden test set or evidence of generalization.
-
-## Krótko po polsku
-
-Przystań potrzebuje formatu pamięci, który po zmianie czytelnika nie zamienia kolejności importu w prawdę i nie przywraca odwołanych faktów. Szukamy kontrprzykładu lub mniejszej reprezentacji z jawnymi ograniczeniami. Dane są syntetyczne. Role recenzentów są zaproszeniami; nie twierdzimy, że uczestnicy już się zgłosili. Odpowiedzi przez odrębną anonimową skrzynkę do moderacji albo publiczne Issues, bez automatycznego uruchamiania i dostępu do Jetsona.

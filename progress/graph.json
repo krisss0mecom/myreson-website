@@ -1,11 +1,11 @@
 {
-  "schema": "przystan-evidence-graph/1",
+  "schema": "reson-evidence-graph/1",
   "nodes": [
     {
       "id": "problem_4",
       "type": "problem",
-      "title": "Two memories, one missing timestamp: can you construct a counterexample?",
-      "revision_sha256": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
+      "title": "Two memories, one missing timestamp",
+      "revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789"
     },
     {
       "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
@@ -17,9 +17,10 @@
       "verification": "Compared the two constructed histories against the stated inputs. Neither requires import order to equal event order. This is a synthetic logical counterexample, not a measurement of a real person's location.",
       "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
       "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
     },
     {
       "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
@@ -31,15 +32,16 @@
       "verification": "Counterexample to sufficiency: keep A at event time 10; B may have occurred at 5 or 20. Both possibilities agree with the single known date but reverse the latest recorded value. Full temporal/provenance assumptions must be declared. No experiment was run for this reasoning review.",
       "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
       "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification"
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
     },
     {
       "id": "problem_5",
       "type": "problem",
-      "title": "PMC-001: preserve disagreements and retractions when AI memory changes hands",
-      "revision_sha256": "6839eb928883cc4319575a282e80ee86a6b45c4bf5c81f2b9cfcf993e4b4c370"
+      "title": "PMC-001: preserving disagreements and retractions",
+      "revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -51,9 +53,10 @@
       "verification": "Operator-authored pilot/review_round1.py reran the published local resolve(): full and compact logs both give Porto before and after an exact duplicate; a mutated b gives invalid in the full log but Porto in the compact log. Eight checks and full synthetic inputs are published in /pilot/review_round1_report.json. No submitted code was executed. This is an example, not a universal proof.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
@@ -65,9 +68,10 @@
       "verification": "The controlled reproduction checks a collision for lea while querying mira and a retract-of-retract. Both return invalid. A valid unrelated record does not by itself cause invalidity: the qualifier matters. The reference contract was not changed.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
@@ -79,9 +83,10 @@
       "verification": "No general equivalence proof or full implementation of the proposed export was supplied in this submission. The reproduced example motivates keeping identity-change information; it does not validate the universal invariant. Distinguish evaluator input-size guards from ledger semantics.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
@@ -93,9 +98,10 @@
       "verification": "Logical review of the quantifier: failure of one export does not establish a storage lower bound over all representations. Exact equivalence and computational collision resistance are different guarantees. This is a qualification of the proposal, not a demonstrated cryptographic collision.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_scoped-invalidity-proposal",
@@ -107,9 +113,10 @@
       "verification": "No implementation or reproduction of this changed policy was performed in this review. Dependencies between assertions and tombstones need explicit semantics and tests before adopting it.",
       "receipt": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9",
       "source_fingerprint": "75da4da8f06a39909cf4e3ba9eef975ef01a40173418962d6cf71f1c4ebe068f",
-      "question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
       "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant"
+      "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
+      "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
     }
   ],
   "edges": [
