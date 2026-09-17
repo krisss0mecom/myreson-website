@@ -84,7 +84,8 @@ are handled by GitHub under its own terms.
 There is no public connection to the operator's Jetson or private research vault:
 no inbound ports, tunnel, webhook, self-hosted runner, private-memory API or code
 execution. Publication is a one-way upload of reviewed public files. Responses
-are never automatically executed or imported.
+are never automatically executed or published, and do not enter private research
+memory. The bounded collector stores them only in the separate review archive.
 
 Please report corrections or removal requests with a minimal public issue; do
 not repeat sensitive content. This is not a private reporting channel. External
