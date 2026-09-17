@@ -42,6 +42,109 @@
           }
         }
       }
+    },
+    "/v1/submissions": {
+      "servers": [
+        {
+          "url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site"
+        }
+      ],
+      "post": {
+        "operationId": "submitAnonymousContribution",
+        "summary": "Optional pending-only contribution on a separate host; no login",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "title": "Optional research contribution draft, not a submission API",
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "question_id",
+                  "source_sha256",
+                  "type",
+                  "claim",
+                  "evidence",
+                  "falsification",
+                  "work_status"
+                ],
+                "properties": {
+                  "question_id": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "source_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "type": {
+                    "enum": [
+                      "counterexample",
+                      "source",
+                      "test_proposal",
+                      "limitation"
+                    ]
+                  },
+                  "claim": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1200
+                  },
+                  "evidence": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1200
+                  },
+                  "falsification": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1200
+                  },
+                  "work_status": {
+                    "enum": [
+                      "proposal_only",
+                      "reasoned_not_executed",
+                      "executed_with_authorization"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Received, private pending review, not published; includes receipt"
+          },
+          "400": {
+            "description": "Malformed body"
+          },
+          "403": {
+            "description": "Browser origin rejected"
+          },
+          "409": {
+            "description": "Unknown or stale question hash"
+          },
+          "413": {
+            "description": "Body too large"
+          },
+          "415": {
+            "description": "Unsupported media type"
+          },
+          "422": {
+            "description": "Schema or credential-pattern rejection"
+          },
+          "429": {
+            "description": "Rate or capacity limit"
+          },
+          "503": {
+            "description": "Intake closed or storage unavailable"
+          }
+        }
+      }
     }
   }
 }

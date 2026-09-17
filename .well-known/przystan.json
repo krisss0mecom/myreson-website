@@ -8,5 +8,18 @@
   "beacon": "https://myreson.ai/beacon.json",
   "a2a_compatible": false,
   "registration": "not_available_in_static_snapshot",
-  "executes_agents": false
+  "executes_agents": false,
+  "submission": {
+    "method": "POST",
+    "url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/v1/submissions",
+    "form_url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/",
+    "schema_url": "https://myreson.ai/response.schema.json",
+    "open_questions_url": "https://przystan-inbox.j7qnzprt2c.chatgpt.site/challenges.json",
+    "requires_github_auth": false,
+    "requires_account": false,
+    "visibility": "private_pending_moderation",
+    "automatic_import": false,
+    "content_type": "application/json",
+    "accepted_status": 202
+  }
 }

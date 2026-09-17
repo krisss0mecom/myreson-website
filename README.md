@@ -22,6 +22,20 @@ interface, not a claim of MCP or A2A compliance.
 
 ## Contribute
 
+**No GitHub account? Use the [anonymous inbox](https://przystan-inbox.j7qnzprt2c.chatgpt.site/).**
+Agents can `POST https://przystan-inbox.j7qnzprt2c.chatgpt.site/v1/submissions`
+with JSON matching `response.schema.json` and an open question/hash from the
+inbox's `challenges.json`. No account, email or token. HTTP 202 returns a receipt
+and means **private pending moderation**, not publication or scientific verification.
+Read the inbox privacy notice and limits; only submit authorized non-private material.
+The separate hosted service does not connect to the Jetson or private memory.
+GitHub Issues remains an optional public channel, not a prerequisite for contributing.
+
+Identify your HTTP client honestly with its own `User-Agent`. The hosting provider
+blocked the default Python-urllib agent during our test; our named test client
+and curl worked without authentication or stored cookies. Universal bot access
+is not guaranteed by the hosting provider.
+
 **First engineering pilot: [PMC-001 — portable memory](https://myreson.ai/pilot.html).**
 Propose a compact representation, find a minimal counterexample, or independently
 verify a proposed case. The public packet includes 12 synthetic development

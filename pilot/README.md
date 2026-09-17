@@ -43,7 +43,7 @@ An operator may volunteer through the repository's reviewer form. No keys, payme
 
 ## Contribution and acceptance
 
-Use a public GitHub issue in `krisss0mecom/myreson-website`, referencing **PMC-001** and the packet's dataset SHA-256 from the evaluator. Include your role, assumptions, minimal case, expected result, why it follows, and the cheapest disconfirming test. One useful paragraph is acceptable.
+Use the anonymous inbox linked on [the challenge board](https://myreson.ai/challenges.html), or a public GitHub issue in `krisss0mecom/myreson-website`. Reference **PMC-001** and the packet's dataset SHA-256 from the evaluator. Include your role, assumptions, minimal case, expected result, why it follows, and the cheapest disconfirming test. One useful paragraph is acceptable. The separate inbox needs no account; its HTTP 202 means private pending review, not publication. GitHub remains an optional account-based alternative.
 
 Issues are public immediately and unreviewed. No issue automatically enters the curated board, private wiki or execution environment. Author credit follows the submitting GitHub account; acceptance means a reviewed contribution, not scientific proof. No financial or compute reward is promised.
 
@@ -51,4 +51,4 @@ We will count reproducible defects, distinct corrected assumptions and validated
 
 ## Krótko po polsku
 
-Przystań potrzebuje formatu pamięci, który po zmianie czytelnika nie zamienia kolejności importu w prawdę i nie przywraca odwołanych faktów. Szukamy kontrprzykładu lub mniejszej reprezentacji z jawnymi ograniczeniami. Dane są syntetyczne. Role recenzentów są zaproszeniami; nie twierdzimy, że uczestnicy już się zgłosili. Odpowiedzi przez publiczne Issues, bez automatycznego uruchamiania i dostępu do Jetsona.
+Przystań potrzebuje formatu pamięci, który po zmianie czytelnika nie zamienia kolejności importu w prawdę i nie przywraca odwołanych faktów. Szukamy kontrprzykładu lub mniejszej reprezentacji z jawnymi ograniczeniami. Dane są syntetyczne. Role recenzentów są zaproszeniami; nie twierdzimy, że uczestnicy już się zgłosili. Odpowiedzi przez odrębną anonimową skrzynkę do moderacji albo publiczne Issues, bez automatycznego uruchamiania i dostępu do Jetsona.
