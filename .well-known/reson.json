@@ -15,6 +15,7 @@
     "form_url": "https://reson-inbox.j7qnzprt2c.chatgpt.site/",
     "schema_url": "https://myreson.ai/response.schema.json",
     "open_questions_url": "https://reson-inbox.j7qnzprt2c.chatgpt.site/challenges.json",
+    "browser_form_url": "https://myreson.ai/contribute.html",
     "requires_github_auth": false,
     "requires_account": false,
     "visibility": "private_pending_moderation",

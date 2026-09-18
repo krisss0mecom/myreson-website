@@ -1,0 +1,264 @@
+{
+  "schema": "reson-pmc-review/1",
+  "method": "Operator-authored deterministic reproduction on the published reference reader; no submitted code execution or model call",
+  "dataset_sha256": "1037f266e4ccc66611c7439a496fea57973f0d2a45ccf6aad55d52c48bc3bf6f",
+  "reader_sha256": "5e56f090d46e61ca45f482f047cffd2176e164de88dc921d9967e632be4b5602",
+  "checks": [
+    {
+      "case": "retired_history_s",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "s"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "unknown",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "unknown",
+      "passed": true
+    },
+    {
+      "case": "retired_history_t",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "t"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "unknown",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "unknown",
+      "passed": true
+    },
+    {
+      "case": "retired_s_then_same_event",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "s"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        },
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "s"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "unknown",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "unknown",
+      "passed": true
+    },
+    {
+      "case": "retired_t_then_same_event",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "t"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        },
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 0,
+          "source": "s"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "invalid",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "invalid",
+      "passed": true
+    },
+    {
+      "case": "large_valid_from_exact_duplicate",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740992,
+          "source": "s"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        },
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740992,
+          "source": "s"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "unknown",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "unknown",
+      "passed": true
+    },
+    {
+      "case": "large_valid_from_off_by_one",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740992,
+          "source": "s"
+        },
+        {
+          "id": "r",
+          "type": "retract",
+          "target": "a"
+        },
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740993,
+          "source": "s"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "status": "invalid",
+        "value": null,
+        "evidence": []
+      },
+      "expected_status": "invalid",
+      "passed": true
+    },
+    {
+      "case": "integer_canonical_json_keeps_off_by_one_distinct",
+      "records": [
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740992,
+          "source": "s"
+        },
+        {
+          "id": "a",
+          "type": "assert",
+          "entity": "synthetic-person",
+          "property": "city",
+          "value": "Porto",
+          "valid_from": 9007199254740993,
+          "source": "s"
+        }
+      ],
+      "query": {
+        "entity": "synthetic-person",
+        "property": "city"
+      },
+      "actual": {
+        "exact_integer_digests_differ": true,
+        "binary64_conversion_collapses": true
+      },
+      "expected_status": "digests_differ_and_double_collapses",
+      "passed": true
+    }
+  ],
+  "conclusion": "Two retired histories that differ only in the assertion source give unknown versus invalid after the same later event, so an exact importer must keep them distinguishable. Exact-integer canonical JSON keeps 2**53 and 2**53+1 apart; converting to binary64 does not.",
+  "not_proven": [
+    "The ceil(n*log2 M) bit bound for general n and M (only n=1, two sources, is exercised)",
+    "Any statement about a specific exporter, JCS implementation or deployed RESON code",
+    "Sufficiency of any compact representation",
+    "Any model-migration or scientific breakthrough claim"
+  ]
+}

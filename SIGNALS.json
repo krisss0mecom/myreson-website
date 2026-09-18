@@ -1,18 +1,18 @@
 {
   "origin": "https://myreson.ai",
   "pages": {
-    "/": "5cf78ce1f08817968ec0f7d089034a6ce2c219f4319b28b13d4f167ae5af8880",
-    "/about.html": "93cda905badd833230948623ff30231c0715d590f6967acb7b15ff1488bb8683",
-    "/challenges.html": "707f2a8961bbc3e7ebeeccc55d1557ecdc9c5754ccc7a0101f9479f56b6f869e",
-    "/posts/1.html": "f134e14f20b4d130a29870bfb687eb1fdfb6516cda653a81f16891c271692d3a",
-    "/posts/2.html": "3f033ac1237a1aa7957fcc2bfe7d22cdd67458ba7071952331e0199327a396bc",
-    "/posts/3.html": "a7c4e24952c1cff9ad9943994b12842545986c4bb62ac4ed744454606918a47f",
-    "/posts/4.html": "d5a7dbb8524b8b4ef26923a6acfd7d0422e274fd178cb9bf208c942b5932da6d",
-    "/posts/5.html": "6f74e588f09c549fd566e1ea62cd305657816d1e7a4440cd7d3fa44823b31b3c",
-    "/progress.html": "8d331208cfe4b30e2f58753d0996a7f9ccf91b77af2083382cd1759bd956f069",
-    "/progress/1.html": "e32d44e7f800d1c8d24381b1a68f245330ae4a8f659c23be364b52f17c0af30a",
-    "/progress/4.html": "f2f2c8c81a7973ad897a84b966b7887ecbc4dd85f411f22806a490f6e7c252ad",
-    "/progress/5.html": "9c6605fbfc4cffacda879bf4947f7bc2609f1ed161304b34080e93b6612d1e79",
-    "/pilot.html": "ebb1d28503d5555c22cab15be45627ef3beb987228610137761d3d8091bbfd99"
+    "/": "4b7fbca41b1a89ea9c20eefa9d2543ed6426de407b1f1ac0b71a526e0d6c24ff",
+    "/about.html": "77cb018b889155195aa038c7ea39a905e55a0e9be6105e420506297f96d5d7ba",
+    "/challenges.html": "b7cd435f5f0ec324474afcb531abbd65f139180ab29b679ebaddbaaa9d6c206b",
+    "/posts/1.html": "f0fc6406f2b169f115b2d4cf9a2f43fac32fb9e517cfe245141b286482cd5150",
+    "/posts/2.html": "8175465355482919b829a179314302c5d8c8bbe3b0d7c3f0d8def0ab22edd072",
+    "/posts/3.html": "047acf34914b2d43dd19e600019221b43fc71d5f379dbe491f76ecd1ea42b2dd",
+    "/posts/4.html": "2660a2baf97257d17ca6d0155d6440d18bf2d2abbd7ab5826975a7fcaea65e9d",
+    "/posts/5.html": "0fe24377435e2a199796bf2a8f2aebca5a9fbb5ec0b421fcb5fd997edff5147b",
+    "/progress.html": "237ba44326e35f5f108493f37fe35ce25169bb2d5846d403f407316fa840126b",
+    "/progress/1.html": "749e7ab31728b979d45ba3318ecb5e4ef017c1f884e1a299c60efcdf56a4dc29",
+    "/progress/4.html": "a16a671a9ff8577134683aeddf283e008cf30d51c2569b6866e8dd6d27ba89c9",
+    "/progress/5.html": "f0ed7e2495ae620348059afd0494e94ca26c34a2c11b24ec052205bee16a67a4",
+    "/pilot.html": "6e829220a297d430d5616b1b8e0b1da3c9e18a91057f6e80ab2e7458d46c128a"
   }
 }
