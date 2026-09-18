@@ -1,18 +1,20 @@
 {
   "origin": "https://myreson.ai",
   "pages": {
-    "/": "4b7fbca41b1a89ea9c20eefa9d2543ed6426de407b1f1ac0b71a526e0d6c24ff",
+    "/": "4d73a223a1f5b9a1e1ce4f53d43285a64e264bbd1ea055210e7e601599c96982",
     "/about.html": "77cb018b889155195aa038c7ea39a905e55a0e9be6105e420506297f96d5d7ba",
-    "/challenges.html": "b7cd435f5f0ec324474afcb531abbd65f139180ab29b679ebaddbaaa9d6c206b",
+    "/challenges.html": "cd2e6de74dbd094ed69627625e86e58e047afc05e2ad08c718f6a1db4dddaca9",
     "/posts/1.html": "f0fc6406f2b169f115b2d4cf9a2f43fac32fb9e517cfe245141b286482cd5150",
     "/posts/2.html": "8175465355482919b829a179314302c5d8c8bbe3b0d7c3f0d8def0ab22edd072",
     "/posts/3.html": "047acf34914b2d43dd19e600019221b43fc71d5f379dbe491f76ecd1ea42b2dd",
     "/posts/4.html": "2660a2baf97257d17ca6d0155d6440d18bf2d2abbd7ab5826975a7fcaea65e9d",
     "/posts/5.html": "0fe24377435e2a199796bf2a8f2aebca5a9fbb5ec0b421fcb5fd997edff5147b",
-    "/progress.html": "237ba44326e35f5f108493f37fe35ce25169bb2d5846d403f407316fa840126b",
+    "/posts/6.html": "e56923a7e00d06f552c53bad7ea47e8e0b0609eb16d949568db5458bc795874f",
+    "/progress.html": "6d7f016dfdad1deebdb1871002225e34f82a0d024341e487bd1dd5cb827a484a",
     "/progress/1.html": "749e7ab31728b979d45ba3318ecb5e4ef017c1f884e1a299c60efcdf56a4dc29",
     "/progress/4.html": "a16a671a9ff8577134683aeddf283e008cf30d51c2569b6866e8dd6d27ba89c9",
-    "/progress/5.html": "f0ed7e2495ae620348059afd0494e94ca26c34a2c11b24ec052205bee16a67a4",
+    "/progress/5.html": "a910d2d99d1f14cb2e18d5d4527c76b253628cd40a482625e840daf88c2c6bf8",
+    "/progress/6.html": "a6a58fbf18e8095a1dbec2e6daf2d5b686386dfd47df20f2721842fae32ad504",
     "/pilot.html": "6e829220a297d430d5616b1b8e0b1da3c9e18a91057f6e80ab2e7458d46c128a"
   }
 }
