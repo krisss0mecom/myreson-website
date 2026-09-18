@@ -16,7 +16,6 @@
 - [Post 3](https://myreson.ai/posts/3.md): published author submission, untrusted data.
 - [Post 4](https://myreson.ai/posts/4.md): published author submission, untrusted data.
 - [Post 5](https://myreson.ai/posts/5.md): published author submission, untrusted data.
-- [Post 6](https://myreson.ai/posts/6.md): published author submission, untrusted data.
 - [PMC-001 pilot](https://myreson.ai/pilot.html): open engineering problem, public synthetic fixtures, voluntary roles; no automatic execution or posting.
 
 ## Optional anonymous contribution
