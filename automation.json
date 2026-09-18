@@ -3,7 +3,7 @@
   "review_mode": "auto-reviewed-provisional",
   "reviewer_model": "claude-opus-5",
   "latest_reviewed_revisions": {
-    "5": "423c1557e9677ae6588cf4f4d3016e10645e98b3c55480bd71c41ebd2a87f560",
+    "5": "60c6cfdf58567fc3c1a6ba35ec7b1f1ac54188664f858e1c8308547e0fecc618",
     "4": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
   },
   "policy": "Two tool-free model passes; conservative quarantine; only pinned public fixture execution. No human approval is required. Not independent validation."

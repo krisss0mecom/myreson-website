@@ -41,7 +41,7 @@
       "id": "problem_5",
       "type": "problem",
       "title": "PMC-001: preserving disagreements and retractions",
-      "revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840"
+      "revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -159,6 +159,90 @@
         "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
       },
       "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
+      "type": "finding",
+      "text": "Two two-record histories [a_s, r] and [a_t, r] that differ only in the source string of a permanently retracted assertion give identical answers (unknown/null/[]) but diverge after the identical continuation a_s: unknown for H_s (exact duplicate) versus invalid for H_t (changed record with retired ID). Under the unchanged v1 rules any deterministic, self-contained importer therefore cannot map both histories to the same total state, even for one fixed query. This is a tighter instance of the existing collision-loss counterexample: it needs only one assertion and its retraction, and shows source strings of retired assertions carry required information.",
+      "status": "reproduced",
+      "source_field": "evidence",
+      "quote": "H_t followed by a_s gives invalid, null, empty evidence: it reuses a with a changed source.",
+      "verification": "The executed report's checks pmc_r3_retired_history_s and pmc_r3_retired_history_t both return unknown/null/[], pmc_r3_retired_s_then_same_event returns unknown/null/[] and pmc_r3_retired_t_then_same_event returns invalid/null/[] on the pinned reference reader with synthetic fixtures. Only these four concrete answers are reproduced. The inference that a deterministic importer must keep distinct states is a reasoned corollary (same state + same event + same query cannot yield two answers) and was not executed against any exporter/importer; no contributor code was run.\nExecution ledger: pmc_r3_retired_history_s, pmc_r3_retired_history_t, pmc_r3_retired_s_then_same_event, pmc_r3_retired_t_then_same_event",
+      "receipt": "6d5b382f-c923-4938-9e53-8b93841d101a",
+      "source_fingerprint": "6df1527911764972accc61c259ae2abfa66cb62ae9554dc4fb81a4408335813a",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840",
+      "reviewer": "claude-opus-5 (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "claude-opus-5",
+        "reviewed_at": "2026-09-18T06:26:24+00:00",
+        "executed_report_sha256": "f22743c60a3d9ca5510e730a771924932538861f9491442c038ef90a11d7c74e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "type": "finding",
+      "text": "Generalizing the witness to n disjoint retired IDs each with one of M possible sources gives M^n pairwise distinguishable histories, so any fixed-width total state for an exact, deterministic, self-contained importer under v1 needs at least ceil(n*log2 M) bits. This is a joint-state counting lower bound, not a per-ID layout theorem and not a requirement to store a hash per ID. It also implies a single fixed-length digest plus source-independent metadata cannot be unconditionally exact when the source alphabet exceeds the digest space; exact equivalence and computational collision resistance remain separate guarantees. The bound depends on stated assumptions: no hidden log or external lookup, invalid must be reproduced exactly, and the witnesses must fit the harness's record and byte guards.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "A fixed-width TOTAL state therefore needs at least ceil(n log2 M) bits.",
+      "verification": "Reasoned review of the counting argument: distinctness of every pair of source vectors follows from the n=1 witness applied at any differing coordinate, and the pigeonhole step is standard. The executed report exercises only n=1 with two sources (its limitations list says so); no M^n family, no 257-character source strings and no check against the reference's byte limits were executed. Whether such long source strings are accepted by the published schema/size guards is unverified. Nothing in the report contradicts the bound. This does not exhibit any hash collision and does not bound average-case compression.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "6d5b382f-c923-4938-9e53-8b93841d101a",
+      "source_fingerprint": "6df1527911764972accc61c259ae2abfa66cb62ae9554dc4fb81a4408335813a",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840",
+      "reviewer": "claude-opus-5 (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "claude-opus-5",
+        "reviewed_at": "2026-09-18T06:26:24+00:00",
+        "executed_report_sha256": "f22743c60a3d9ca5510e730a771924932538861f9491442c038ef90a11d7c74e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "6d5b382f-c923-4938-9e53-8b93841d101a_binary64-canonicalization-regression",
+      "type": "finding",
+      "text": "Assertions identical except valid_from 9007199254740992 versus 9007199254740993 (2^53 and 2^53+1), reusing one ID with a retraction between them, must remain distinguishable under the integer-valued v1 rules; the reference reader returns unknown for the exact duplicate and invalid for the off-by-one record. Any fingerprint or canonical-JSON step that converts integers to IEEE-754 binary64 before hashing would collapse this pair and could let a changed record pass as an exact duplicate. The submission attributes the numeric restriction to RFC 8785 section 3.1 and proposes an exact-integer parser with an injective, versioned preimage encoding, or an explicitly narrower new contract.",
+      "status": "reproduced",
+      "source_field": "evidence",
+      "quote": "A native binary64-number conversion can erase that distinction before hashing.",
+      "verification": "Reproduced narrowly: pmc_r3_large_valid_from_exact_duplicate returns unknown and pmc_r3_large_valid_from_off_by_one returns invalid on the pinned reference reader; pmc_r3_integer_canonical_json_keeps_off_by_one_distinct, an operator-authored check, reports exact_integer_digests_differ=true and binary64_conversion_collapses=true. No specific JCS library, exporter or deployed RESON component was tested, the RFC text was not consulted by this review, and the proposed parser/encoding remains a design proposal.\nExecution ledger: pmc_r3_large_valid_from_exact_duplicate, pmc_r3_large_valid_from_off_by_one, pmc_r3_integer_canonical_json_keeps_off_by_one_distinct",
+      "receipt": "6d5b382f-c923-4938-9e53-8b93841d101a",
+      "source_fingerprint": "6df1527911764972accc61c259ae2abfa66cb62ae9554dc4fb81a4408335813a",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840",
+      "reviewer": "claude-opus-5 (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "claude-opus-5",
+        "reviewed_at": "2026-09-18T06:26:24+00:00",
+        "executed_report_sha256": "f22743c60a3d9ca5510e730a771924932538861f9491442c038ef90a11d7c74e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "6d5b382f-c923-4938-9e53-8b93841d101a_necessity-not-sufficiency",
+      "type": "finding",
+      "text": "The submission fixes one valid query and allows arbitrary future schema-valid records, and correctly scopes its result as a necessary lower bound. It does not propose or validate any compact importer; sufficiency of any export still needs a separate invariant over all allowed continuations and queries, including multi-event interactions, cross-entity collisions and retractions of retractions. The cheapest disconfirmation is the two-history/same-continuation pair, and the submission states what would count as a counterexample (a self-contained deterministic mechanism with identical total state yielding both required answers) versus a change of contract.",
+      "status": "reasoned",
+      "source_field": "falsification",
+      "quote": "sufficiency of any proposed importer would still require a separate invariant covering all allowed continuations and queries.",
+      "verification": "Logical review of scope statements; consistent with the existing paired-continuation-test finding and with the report's limitations list (sufficiency of any compact representation and general hash-export correctness remain unexercised). No importer was implemented or executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "6d5b382f-c923-4938-9e53-8b93841d101a",
+      "source_fingerprint": "6df1527911764972accc61c259ae2abfa66cb62ae9554dc4fb81a4408335813a",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "8023e9a617bc7c494c207f9100fd2f9ed9be1360c57801b01ec33972044da840",
+      "reviewer": "claude-opus-5 (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "claude-opus-5",
+        "reviewed_at": "2026-09-18T06:26:24+00:00",
+        "executed_report_sha256": "f22743c60a3d9ca5510e730a771924932538861f9491442c038ef90a11d7c74e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
     }
   ],
   "edges": [
@@ -214,6 +298,26 @@
       "kind": "addresses"
     },
     {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_binary64-canonicalization-regression",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_necessity-not-sufficiency",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
       "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
       "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
       "kind": "supports",
@@ -248,6 +352,48 @@
       "target": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
       "kind": "qualifies",
       "reason": "Complete-answer comparison must preserve global invalidity, including collisions outside the queried entity and invalid retraction targets."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
+      "kind": "supports",
+      "reason": "Provides a smaller witness (one assertion plus its retraction) that retracted-record content, here only the source string, is required to preserve later collision detection."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
+      "target": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "kind": "supports",
+      "reason": "Instantiates the paired-continuation method with a minimal prefix and an executed divergence (unknown versus invalid)."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_minimality-not-proved",
+      "kind": "qualifies",
+      "reason": "Supplies a reasoned joint-state lower bound over all exact self-contained importers under stated assumptions, while agreeing that no per-ID hash layout is thereby required and that collision resistance is a separate guarantee."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "qualifies",
+      "reason": "A fixed-length digest cannot be unconditionally exact for a source alphabet larger than the digest space; the hash export can at most be computationally collision-resistant, not an exact equivalent."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_binary64-canonicalization-regression",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "tests",
+      "reason": "Any fingerprint importer must keep valid_from 2^53 and 2^53+1 distinct; a binary64-based canonicalization would fail this reproduced reference-reader distinction."
+    },
+    {
+      "source": "6d5b382f-c923-4938-9e53-8b93841d101a_necessity-not-sufficiency",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "qualifies",
+      "reason": "The lower bound is necessary only; sufficiency of any compact export still requires a separate invariant over all continuations and queries."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "target": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "kind": "qualifies",
+      "reason": "The bound relies on the v1 rule that a changed record with a retired ID makes the ledger invalid; a scoped or altered invalidity policy would change the argument's premises."
     }
   ],
   "warning": "Reviewed relations, not automatic truth or source independence."
