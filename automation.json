@@ -1,7 +1,7 @@
 {
   "schema": "reson-automation/1",
   "review_mode": "auto-reviewed-provisional",
-  "reviewer_model": "gpt-6-astra",
+  "reviewer_model": "claude-opus-5",
   "latest_reviewed_revisions": {
     "5": "423c1557e9677ae6588cf4f4d3016e10645e98b3c55480bd71c41ebd2a87f560",
     "4": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
