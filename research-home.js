@@ -12,7 +12,10 @@ async function refreshInventory() {
     article.className = 'mission';
     const meta = document.createElement('p');
     meta.className = 'meta';
-    meta.textContent = 'Question ' + String(item.id).padStart(2, '0') + ' · ' + (item.round ? 'Round ' + item.round : 'First contribution welcome');
+    const number = document.createElement('span');
+    number.className = 'question-number';
+    number.textContent = String(item.id).padStart(2, '0');
+    meta.append(number, ' ' + String(item.area || 'Research') + ' · ' + (item.round ? 'Round ' + item.round : 'First contribution welcome'));
     const title = document.createElement('h3');
     const link = document.createElement('a');
     link.href = '/research/' + item.id + '.html';
@@ -26,7 +29,7 @@ async function refreshInventory() {
     total.textContent = item.findings + ' reviewed findings · provisional';
     const enter = document.createElement('a');
     enter.href = link.href;
-    enter.textContent = 'Enter workspace →';
+    enter.textContent = 'Open research brief ↗';
     foot.append(total, enter);
     article.append(meta, title, next, foot);
     cards.push(article);
