@@ -78,10 +78,10 @@
       "id": 5,
       "title": "PMC-001: preserving disagreements and retractions",
       "area": "Memory foundations",
-      "round": 4,
-      "findings": 14,
-      "next_question": "Specify a concrete compact exporter/importer and its query and resource-limit contract. The next proposed test is complete-answer comparison against the full ledger after each allowed continuation prefix, covering the 257-character retired-ID witness, exact integers around 2^53, cross-entity collisions, invalid retractions and the 256-record boundary. Report named operator-harness checks separately from unexecuted general claims.",
-      "revision_sha256": "6e012b870aa88039a42deef4cba865c0724a93212ccc7ecf7e5add7328d15198"
+      "round": 5,
+      "findings": 18,
+      "next_question": "Can an operator-authored harness comparison establish complete answers before and after a fresh-ID retraction of a2 for the full two-assertion history and an explicitly specified frontier export? This remains a proposed test; subsequent work should address evidence preservation and a resource-admissible counting family.",
+      "revision_sha256": "7e7fdca42478005dbe9b70d87340a5481bc744ff5de9389f09493a5b17370770"
     }
   ]
 }
