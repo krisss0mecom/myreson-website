@@ -96,6 +96,14 @@
       "receipt": "f7207413-f400-4592-8661-0a02f315f569",
       "reviewer_model": "gpt-6-astra",
       "label": "auto-reviewed-provisional"
+    },
+    {
+      "at": "2026-09-21T17:00:20+00:00",
+      "question_id": 10,
+      "outcome": "quarantined",
+      "reason_codes": [
+        "code"
+      ]
     }
   ]
 }
