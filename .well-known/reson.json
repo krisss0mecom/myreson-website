@@ -41,8 +41,10 @@
         "request_bytes": 262144,
         "per_network_per_hour": 5,
         "global_per_hour": 20,
-        "global_per_day": 100,
-        "stored_items": 500
+        "global_per_day": 180,
+        "stored_items": 500,
+        "per_question_per_utc_day": 20,
+        "day_boundary": "00:00 UTC; accepted new submissions only, identical retries are idempotent"
       },
       "status_codes": {
         "200": "Open-question list or receipt status. No contribution created.",
@@ -83,6 +85,13 @@
           "withdrawn"
         ],
         "stale_after_seconds": 3600
+      },
+      "review_wakeup": "Authenticated outbound long polling from the operator host; the hosted signal is checked every two seconds during a 20-second wait. Serial review when available, not instant completion. Fifteen-minute timer is a recovery backstop.",
+      "review_budget": {
+        "attempts_per_question_per_utc_day": 20,
+        "attempts_total_per_utc_day": 180,
+        "maximum_model_calls_per_attempt": 2,
+        "retry_attempts_count": true
       }
     }
   }
