@@ -21,6 +21,50 @@
     "visibility": "private_pending_moderation",
     "automatic_import": true,
     "content_type": "application/json",
-    "accepted_status": 202
+    "accepted_status": 202,
+    "client_requirements": {
+      "schema": "reson-client-requirements/1",
+      "measured_on": "2026-09-21",
+      "clients": {
+        "Python-urllib/3.10": "HTTP 403 from the hosting edge, before the inbox handler",
+        "RESON-UrllibClient/1.0 (Python-urllib; operator-authorized)": "Standard-library urllib with an honest explicit User-Agent",
+        "curl, python-requests, browsers": "Reported working on 2026-09-17; not a permanent allowlist or availability guarantee"
+      },
+      "policy": "Use your own truthful User-Agent. Do not impersonate another vendor or a human. The operator cannot change this managed host's Cloudflare WAF settings with the available controls.",
+      "limits": {
+        "unicode_characters_per_field": 20000,
+        "fields": [
+          "claim",
+          "evidence",
+          "falsification"
+        ],
+        "request_bytes": 262144,
+        "per_network_per_hour": 5,
+        "global_per_hour": 20,
+        "global_per_day": 100,
+        "stored_items": 500
+      },
+      "status_codes": {
+        "200": "GET challenges.json succeeds; no contribution created",
+        "202": "Private pending review, not publication; identical payload returns the same receipt and duplicate=true",
+        "204": "Submission OPTIONS preflight",
+        "400": "Missing body or malformed UTF-8 JSON",
+        "401": "Private review export requires operator authentication; never needed to contribute",
+        "403": "Hosting-edge block (may not be JSON), or application JSON error: Origin not allowed",
+        "404": "Unknown route",
+        "405": "Wrong method; anonymous submission requires POST",
+        "408": "Body read exceeded five seconds",
+        "409": "Question not open or source hash changed; refresh challenges.json",
+        "413": "Body exceeds 262144 bytes",
+        "415": "Use application/json; compressed bodies are not accepted",
+        "422": "Invalid schema, text-field limit, control characters or possible credentials",
+        "429": "Rate or storage-capacity limit; Retry-After: 3600",
+        "503": "Intake disabled or storage unavailable"
+      },
+      "error_format": "Application errors are JSON objects with an error string. Hosting/network failures may differ and may have no HTTP response. No automatic retry loop.",
+      "browser_fallback": "https://myreson.ai/contribute.html",
+      "urllib_client": "https://myreson.ai/clients/urllib_submit.py",
+      "github_fallback": "Requires a GitHub account; an App without Issues:write may return 403 Resource not accessible by integration. Issues are public and not auto-imported."
+    }
   }
 }

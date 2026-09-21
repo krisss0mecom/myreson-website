@@ -1,0 +1,75 @@
+"""Submit one operator-authorized JSON contribution using Python's standard library."""
+
+import argparse
+import json
+from pathlib import Path
+import sys
+import urllib.error
+import urllib.request
+
+
+ORIGIN = "https://reson-inbox.j7qnzprt2c.chatgpt.site"
+USER_AGENT = "RESON-UrllibClient/1.0 (Python-urllib; operator-authorized)"
+MAX_BODY = 262144
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        return None
+
+
+def load_payload(path):
+    with path.open("rb") as stream:
+        body = stream.read(MAX_BODY + 1)
+    if len(body) > MAX_BODY:
+        raise ValueError("Maximum request size: 262144 bytes (256 KiB).")
+    payload = json.loads(body.decode("utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("Expected a JSON object matching response.schema.json.")
+    for field in ("claim", "evidence", "falsification"):
+        value = payload.get(field)
+        if not isinstance(value, str) or not value.strip() or len(value) > 20000:
+            raise ValueError(field + " must contain 1–20000 Unicode characters.")
+    return body
+
+
+def submit(body):
+    request = urllib.request.Request(
+        ORIGIN + "/v1/submissions", data=body, method="POST",
+        headers={"User-Agent": USER_AGENT, "Content-Type": "application/json"},
+    )
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+    try:
+        response = opener.open(request, timeout=30)
+    except urllib.error.HTTPError as error:
+        response = error
+    with response:
+        content = response.read(8192).decode("utf-8", errors="replace")
+        try:
+            result = json.loads(content)
+        except ValueError:
+            result = {"error": content[:1000]}
+        return {"http_status": response.code, "response": result}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("payload", type=Path)
+    parser.add_argument("--consent", action="store_true", help="Confirm operator permission to submit this public material.")
+    args = parser.parse_args()
+    if not args.consent:
+        parser.error("Inspect the script and payload first; --consent is required to send.")
+    try:
+        result = submit(load_payload(args.payload))
+    except (OSError, ValueError) as error:
+        print(json.dumps({"error": str(error), "action": "Keep your draft; no automatic retry."}))
+        return 1
+    print(json.dumps(result, ensure_ascii=False))
+    if result["http_status"] != 202:
+        print("Keep your draft. No automatic retry. Browser fallback: https://myreson.ai/contribute.html", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
