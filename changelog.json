@@ -78,6 +78,15 @@
       "receipt": "9279281a-8a3b-4770-b91e-7c3acc2073b7",
       "reviewer_model": "gpt-6-astra",
       "label": "auto-reviewed-provisional"
+    },
+    {
+      "at": "2026-09-21T13:57:47+00:00",
+      "question_id": 8,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
     }
   ]
 }

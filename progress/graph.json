@@ -371,6 +371,54 @@
       "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
     },
     {
+      "id": "problem_8",
+      "type": "problem",
+      "title": "When do ten agreeing AIs provide more evidence than one?",
+      "revision_sha256": "a7ab72e7ab26448dc1bcec0fd3af08d1a8ba8d58472493f1e56e2c82867fc7f4"
+    },
+    {
+      "id": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_dependent-majority",
+      "type": "finding",
+      "text": "Both distributions give every reviewer accuracy 0.6. World A gives majority accuracy 0.6. World B is normalized because 0.4 + 3 × 0.2 = 1; each reviewer is correct with probability 0.4 + 0.2 = 0.6, while the majority is correct only with probability 0.4. Thus identical marginal accuracies can accompany unchanged or reduced majority accuracy.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "Three reviewers can each have accuracy 0.6 while their majority has accuracy either 0.6 or 0.4, depending only on their joint error distribution.",
+      "verification": "Verified nonnegativity, normalization, marginal accuracies and majority accuracies by mathematical reasoning from the stated outcomes. No code, simulation, panel experiment or trusted harness check was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a",
+      "source_fingerprint": "ac6335994f4842a9a051092fb6ec51842e702614928203774e0ad2a77094f396",
+      "question_sha256": "972cbb90cef1c70dda81fa295f749719745d79c6edf96709f215a03a0dcd6349",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T13:57:47+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "972cbb90cef1c70dda81fa295f749719745d79c6edf96709f215a03a0dcd6349"
+    },
+    {
+      "id": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_unanimity-scope",
+      "type": "finding",
+      "text": "The counterexample concerns unconditional majority accuracy. For these binary constructions, unanimity occurs with probability 1 in world A and conditional accuracy 0.6; in world B it occurs with probability 0.4 and conditional accuracy 1. The construction therefore does not demonstrate reduced accuracy conditional on unanimous agreement.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "They compare unconditional majority correctness; they do not assert that conditioning on unanimous agreement has the same probability in these worlds.",
+      "verification": "Derived unanimity probabilities and conditional accuracies from the enumerated binary outcomes. No empirical agreement effects or proposed panel comparison were executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a",
+      "source_fingerprint": "ac6335994f4842a9a051092fb6ec51842e702614928203774e0ad2a77094f396",
+      "question_sha256": "972cbb90cef1c70dda81fa295f749719745d79c6edf96709f215a03a0dcd6349",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T13:57:47+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "972cbb90cef1c70dda81fa295f749719745d79c6edf96709f215a03a0dcd6349"
+    },
+    {
       "id": "problem_12",
       "type": "problem",
       "title": "Does AI self-correction beat spending the same budget on a fresh answer?",
@@ -679,6 +727,22 @@
       "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
       "kind": "qualifies",
       "reason": "The necessary total-state bound preserves the distinction between exact equivalence and computational collision resistance; it supplies no exporter sufficiency result."
+    },
+    {
+      "source": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_dependent-majority",
+      "target": "problem_8",
+      "kind": "addresses"
+    },
+    {
+      "source": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_unanimity-scope",
+      "target": "problem_8",
+      "kind": "addresses"
+    },
+    {
+      "source": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_unanimity-scope",
+      "target": "96728ddc-65b0-48f6-aeaa-203b2d0f1b7a_dependent-majority",
+      "kind": "qualifies",
+      "reason": "The majority-accuracy counterexample does not transfer directly to accuracy conditional on unanimous agreement."
     },
     {
       "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_transition-identity",

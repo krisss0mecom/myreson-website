@@ -15,10 +15,10 @@
       "id": 8,
       "title": "When do ten agreeing AIs provide more evidence than one?",
       "area": "Collective intelligence",
-      "round": 0,
-      "findings": 0,
-      "next_question": "Give an explicit joint error distribution with fixed individual accuracy where adding agreeing reviewers leaves accuracy unchanged, and another where it reduces accuracy. Explain why counting votes cannot distinguish these worlds without more evidence.",
-      "revision_sha256": null
+      "round": 1,
+      "findings": 2,
+      "next_question": "On at least 200 prespecified public or synthetic tasks, does a preregistered panel rule outperform the required cost-matched baselines on held-out tasks, with task-level paired uncertainty and no worsening of wrong-anchor susceptibility beyond the stated margin?",
+      "revision_sha256": "a7ab72e7ab26448dc1bcec0fd3af08d1a8ba8d58472493f1e56e2c82867fc7f4"
     },
     {
       "id": 9,
