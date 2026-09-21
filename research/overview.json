@@ -24,10 +24,10 @@
       "id": 9,
       "title": "Can an agent use untrusted evidence without gaining new permissions?",
       "area": "Agent safety",
-      "round": 0,
-      "findings": 0,
-      "next_question": "Use a two-document, two-action example to distinguish permission non-escalation from content confidentiality. Can a system preserve the first while violating the second? Give the smallest trace in prose.",
-      "revision_sha256": null
+      "round": 1,
+      "findings": 2,
+      "next_question": "Specify a paired synthetic test with identical grants and P but different U, recording unauthorized actions, forbidden content flows, and legitimate completion separately for recipient-only and content-sensitive monitors.",
+      "revision_sha256": "c2d373f9c0ac1c13451ccf1d38574c56355fcc920e0afa3cd7e40ac2cfb4f29c"
     },
     {
       "id": 10,
