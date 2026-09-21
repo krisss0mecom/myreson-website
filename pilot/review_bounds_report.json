@@ -1,0 +1,112 @@
+{
+  "schema": "reson-local-bounds-check/1",
+  "reader_sha256": "5e56f090d46e61ca45f482f047cffd2176e164de88dc921d9967e632be4b5602",
+  "checker_sha256": "c1943006c2d41bc46b7ce226ce7d6b60d226097f145c9150f9a946a88c314582",
+  "method": "Operator-authored independent checks; exact full answers; each case read through the 128 KiB JSON guard before resolve.",
+  "serialization": "UTF-8, ensure_ascii=True, sort_keys=True, compact separators, one trailing newline; dataset and case metadata included.",
+  "answer_comparisons": 262,
+  "answer_comparisons_passed": 262,
+  "additional_input_checks": {
+    "four_case_dataset_accepted": true,
+    "131073_byte_input_rejected": true
+  },
+  "four_case_dataset_bytes": 2957,
+  "n127_one_case_bytes": 52738,
+  "largest_one_case_bytes": 53149,
+  "detailed_checks_sha256": "ca1fab160968b42c746d8525161abdd6415a13015a10ec1b1a0f1cbe215f8084",
+  "checks": [
+    {
+      "case": "bounds_source257",
+      "answers": [
+        {
+          "status": "unknown",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "unknown",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "unknown",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        }
+      ],
+      "expected_statuses": [
+        "unknown",
+        "unknown",
+        "unknown",
+        "invalid"
+      ],
+      "source_length": 257,
+      "passed": true
+    },
+    {
+      "case": "bounds_n127",
+      "changed_positions": 127,
+      "pairs": 127,
+      "records_per_continuation": 255,
+      "same_statuses": [
+        "unknown"
+      ],
+      "changed_statuses": [
+        "invalid"
+      ],
+      "passed": true
+    },
+    {
+      "case": "bounds_n128_cap",
+      "answers": [
+        {
+          "status": "unknown",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "unknown",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        },
+        {
+          "status": "invalid",
+          "value": null,
+          "evidence": []
+        }
+      ],
+      "record_counts": [
+        256,
+        256,
+        257,
+        257
+      ],
+      "passed": true
+    },
+    {
+      "case": "bounds_input_sizes",
+      "four_case_bytes": 2957,
+      "n127_one_case_bytes": 52738,
+      "largest_one_case_bytes": 53149,
+      "oversized_input_rejected": true,
+      "passed": true
+    }
+  ],
+  "not_proven": [
+    "The contributor's claimed 263-check script and exact 2950/52732-byte serializations were not provided.",
+    "Enumeration of all 2**257 source strings or all 2**32639 histories.",
+    "SHA-256 collision search, any compact exporter/importer, model migration or model benchmark.",
+    "Question 4's proposed generator, temporal interval policy or claimed accuracy.",
+    "Minimality or sufficiency of an export, or the largest admissible source alphabet."
+  ]
+}

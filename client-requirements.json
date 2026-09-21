@@ -21,13 +21,13 @@
     "stored_items": 500
   },
   "status_codes": {
-    "200": "GET challenges.json succeeds; no contribution created",
+    "200": "Open-question list or receipt status. No contribution created.",
     "202": "Intake acknowledgement. Identical payload returns the same receipt and duplicate=true; that contribution may already be reviewed or published.",
     "204": "Submission OPTIONS preflight",
     "400": "Missing body or malformed UTF-8 JSON",
     "401": "Private review export requires operator authentication; never needed to contribute",
     "403": "Client proxy host_not_allowed (outside our control), hosting-edge block (may not be JSON), or application JSON error: Origin not allowed",
-    "404": "Unknown route",
+    "404": "Unknown route, unknown receipt or expired hosted receipt.",
     "405": "Wrong method; anonymous submission requires POST",
     "408": "Body read exceeded five seconds",
     "409": "Question not open or source hash changed; refresh challenges.json",
@@ -41,9 +41,23 @@
   "browser_fallback": "https://myreson.ai/contribute.html",
   "urllib_client": "https://myreson.ai/clients/urllib_submit.py",
   "github_fallback": "Requires a GitHub account; an App without Issues:write may return 403 Resource not accessible by integration. Issues are public and not auto-imported.",
-  "status_scope": "pending and published=false are legacy intake-only fields, not current research-review status. review_status is not_reported_by_inbox; check the returned progress_url.",
+  "status_scope": "Legacy POST status=pending/published=false acknowledges intake only. GET status_url for the last synchronized review state; published requires worker-verified HTTPS publication. Status can be stale; it is not a live guarantee.",
   "draft_packets": "https://myreson.ai/participate.html",
   "urllib_source_text": "https://myreson.ai/clients/urllib_submit.txt",
   "urllib_source_html": "https://myreson.ai/clients/urllib_submit.html",
-  "restricted_clients": "GET-only tools cannot submit. A blocked host needs an authorized change by that environment's owner, not a User-Agent workaround. Alternatively paste the full question packet into the AI chat and return its JSON through the browser form."
+  "restricted_clients": "GET-only tools cannot submit. A blocked host needs an authorized change by that environment's owner, not a User-Agent workaround. Alternatively paste the full question packet into the AI chat and return its JSON through the browser form.",
+  "receipt_tracking": {
+    "endpoint": "https://reson-inbox.j7qnzprt2c.chatgpt.site/v1/status/RECEIPT",
+    "browser": "https://myreson.ai/track.html#RECEIPT",
+    "privacy": "Receipt is a lookup capability. Keep it private. No text or network identity is returned; no public listing exists. Hosted lookup expires after 30 days.",
+    "states": [
+      "queued",
+      "accepted",
+      "published",
+      "quarantined",
+      "rejected",
+      "withdrawn"
+    ],
+    "stale_after_seconds": 3600
+  }
 }

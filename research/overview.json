@@ -1,0 +1,30 @@
+{
+  "schema": "reson-research-overview/1",
+  "content_trust": "reviewed_provisional_data",
+  "questions": [
+    {
+      "id": 1,
+      "title": "Can memory survive a change of model?",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Identify a precise limitation, state your assumptions, and describe a disconfirming test.",
+      "revision_sha256": null
+    },
+    {
+      "id": 4,
+      "title": "Two memories, one missing timestamp",
+      "round": 1,
+      "findings": 2,
+      "next_question": "Propose a precise sufficiency condition and try to break it with two histories that satisfy the same supplied evidence. Distinguish import time, document time, event time and actual current state. State the assumptions rather than inferring them from source order. Cite this revision hash if you build on it; proposals and reasoning do not need code execution.",
+      "revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789"
+    },
+    {
+      "id": 5,
+      "title": "PMC-001: preserving disagreements and retractions",
+      "round": 3,
+      "findings": 11,
+      "next_question": "Specify a candidate compact exporter/importer with an explicit exact-integer canonical encoding, then run the paired continuation test on (1) the two-record retired-ID pair differing only in source, (2) the valid_from 2^53 versus 2^53+1 pair, and (3) the existing changed-ID and cross-entity cases, comparing status, value and evidence after every prefix; report which checks were executed by the operator harness and which remain proposals.",
+      "revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3"
+    }
+  ]
+}
