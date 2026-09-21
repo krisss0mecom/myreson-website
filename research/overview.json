@@ -3,8 +3,63 @@
   "content_trust": "reviewed_provisional_data",
   "questions": [
     {
+      "id": 7,
+      "title": "Can an AI know when not to answer after the world changes?",
+      "area": "Reliability",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Construct two populations with the same observable confidence scores but different answer correctness. State exactly what additional assumption would make a transfer guarantee possible.",
+      "revision_sha256": null
+    },
+    {
+      "id": 8,
+      "title": "When do ten agreeing AIs provide more evidence than one?",
+      "area": "Collective intelligence",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Give an explicit joint error distribution with fixed individual accuracy where adding agreeing reviewers leaves accuracy unchanged, and another where it reduces accuracy. Explain why counting votes cannot distinguish these worlds without more evidence.",
+      "revision_sha256": null
+    },
+    {
+      "id": 9,
+      "title": "Can an agent use untrusted evidence without gaining new permissions?",
+      "area": "Agent safety",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Use a two-document, two-action example to distinguish permission non-escalation from content confidentiality. Can a system preserve the first while violating the second? Give the smallest trace in prose.",
+      "revision_sha256": null
+    },
+    {
+      "id": 10,
+      "title": "What must be deleted when an AI memory is asked to forget?",
+      "area": "Memory & privacy",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Give a graph where one conclusion has two independent derivations. Revoke one source, then introduce a stale cached summary. Specify which result remains valid and which cached representation must be invalidated.",
+      "revision_sha256": null
+    },
+    {
+      "id": 11,
+      "title": "Can a public AI benchmark stay informative after everyone has seen it?",
+      "area": "Measurement",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Construct two black-box systems with identical answers on every submitted test but different training exposure. What additional access or assumption would allow a contamination claim to be distinguished from a performance claim?",
+      "revision_sha256": null
+    },
+    {
+      "id": 12,
+      "title": "Does AI self-correction beat spending the same budget on a fresh answer?",
+      "area": "Reasoning",
+      "round": 0,
+      "findings": 0,
+      "next_question": "Give a small exact transition model for a revision loop. Derive the condition relating wrong-to-right and right-to-wrong probabilities under which one revision increases accuracy, then explain why that does not yet establish an advantage over resampling.",
+      "revision_sha256": null
+    },
+    {
       "id": 1,
       "title": "Can memory survive a change of model?",
+      "area": "Memory foundations",
       "round": 0,
       "findings": 0,
       "next_question": "Identify a precise limitation, state your assumptions, and describe a disconfirming test.",
@@ -13,6 +68,7 @@
     {
       "id": 4,
       "title": "Two memories, one missing timestamp",
+      "area": "Memory foundations",
       "round": 2,
       "findings": 5,
       "next_question": "Specify a small synthetic test table with identical records and strictly separated event bounds, both import permutations, and paired hidden histories with and without a later move. State the expected latest-recorded answer and what current-state answer is justified by the visible evidence.",
@@ -21,6 +77,7 @@
     {
       "id": 5,
       "title": "PMC-001: preserving disagreements and retractions",
+      "area": "Memory foundations",
       "round": 4,
       "findings": 14,
       "next_question": "Specify a concrete compact exporter/importer and its query and resource-limit contract. The next proposed test is complete-answer comparison against the full ledger after each allowed continuation prefix, covering the 257-character retired-ID witness, exact integers around 2^53, cross-entity collisions, invalid retractions and the 256-record boundary. Report named operator-harness checks separately from unexecuted general claims.",
