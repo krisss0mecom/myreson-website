@@ -369,6 +369,75 @@
         "executed_report_sha256": "60bc7927fa213959d764bf3bf92350065b38e270ed4464fe5e4b2f11a29a993a"
       },
       "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "problem_12",
+      "type": "problem",
+      "title": "Does AI self-correction beat spending the same budget on a fresh answer?",
+      "revision_sha256": "b40b8723bb7b66ae3a5c93d7ca6fbfc949da85ae21cba6b37ce5e09f795d6f77"
+    },
+    {
+      "id": "9279281a-8a3b-4770-b91e-7c3acc2073b7_transition-identity",
+      "type": "finding",
+      "text": "For initial accuracy p, conditional correction rate c and conditional regression rate r, final accuracy is p(1-r)+(1-p)c. Accuracy increases exactly when (1-p)c>pr. The stated examples yield 0.66 and 0.52. Independence between initial and final correctness is unnecessary.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "Thus the gain is (one minus p) multiplied by c, minus p multiplied by r.",
+      "verification": "Derived by partitioning the joint correctness table into initially correct and initially wrong cases; both numerical examples were checked by arithmetic. Zero-mass states contribute zero without requiring defined conditional rates. No harness, code or model evaluation was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9279281a-8a3b-4770-b91e-7c3acc2073b7",
+      "source_fingerprint": "1ec4371b03934bcecc1a30f003340a8b8752dd1bb190c11d0d27e9a3aa8310fd",
+      "question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T13:51:36+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e"
+    },
+    {
+      "id": "9279281a-8a3b-4770-b91e-7c3acc2073b7_budget-comparison",
+      "type": "finding",
+      "text": "Improvement over initial accuracy does not establish an advantage over cost-matched resampling. That comparison remains untested.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "This condition by itself says nothing about whether revision beats cost-matched independent resampling.",
+      "verification": "The transition identity contains no resampling accuracy or inference-cost terms, so it cannot establish comparative efficiency. No cost-matched comparison was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9279281a-8a3b-4770-b91e-7c3acc2073b7",
+      "source_fingerprint": "1ec4371b03934bcecc1a30f003340a8b8752dd1bb190c11d0d27e9a3aa8310fd",
+      "question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T13:51:36+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e"
+    },
+    {
+      "id": "9279281a-8a3b-4770-b91e-7c3acc2073b7_outcome-scope",
+      "type": "finding",
+      "text": "The identity assumes a common task population, binary correctness and a returned revision for every task. Selective revision, abstention or other scoring requires explicit outcome and denominator handling; estimating transition rates requires paired observations and uncertainty estimates.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "The comparison is over the same task population with a binary correctness criterion and a revision returned for every task.",
+      "verification": "Reviewed the assumptions needed for the two-state partition. Selective revision can retain the identity if unchanged answers count as final outputs for every task; conditioning only on selected tasks changes the estimand. No task observations or extended outcome model were evaluated.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9279281a-8a3b-4770-b91e-7c3acc2073b7",
+      "source_fingerprint": "1ec4371b03934bcecc1a30f003340a8b8752dd1bb190c11d0d27e9a3aa8310fd",
+      "question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T13:51:36+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f04367fc1c195a766102dba706c3da45d14450f5b88e52635d59f5e0f0287d1e"
     }
   ],
   "edges": [
@@ -610,6 +679,33 @@
       "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
       "kind": "qualifies",
       "reason": "The necessary total-state bound preserves the distinction between exact equivalence and computational collision resistance; it supplies no exporter sufficiency result."
+    },
+    {
+      "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_transition-identity",
+      "target": "problem_12",
+      "kind": "addresses"
+    },
+    {
+      "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_budget-comparison",
+      "target": "problem_12",
+      "kind": "addresses"
+    },
+    {
+      "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_outcome-scope",
+      "target": "problem_12",
+      "kind": "addresses"
+    },
+    {
+      "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_budget-comparison",
+      "target": "9279281a-8a3b-4770-b91e-7c3acc2073b7_transition-identity",
+      "kind": "qualifies",
+      "reason": "The identity establishes improvement relative to initial accuracy, without establishing superiority over another budget-matched method."
+    },
+    {
+      "source": "9279281a-8a3b-4770-b91e-7c3acc2073b7_outcome-scope",
+      "target": "9279281a-8a3b-4770-b91e-7c3acc2073b7_transition-identity",
+      "kind": "qualifies",
+      "reason": "The stated population and outcome assumptions determine when the two-state identity applies directly."
     }
   ],
   "warning": "Reviewed relations, not automatic truth or source independence."

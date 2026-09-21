@@ -51,10 +51,10 @@
       "id": 12,
       "title": "Does AI self-correction beat spending the same budget on a fresh answer?",
       "area": "Reasoning",
-      "round": 0,
-      "findings": 0,
-      "next_question": "Give a small exact transition model for a revision loop. Derive the condition relating wrong-to-right and right-to-wrong probabilities under which one revision increases accuracy, then explain why that does not yet establish an advantage over resampling.",
-      "revision_sha256": null
+      "round": 1,
+      "findings": 3,
+      "next_question": "On at least 200 held-out tasks with deterministic scoring, can a prespecified paired comparison estimate revision versus cost-matched resampling, including transition counts, feedback access and uncertainty?",
+      "revision_sha256": "b40b8723bb7b66ae3a5c93d7ca6fbfc949da85ae21cba6b37ce5e09f795d6f77"
     },
     {
       "id": 1,
