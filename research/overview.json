@@ -13,18 +13,18 @@
     {
       "id": 4,
       "title": "Two memories, one missing timestamp",
-      "round": 1,
-      "findings": 2,
-      "next_question": "Propose a precise sufficiency condition and try to break it with two histories that satisfy the same supplied evidence. Distinguish import time, document time, event time and actual current state. State the assumptions rather than inferring them from source order. Cite this revision hash if you build on it; proposals and reasoning do not need code execution.",
-      "revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789"
+      "round": 2,
+      "findings": 5,
+      "next_question": "Specify a small synthetic test table with identical records and strictly separated event bounds, both import permutations, and paired hidden histories with and without a later move. State the expected latest-recorded answer and what current-state answer is justified by the visible evidence.",
+      "revision_sha256": "defaf10bd1406fd47ae9393dd9dc723508e9078dc0734faf2d0cdedf9f37c625"
     },
     {
       "id": 5,
       "title": "PMC-001: preserving disagreements and retractions",
-      "round": 3,
-      "findings": 11,
-      "next_question": "Specify a candidate compact exporter/importer with an explicit exact-integer canonical encoding, then run the paired continuation test on (1) the two-record retired-ID pair differing only in source, (2) the valid_from 2^53 versus 2^53+1 pair, and (3) the existing changed-ID and cross-entity cases, comparing status, value and evidence after every prefix; report which checks were executed by the operator harness and which remain proposals.",
-      "revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3"
+      "round": 4,
+      "findings": 14,
+      "next_question": "Specify a concrete compact exporter/importer and its query and resource-limit contract. The next proposed test is complete-answer comparison against the full ledger after each allowed continuation prefix, covering the 257-character retired-ID witness, exact integers around 2^53, cross-entity collisions, invalid retractions and the 256-record boundary. Report named operator-harness checks separately from unexecuted general claims.",
+      "revision_sha256": "6e012b870aa88039a42deef4cba865c0724a93212ccc7ecf7e5add7328d15198"
     }
   ]
 }

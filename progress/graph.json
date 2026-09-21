@@ -5,7 +5,7 @@
       "id": "problem_4",
       "type": "problem",
       "title": "Two memories, one missing timestamp",
-      "revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789"
+      "revision_sha256": "defaf10bd1406fd47ae9393dd9dc723508e9078dc0734faf2d0cdedf9f37c625"
     },
     {
       "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
@@ -38,10 +38,73 @@
       "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
     },
     {
+      "id": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_separated-event-intervals",
+      "type": "finding",
+      "text": "Strictly separated event-time bounds suffice to order the two represented events, conditional on valid bounds on a common time scale. This is not a globally minimal metadata requirement: direct relative-order evidence can also suffice.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "Let the event times lie in closed uncertainty intervals [lA,uA] and [lB,uB], with uA strictly less than lB.",
+      "verification": "Reasoned that tA <= uA < lB <= tB implies tA < tB for every compatible assignment. This adds evidence absent from the original undated inputs and does not validate the bounds themselves. No execution occurred.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "00e32eef-b8c2-40e3-bf63-2b9d2b592891",
+      "source_fingerprint": "3e17817ca73351db1fb84efcac31206338b4825f16b6438d4c0807e858a20c00",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:45:31+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_current-state-gap",
+      "type": "finding",
+      "text": "Ordering represented events does not establish source truthfulness or actual current residence. A later unrecorded move remains compatible; a current-state conclusion requires trustworthy query-time evidence or justified persistence and coverage assumptions.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "The supplied Porto-then-Oslo record remains compatible with a later unrecorded move to Lisbon, so it does not settle the current city.",
+      "verification": "Reasoned that histories with and without a subsequent move preserve the same recorded events while differing at query time. Event-occurrence bounds alone do not establish residence validity or reliability. No histories were executed or observations obtained.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "00e32eef-b8c2-40e3-bf63-2b9d2b592891",
+      "source_fingerprint": "3e17817ca73351db1fb84efcac31206338b4825f16b6438d4c0807e858a20c00",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:45:31+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "type": "finding",
+      "text": "The proposed evaluation separates import order, document dates, event order, reliability and hidden changes, while distinguishing latest-recorded and actual-current targets. The 50 percent baseline is conditional on a balanced pair of import permutations with different values and a fixed event-latest target.",
+      "status": "hypothesis",
+      "source_field": "falsification",
+      "quote": "Proposed synthetic evaluation, not yet executed: hold the recorded event order fixed while permuting import order;",
+      "verification": "Reviewed the proposed controls conceptually. Under the specified balanced two-permutation setup, import-last selects the event-latest value in one permutation out of two. No generator, model comparison or benchmark was executed; the claimed PMC-001 contract was not independently inspected.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "00e32eef-b8c2-40e3-bf63-2b9d2b592891",
+      "source_fingerprint": "3e17817ca73351db1fb84efcac31206338b4825f16b6438d4c0807e858a20c00",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": "7fb6bc07e5e588012f391b427356a9727722b574fb7bba812b6ea4d7be4d3789",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:45:31+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
       "id": "problem_5",
       "type": "problem",
       "title": "PMC-001: preserving disagreements and retractions",
-      "revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3"
+      "revision_sha256": "6e012b870aa88039a42deef4cba865c0724a93212ccc7ecf7e5add7328d15198"
     },
     {
       "id": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -117,48 +180,6 @@
       "base_revision_sha256": null,
       "reviewer": "Codex acting for the project operator; local reproduction, not an independent outside participant",
       "reviewed_question_sha256": "138ecb26f60bd5aa328bda6493d05cdf7281e9102bc11b813513a0d40adece7c"
-    },
-    {
-      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
-      "type": "finding",
-      "text": "Under the declared order-insensitive contract, permutation invariance is required but does not establish compact-export equivalence under future arrivals. Shuffling an initial history does not test a changed record introduced later.",
-      "status": "reasoned",
-      "source_field": "claim",
-      "quote": "Permutation invariance of the full reader is necessary but not sufficient to establish compact-export equivalence under future arrivals.",
-      "verification": "Reasoned from the difference between reordering existing records and extending a history. The submission appropriately qualifies necessity when arrival order has contractual meaning. The supplied execution report supports the existing retired-ID counterexample; it does not establish universal permutation invariance. No new permutation or continuation tests were executed by this review.\nExecution ledger: No execution attributed to this finding; reasoning only.",
-      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
-      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
-      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
-      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
-      "reviewer": "gpt-6-astra (automatic, provisional)",
-      "automation": {
-        "mode": "auto-reviewed-provisional",
-        "model": "gpt-6-astra",
-        "reviewed_at": "2026-09-17T18:35:42+00:00",
-        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
-      },
-      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
-    },
-    {
-      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
-      "type": "finding",
-      "text": "Comparing full and compact representations after identical continuations is a useful proposed falsification method. Comparison must include status, value and evidence under unchanged semantics. Future arrivals are explicitly included, but the allowed query family and coverage of longer continuations remain unspecified.",
-      "status": "reasoned",
-      "source_field": "evidence",
-      "quote": "The proposed comparison starts with two representations of the same history, appends the same future event to each, and compares complete answers including status and evidence.",
-      "verification": "Logical review supports this design as a way to expose divergent behavior. The supplied report documents one relevant existing example, not execution of this submission's general proposal. A finite passing collection cannot establish equivalence for all future streams or arbitrary new queries, and no minimality proof or new implementation was supplied.\nExecution ledger: No execution attributed to this finding; reasoning only.",
-      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
-      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
-      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
-      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
-      "reviewer": "gpt-6-astra (automatic, provisional)",
-      "automation": {
-        "mode": "auto-reviewed-provisional",
-        "model": "gpt-6-astra",
-        "reviewed_at": "2026-09-17T18:35:42+00:00",
-        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
-      },
-      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
     },
     {
       "id": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
@@ -243,6 +264,111 @@
         "executed_report_sha256": "f22743c60a3d9ca5510e730a771924932538861f9491442c038ef90a11d7c74e"
       },
       "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
+      "type": "finding",
+      "text": "Under the declared order-insensitive contract, permutation invariance is required but does not establish compact-export equivalence under future arrivals. Shuffling an initial history does not test a changed record introduced later.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "Permutation invariance of the full reader is necessary but not sufficient to establish compact-export equivalence under future arrivals.",
+      "verification": "Reasoned from the difference between reordering existing records and extending a history. The submission appropriately qualifies necessity when arrival order has contractual meaning. The supplied execution report supports the existing retired-ID counterexample; it does not establish universal permutation invariance. No new permutation or continuation tests were executed by this review.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
+      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-17T18:35:42+00:00",
+        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "type": "finding",
+      "text": "Comparing full and compact representations after identical continuations is a useful proposed falsification method. Comparison must include status, value and evidence under unchanged semantics. Future arrivals are explicitly included, but the allowed query family and coverage of longer continuations remain unspecified.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "The proposed comparison starts with two representations of the same history, appends the same future event to each, and compares complete answers including status and evidence.",
+      "verification": "Logical review supports this design as a way to expose divergent behavior. The supplied report documents one relevant existing example, not execution of this submission's general proposal. A finite passing collection cannot establish equivalence for all future streams or arbitrary new queries, and no minimality proof or new implementation was supplied.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "f0a0113c-a678-4110-b00b-2f363fdd5073",
+      "source_fingerprint": "21e42e5367bfeb316107c0af037d18f200b8a1f593defb8ff037f3ce5ae803ce",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "90e8a43b1c369e2193cacd86bc7aae4e754fcb325cc3cfd5cefbe91206d99d41",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-17T18:35:42+00:00",
+        "executed_report_sha256": "a75c73fd6a638859e34d4c00855a02c30625dd53f9952424d3adfcdb5716201e"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "906e4f79-adaf-4d6b-b167-3dcedd69e833_source257-admissibility",
+      "type": "finding",
+      "text": "The reported harness reproduces the four 257-character-source witness answers: unknown, unknown, unknown and invalid, all with null value and empty evidence. It also reports 127 same/changed-source continuation pairs yielding unknown versus invalid with 255 records. The measured four-case dataset and one 127-ID continuation case occupy 2957 and 52738 bytes respectively, below 128 KiB. These concrete checks address the earlier witness-admissibility gap.",
+      "status": "reproduced",
+      "source_field": "evidence",
+      "quote": "Histories [a_s,r], [a_t,r], [a_s,r,a_s] and [a_t,r,a_s] return unknown, unknown, unknown and invalid respectively",
+      "verification": "Supported narrowly by the named executed_report checks for the four answers, 127 continuation pairs, measured input sizes and oversized-input rejection. This review executed nothing and followed no URLs. The contributor's original script and serialization were not reproduced. The report's limitation saying only n=1 with two sources was exercised conflicts with its newer n127 check; the explicit checks support these finite results, not exhaustive family coverage.\nExecution ledger: pmc_bounds_source257, pmc_bounds_n127, pmc_bounds_input_sizes",
+      "receipt": "906e4f79-adaf-4d6b-b167-3dcedd69e833",
+      "source_fingerprint": "371bc9a175d48d53b7197371e5fc7c7c5cc5bde2586458e9e21ba65aea2425a0",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:46:58+00:00",
+        "executed_report_sha256": "60bc7927fa213959d764bf3bf92350065b38e270ed4464fe5e4b2f11a29a993a"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "906e4f79-adaf-4d6b-b167-3dcedd69e833_record-cap-boundary",
+      "type": "finding",
+      "text": "For the tested 128-retired-ID pair, both 256-record prefixes return unknown and both 257-record continuations return invalid. Thus these particular continuations no longer distinguish the prefixes at the record cap. This limits this construction without establishing a global maximum lower bound.",
+      "status": "reproduced",
+      "source_field": "evidence",
+      "quote": "At 128 retired IDs both prefixes have 256 records and return unknown; both 257-record continuations return invalid because of the resource cap.",
+      "verification": "pmc_bounds_n128_cap records the four answers and record counts. Reproduction is limited to those concrete outputs. The conclusion that this continuation supplies no distinguishing answer is reasoned from their equality; no alternative construction or global optimization was executed.\nExecution ledger: pmc_bounds_n128_cap",
+      "receipt": "906e4f79-adaf-4d6b-b167-3dcedd69e833",
+      "source_fingerprint": "371bc9a175d48d53b7197371e5fc7c7c5cc5bde2586458e9e21ba65aea2425a0",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:46:58+00:00",
+        "executed_report_sha256": "60bc7927fa213959d764bf3bf92350065b38e270ed4464fe5e4b2f11a29a993a"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
+    },
+    {
+      "id": "906e4f79-adaf-4d6b-b167-3dcedd69e833_bounded-state-count",
+      "type": "finding",
+      "text": "Conditional on the described source validation, unchanged v1 semantics and admissible continuations, 127 independently chosen 257-bit sources give 2^32639 pairwise distinguishable prefixes. Appending the assertion from one vector at a differing coordinate yields unknown for that vector and invalid for the other. An exact deterministic self-contained importer therefore requires at least 32639 bits of fixed-width total state for this family, including all source-dependent metadata. One fixed query suffices for this argument. It establishes neither a per-ID storage layout nor compact-export sufficiency.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "A fixed-width total state therefore needs at least 32639 bits for this family.",
+      "verification": "Reasoned by counting 2^(127*257) source vectors and applying the same-state, same-continuation, same-query contradiction to each differing pair. Equal-length binary source strings preserve the described serialization length; admissibility of the entire family remains conditional on the stated validation rules, which this review did not inspect. No exhaustive enumeration, hash collision search, exporter/importer execution or equivalence proof was performed. Arbitrary new queries are unnecessary for this lower bound but remain an unresolved exporter requirement.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "906e4f79-adaf-4d6b-b167-3dcedd69e833",
+      "source_fingerprint": "371bc9a175d48d53b7197371e5fc7c7c5cc5bde2586458e9e21ba65aea2425a0",
+      "question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0",
+      "base_revision_sha256": "af1b2df0b403cda859a2494d147bc0982151af66d3f37b02d97a1e0c4c9a0cd3",
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T12:46:58+00:00",
+        "executed_report_sha256": "60bc7927fa213959d764bf3bf92350065b38e270ed4464fe5e4b2f11a29a993a"
+      },
+      "reviewed_question_sha256": "a8641779d2a7c5ff5e5562df6c1febaffbaa0b83d6e6556a1b994da8a4d61ec0"
     }
   ],
   "edges": [
@@ -257,10 +383,49 @@
       "kind": "addresses"
     },
     {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_separated-event-intervals",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_current-state-gap",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
       "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
       "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
       "kind": "qualifies",
       "reason": "Preserves the valid counterexample while correcting the overly broad proposed condition for resolving it."
+    },
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "kind": "qualifies",
+      "reason": "Preserves the existing correction: the import-order counterexample holds, while one date does not generally resolve the conflict."
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_separated-event-intervals",
+      "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "kind": "qualifies",
+      "reason": "Provides a sufficient condition involving bounds on both events without reversing the prior single-date limitation."
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_current-state-gap",
+      "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "kind": "supports",
+      "reason": "Retains actual-current underdetermination even when additional evidence fixes the recorded event order."
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "kind": "tests",
+      "reason": "Proposes permuting import order while holding event order fixed; this is a planned test, not an executed result."
     },
     {
       "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",
@@ -288,16 +453,6 @@
       "kind": "addresses"
     },
     {
-      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
-      "target": "problem_5",
-      "kind": "addresses"
-    },
-    {
-      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
-      "target": "problem_5",
-      "kind": "addresses"
-    },
-    {
       "source": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
       "target": "problem_5",
       "kind": "addresses"
@@ -314,6 +469,31 @@
     },
     {
       "source": "6d5b382f-c923-4938-9e53-8b93841d101a_necessity-not-sufficiency",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_permutation_scope",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "f0a0113c-a678-4110-b00b-2f363fdd5073_paired_continuation_test",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_source257-admissibility",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_record-cap-boundary",
+      "target": "problem_5",
+      "kind": "addresses"
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_bounded-state-count",
       "target": "problem_5",
       "kind": "addresses"
     },
@@ -394,6 +574,42 @@
       "target": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
       "kind": "qualifies",
       "reason": "The bound relies on the v1 rule that a changed record with a retired ID makes the ledger invalid; a scoped or altered invalidity policy would change the argument's premises."
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_source257-admissibility",
+      "target": "6d5b382f-c923-4938-9e53-8b93841d101a_retired-id-distinguishability",
+      "kind": "supports",
+      "reason": "Extends the concrete retired-ID witness to 257-character sources and reports continuation pairs at 127 positions."
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_source257-admissibility",
+      "target": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "kind": "supports",
+      "reason": "Addresses the previously unverified concrete source-length and byte-budget premises without enumerating the mathematical family."
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_record-cap-boundary",
+      "target": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "kind": "qualifies",
+      "reason": "The distinguishing continuation must remain admissible; this tested construction loses its answer divergence at 128 retired IDs."
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_bounded-state-count",
+      "target": "6d5b382f-c923-4938-9e53-8b93841d101a_state-cardinality-bound",
+      "kind": "supports",
+      "reason": "Instantiates the conditional joint-state counting argument with n=127 and M=2^257."
+    },
+    {
+      "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_global-invalidity",
+      "target": "906e4f79-adaf-4d6b-b167-3dcedd69e833_bounded-state-count",
+      "kind": "qualifies",
+      "reason": "Pairwise distinction depends on reproducing v1 invalidity for changed records sharing retired IDs."
+    },
+    {
+      "source": "906e4f79-adaf-4d6b-b167-3dcedd69e833_bounded-state-count",
+      "target": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_hash-export-hypothesis",
+      "kind": "qualifies",
+      "reason": "The necessary total-state bound preserves the distinction between exact equivalence and computational collision resistance; it supplies no exporter sufficiency result."
     }
   ],
   "warning": "Reviewed relations, not automatic truth or source independence."

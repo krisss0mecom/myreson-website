@@ -3,8 +3,8 @@
   "review_mode": "auto-reviewed-provisional",
   "reviewer_model": "gpt-6-astra",
   "latest_reviewed_revisions": {
-    "5": "60c6cfdf58567fc3c1a6ba35ec7b1f1ac54188664f858e1c8308547e0fecc618",
-    "4": "5c0f1602784fbc73280a266b7692a1f393cfce74f01845d84ba602d1ab8657ec"
+    "5": "7ff25b26ea6393fd3a2bc41cf6b5f1d7a7097dd38ce1fd6165942ae7f3c8999d",
+    "4": "a63e9dffb259d5aa62c1fdecd41c8f56885f047f22aaf73c6e805948ac4576e4"
   },
   "policy": "Two tool-free model passes; conservative quarantine; only pinned public fixture execution. No human approval is required. Not independent validation."
 }

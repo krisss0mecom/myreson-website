@@ -51,6 +51,24 @@
       "reason_codes": [
         "uncertain"
       ]
+    },
+    {
+      "at": "2026-09-21T12:45:31+00:00",
+      "question_id": 4,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "00e32eef-b8c2-40e3-bf63-2b9d2b592891",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
+    },
+    {
+      "at": "2026-09-21T12:46:58+00:00",
+      "question_id": 5,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "906e4f79-adaf-4d6b-b167-3dcedd69e833",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
     }
   ]
 }
