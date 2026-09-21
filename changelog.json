@@ -43,6 +43,14 @@
       "reason_codes": [
         "invalid_source"
       ]
+    },
+    {
+      "at": "2026-09-21T11:08:16+00:00",
+      "question_id": 5,
+      "outcome": "quarantined",
+      "reason_codes": [
+        "uncertain"
+      ]
     }
   ]
 }
