@@ -98,11 +98,11 @@
       "label": "auto-reviewed-provisional"
     },
     {
-      "at": "2026-09-21T17:00:20+00:00",
+      "at": "2026-09-21T18:27:32+00:00",
       "question_id": 10,
       "outcome": "quarantined",
       "reason_codes": [
-        "code"
+        "uncertain"
       ]
     }
   ]
