@@ -27,6 +27,14 @@
       "receipt": "6d5b382f-c923-4938-9e53-8b93841d101a",
       "reviewer_model": "claude-opus-5",
       "label": "auto-reviewed-provisional"
+    },
+    {
+      "at": "2026-09-21T10:31:22+00:00",
+      "question_id": 5,
+      "outcome": "quarantined",
+      "reason_codes": [
+        "code"
+      ]
     }
   ]
 }
