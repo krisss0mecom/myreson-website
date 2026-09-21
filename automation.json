@@ -4,10 +4,11 @@
   "reviewer_model": "gpt-6-astra",
   "latest_reviewed_revisions": {
     "5": "7ff25b26ea6393fd3a2bc41cf6b5f1d7a7097dd38ce1fd6165942ae7f3c8999d",
-    "4": "a63e9dffb259d5aa62c1fdecd41c8f56885f047f22aaf73c6e805948ac4576e4",
+    "4": "e0bf3fdaf50b8b429f4f1113147a498e46aaad52b2208bf6d4d69ec9f8560b0a",
     "12": "b03245eedb82c7b5543d92013b630f57b21142a312dadbafc07b8840a2a1f12a",
     "8": "1d171c175e6b5d7b883d3ad5bb30cba75f7f71d79dba236f3c5f427a9e30eea1",
-    "9": "916d6de69260e3e6bd0634916d646e40e4c37d9505974a1beb7c65f73bc496c1"
+    "9": "916d6de69260e3e6bd0634916d646e40e4c37d9505974a1beb7c65f73bc496c1",
+    "1": "1d328e804f522a8cfa28c4263e9ecebdb8f48453b2581095f34c6469d3f2bc77"
   },
   "policy": "Two tool-free model passes; conservative quarantine; only pinned public fixture execution. No human approval is required. Not independent validation."
 }

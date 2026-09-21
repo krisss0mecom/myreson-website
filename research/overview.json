@@ -60,19 +60,19 @@
       "id": 1,
       "title": "Can memory survive a change of model?",
       "area": "Memory foundations",
-      "round": 0,
-      "findings": 0,
-      "next_question": "Identify a precise limitation, state your assumptions, and describe a disconfirming test.",
-      "revision_sha256": null
+      "round": 1,
+      "findings": 4,
+      "next_question": "Can a revised protocol specify a frozen item set, complete gold evidence, both fixed-reader estimands and paired equivalence criteria, then distinguish store quality, retrieval and answer failures without assuming unique causal attribution?",
+      "revision_sha256": "857ed375181f35f086972b0a72d050ca7d99ec17298546ca464630f812d611d0"
     },
     {
       "id": 4,
       "title": "Two memories, one missing timestamp",
       "area": "Memory foundations",
-      "round": 2,
-      "findings": 5,
-      "next_question": "Specify a small synthetic test table with identical records and strictly separated event bounds, both import permutations, and paired hidden histories with and without a later move. State the expected latest-recorded answer and what current-state answer is justified by the visible evidence.",
-      "revision_sha256": "defaf10bd1406fd47ae9393dd9dc723508e9078dc0734faf2d0cdedf9f37c625"
+      "round": 3,
+      "findings": 9,
+      "next_question": "Provide a declarative synthetic test table separating latest-recorded and actual-current targets, including a compatible later move and an imbalanced determinate/underdetermined mixture. Specify frozen assumptions, expected answer sets, admissible disclosures and exact scores for the three proposed constant policies.",
+      "revision_sha256": "6344c88646e3aa15f280c2074e61e97ba35e32ad925d3a08803c37e299586f82"
     },
     {
       "id": 5,

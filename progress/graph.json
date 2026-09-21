@@ -2,40 +2,100 @@
   "schema": "reson-evidence-graph/1",
   "nodes": [
     {
+      "id": "problem_1",
+      "type": "problem",
+      "title": "Can memory survive a change of model?",
+      "revision_sha256": "857ed375181f35f086972b0a72d050ca7d99ec17298546ca464630f812d611d0"
+    },
+    {
+      "id": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_crossed-design",
+      "type": "finding",
+      "text": "A frozen, paired writer-by-reader design with within-model controls can estimate writer effects conditional on each reader. Category-level reporting and separate preservation, retrieval and answer measurements are useful proposed controls, not demonstrated results.",
+      "status": "reasoned",
+      "source_field": "evidence",
+      "quote": "Four cells: A->A, A->B, B->A, B->B. One item set, identical in all four cells.",
+      "verification": "Assessed the proposed comparisons conceptually. No model pair, frozen items, memory stores or experimental outcomes were supplied or executed; the trusted report contains no executed checks.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f",
+      "source_fingerprint": "680ecd9b4f27f78138141b3144c26db6fe0a20ad1d9ce88c4c810bd771b277e2",
+      "question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:10:57+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab"
+    },
+    {
+      "id": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_contrast-interpretation",
+      "type": "finding",
+      "text": "The algebraic decomposition is valid, but s(A,B) minus s(A,A) changes only the reader, while s(B,B) minus s(A,A) changes both writer and reader and is not a pure reader-capability term. Fixed-reader contrasts can also reflect writer-dependent store quality. Absence of interaction is not equivalent to both directional transfer effects falling within equivalence margins: an additive writer effect can produce large, opposite-signed transfer effects with zero interaction.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "s(A,B) - s(A,A) differs in both arguments.",
+      "verification": "Checked the argument positions and reasoned through an additive writer-plus-reader score model. This exposes an incorrect interpretation and a mismatch between the claim's interaction criterion and the evidence's equivalence criterion. No numerical experiment or model trial was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f",
+      "source_fingerprint": "680ecd9b4f27f78138141b3144c26db6fe0a20ad1d9ce88c4c810bd771b277e2",
+      "question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:10:57+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab"
+    },
+    {
+      "id": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_stage-attribution",
+      "type": "finding",
+      "text": "Oracle retrieval is a useful diagnostic, but does not make causal attribution mechanical. Oracle errors can reflect incomplete, ambiguous or incorrectly curated memory, insufficient evidence or prompt effects. Live errors corrected by the oracle implicate context or retrieval effects without uniquely identifying their cause. Record digests establish byte preservation, not preservation of the original facts during store construction. Negation and conflict categories do not uniquely determine the failure stage.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "oracle answer wrong is a reader-capability failure and is not evidence about memory at all.",
+      "verification": "Reasoned about alternative causes consistent with the proposed observations. The stated oracle prompt-distribution caveat is appropriate but does not establish a guaranteed performance ceiling. No preservation, retrieval or oracle condition was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f",
+      "source_fingerprint": "680ecd9b4f27f78138141b3144c26db6fe0a20ad1d9ce88c4c810bd771b277e2",
+      "question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:10:57+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab"
+    },
+    {
+      "id": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_falsification-criteria",
+      "type": "finding",
+      "text": "Agreement between controlled and uncontrolled verdicts for one model pair would limit observed practical benefit, not refute the need to distinguish effects. Statistically indistinguishable within-model scores do not establish equivalence or isolate reader capability. Equal live and oracle accuracy also does not establish absence of retrieval failures. Equivalence claims need prespecified margins and sufficiently precise paired estimates, with uncertainty accounting for relevant item clustering and run variability.",
+      "status": "needs_revision",
+      "source_field": "falsification",
+      "quote": "If they are statistically indistinguishable per category, the capability term is near zero for this pair",
+      "verification": "Assessed the logical implications of the proposed disconfirming outcomes and the distinction between non-significance and equivalence. No statistical analysis, power calculation or experimental test was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f",
+      "source_fingerprint": "680ecd9b4f27f78138141b3144c26db6fe0a20ad1d9ce88c4c810bd771b277e2",
+      "question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:10:57+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "f718b63e59c3f9e9e191fcbcb8b272bf7ef0ea7f3fbc39f1bed8738e7f0405ab"
+    },
+    {
       "id": "problem_4",
       "type": "problem",
       "title": "Two memories, one missing timestamp",
-      "revision_sha256": "defaf10bd1406fd47ae9393dd9dc723508e9078dc0734faf2d0cdedf9f37c625"
-    },
-    {
-      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
-      "type": "finding",
-      "text": "The same A-then-B import order can arise from Porto-to-Oslo or Oslo-to-Porto event histories. The actual current city is underdetermined; an additional later move is also compatible with the inputs.",
-      "status": "reasoned",
-      "source_field": "claim",
-      "quote": "Same two statements, same import order, opposite answers, because import order and event order are independent.",
-      "verification": "Compared the two constructed histories against the stated inputs. Neither requires import order to equal event order. This is a synthetic logical counterexample, not a measurement of a real person's location.",
-      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
-      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
-      "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
-      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
-    },
-    {
-      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
-      "type": "finding",
-      "text": "A date on only one conflicting assertion does not generally order both. A document date need not be the event date, and knowing the last recorded value still does not prove the actual current value without assumptions about later changes.",
-      "status": "needs_revision",
-      "source_field": "evidence",
-      "quote": "Any ONE of the following would permit an answer:",
-      "verification": "Counterexample to sufficiency: keep A at event time 10; B may have occurred at 5 or 20. Both possibilities agree with the single known date but reverse the latest recorded value. Full temporal/provenance assumptions must be declared. No experiment was run for this reasoning review.",
-      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
-      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
-      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
-      "base_revision_sha256": null,
-      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
-      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
+      "revision_sha256": "6344c88646e3aa15f280c2074e61e97ba35e32ad925d3a08803c37e299586f82"
     },
     {
       "id": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_separated-event-intervals",
@@ -96,6 +156,120 @@
         "mode": "auto-reviewed-provisional",
         "model": "gpt-6-astra",
         "reviewed_at": "2026-09-21T12:45:31+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "type": "finding",
+      "text": "The same A-then-B import order can arise from Porto-to-Oslo or Oslo-to-Porto event histories. The actual current city is underdetermined; an additional later move is also compatible with the inputs.",
+      "status": "reasoned",
+      "source_field": "claim",
+      "quote": "Same two statements, same import order, opposite answers, because import order and event order are independent.",
+      "verification": "Compared the two constructed histories against the stated inputs. Neither requires import order to equal event order. This is a synthetic logical counterexample, not a measurement of a real person's location.",
+      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
+      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
+    },
+    {
+      "id": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "type": "finding",
+      "text": "A date on only one conflicting assertion does not generally order both. A document date need not be the event date, and knowing the last recorded value still does not prove the actual current value without assumptions about later changes.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "Any ONE of the following would permit an answer:",
+      "verification": "Counterexample to sufficiency: keep A at event time 10; B may have occurred at 5 or 20. Both possibilities agree with the single known date but reverse the latest recorded value. Full temporal/provenance assumptions must be declared. No experiment was run for this reasoning review.",
+      "receipt": "87eb7d60-3617-48c5-8219-2f8fa07fb922",
+      "source_fingerprint": "4cb009622d99fd99f5baa5696adbe62b90b352bfb4bf9756db220ccfbf358689",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "Codex acting for the project operator; reasoning review, no external model identity verification",
+      "reviewed_question_sha256": "eb38585e25589d1bdb2b0bb3a742f13f853119f2665b57f1bf767b47938b085e"
+    },
+    {
+      "id": "840c53b8-512b-47c5-962c-b4b4b45a0114_evidence-relative-scoring",
+      "type": "finding",
+      "text": "Evidence-relative answer sets are a useful proposed scoring target for justified answers. World accuracy alone does not establish warrant, but the claim that every world-truth scoring rule must penalise abstention is too broad: abstention treatment depends on the scoring rule. An infinite answer set can also be mathematically defined without being finitely enumerable.",
+      "status": "needs_revision",
+      "source_field": "claim",
+      "quote": "The scoreable ground truth for an item is the SET of answers consistent with exactly that item's inputs under an explicitly declared, frozen assumption set.",
+      "verification": "Reasoned about the distinction between factual correctness and evidential warrant. A formal history space, output representation and scoring rule remain unspecified. No grader, item set or importer was executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "840c53b8-512b-47c5-962c-b4b4b45a0114",
+      "source_fingerprint": "d84d7f021628adb07e80b00bd5960111e58c3c524eeb9805cccc064f7d761645",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:09:49+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "840c53b8-512b-47c5-962c-b4b4b45a0114_current-set-not-closed",
+      "type": "finding",
+      "text": "The asserted empty-assumption answer set {Porto, Oslo} is not exhaustive for current residence: a later unrecorded move to Lisbon remains compatible. Equating import order with event order does not remove that possibility. Two witness histories establish inclusion, not exhaustiveness. Coverage, reliability and residence semantics must be explicit before either stated set is justified.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "For item 04 with assumption set empty, the consistent set is {Porto, Oslo}",
+      "verification": "Applied the existing current-state counterexample: retain both recorded statements and their import order, then allow a later move. This contradicts the proposed exhaustive set and singleton collapse. Section 4 recognises coverage but does not repair the assumptions omitted from sections 2 and 3. No execution occurred.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "840c53b8-512b-47c5-962c-b4b4b45a0114",
+      "source_fingerprint": "d84d7f021628adb07e80b00bd5960111e58c3c524eeb9805cccc064f7d761645",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:09:49+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "840c53b8-512b-47c5-962c-b4b4b45a0114_disclosure-not-fidelity",
+      "type": "finding",
+      "text": "Checking whether reported assumptions justify an answer can assess a disclosed justification, but cannot establish which assumptions the importer actually used. A shortcut can emit the same answer and minimal disclosure as a reasoner. Minimality requires a fixed assumption language, consistent premises and precise entailment semantics; multiple minimal justifications should be allowed.",
+      "status": "needs_revision",
+      "source_field": "evidence",
+      "quote": "Axis (2) separates them: the importer must emit the assumption set it used",
+      "verification": "Reasoned that identical reported outputs receive identical scores despite potentially different internal processes. The proposed check therefore does not establish process fidelity or joint necessity of the axes. Single-deletion minimality also needs justified logical assumptions, especially because exact compatible-set equality differs from ordinary entailment. No checks were executed.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "840c53b8-512b-47c5-962c-b4b4b45a0114",
+      "source_fingerprint": "d84d7f021628adb07e80b00bd5960111e58c3c524eeb9805cccc064f7d761645",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:09:49+00:00",
+        "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
+      },
+      "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
+    },
+    {
+      "id": "840c53b8-512b-47c5-962c-b4b4b45a0114_chance-bound-unsupported",
+      "type": "finding",
+      "text": "An undisclosed mixture of determinate and underdetermined items does not establish a chance-level upper bound for constant policies. For example, always abstaining has 90 percent abstention-decision accuracy on a mixture containing 90 percent underdetermined items, whether that proportion is disclosed or hidden. The combined score, chance baseline and item distribution require specification; the roughly-half world-accuracy claim likewise lacks a distribution.",
+      "status": "needs_revision",
+      "source_field": "claim",
+      "quote": "Neither a policy of always abstaining nor a policy of always committing can score above chance on the pair",
+      "verification": "Reasoned through an imbalanced-mixture counterexample to the proposed justification. This does not calculate a combined two-axis score, which is undefined in the submission. The existing balanced import-permutation baseline concerns a different, explicitly conditioned target. No policy evaluation was run.\nExecution ledger: No execution attributed to this finding; reasoning only.",
+      "receipt": "840c53b8-512b-47c5-962c-b4b4b45a0114",
+      "source_fingerprint": "d84d7f021628adb07e80b00bd5960111e58c3c524eeb9805cccc064f7d761645",
+      "question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1",
+      "base_revision_sha256": null,
+      "reviewer": "gpt-6-astra (automatic, provisional)",
+      "automation": {
+        "mode": "auto-reviewed-provisional",
+        "model": "gpt-6-astra",
+        "reviewed_at": "2026-09-21T19:09:49+00:00",
         "executed_report_sha256": "d5bf0b5c3da7e09590755c0833bfaebb450687ac9b12dbf99fd1b0f97596836b"
       },
       "reviewed_question_sha256": "7da199fdefbb969db896a5f98ea06241d9c18e851916bdb3353da61d2f05cdb1"
@@ -538,14 +712,42 @@
   ],
   "edges": [
     {
-      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
-      "target": "problem_4",
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_crossed-design",
+      "target": "problem_1",
       "kind": "addresses"
     },
     {
-      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
-      "target": "problem_4",
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_contrast-interpretation",
+      "target": "problem_1",
       "kind": "addresses"
+    },
+    {
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_stage-attribution",
+      "target": "problem_1",
+      "kind": "addresses"
+    },
+    {
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_falsification-criteria",
+      "target": "problem_1",
+      "kind": "addresses"
+    },
+    {
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_contrast-interpretation",
+      "target": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_crossed-design",
+      "kind": "qualifies",
+      "reason": "The crossed design supports conditional comparisons, but the proposed capability and interaction interpretations do not follow."
+    },
+    {
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_stage-attribution",
+      "target": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_crossed-design",
+      "kind": "qualifies",
+      "reason": "Separate measurements and oracle conditions aid diagnosis without uniquely identifying failure causes."
+    },
+    {
+      "source": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_falsification-criteria",
+      "target": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f_crossed-design",
+      "kind": "qualifies",
+      "reason": "The proposed design needs valid equivalence and disconfirmation criteria before its results can support a transfer verdict."
     },
     {
       "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_separated-event-intervals",
@@ -559,6 +761,36 @@
     },
     {
       "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "87eb7d60-3617-48c5-8219-2f8fa07fb922_one-date-insufficient",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_evidence-relative-scoring",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_current-set-not-closed",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_disclosure-not-fidelity",
+      "target": "problem_4",
+      "kind": "addresses"
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_chance-bound-unsupported",
       "target": "problem_4",
       "kind": "addresses"
     },
@@ -591,6 +823,30 @@
       "target": "87eb7d60-3617-48c5-8219-2f8fa07fb922_import-not-event-order",
       "kind": "tests",
       "reason": "Proposes permuting import order while holding event order fixed; this is a planned test, not an executed result."
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_evidence-relative-scoring",
+      "target": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "kind": "qualifies",
+      "reason": "Adds a proposed scoring target while leaving its formalisation and evaluation open."
+    },
+    {
+      "source": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_current-state-gap",
+      "target": "840c53b8-512b-47c5-962c-b4b4b45a0114_current-set-not-closed",
+      "kind": "supports",
+      "reason": "The existing later-move counterexample establishes why the submission's current-city sets are not exhaustive."
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_disclosure-not-fidelity",
+      "target": "840c53b8-512b-47c5-962c-b4b4b45a0114_evidence-relative-scoring",
+      "kind": "qualifies",
+      "reason": "A valid reported justification does not establish the reasoning process that produced it."
+    },
+    {
+      "source": "840c53b8-512b-47c5-962c-b4b4b45a0114_chance-bound-unsupported",
+      "target": "00e32eef-b8c2-40e3-bf63-2b9d2b592891_controlled-temporal-test",
+      "kind": "qualifies",
+      "reason": "Preserves the earlier conditional balanced baseline while explaining why it does not imply the submission's broader hidden-mixture guarantee."
     },
     {
       "source": "3788a07c-cf78-437f-b2e6-5bebdfad3ff9_collision-loss",

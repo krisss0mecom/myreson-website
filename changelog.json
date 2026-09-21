@@ -104,6 +104,32 @@
       "reason_codes": [
         "uncertain"
       ]
+    },
+    {
+      "at": "2026-09-21T19:08:38+00:00",
+      "question_id": 5,
+      "outcome": "quarantined",
+      "reason_codes": [
+        "code"
+      ]
+    },
+    {
+      "at": "2026-09-21T19:09:49+00:00",
+      "question_id": 4,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "840c53b8-512b-47c5-962c-b4b4b45a0114",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
+    },
+    {
+      "at": "2026-09-21T19:10:57+00:00",
+      "question_id": 1,
+      "outcome": "accepted",
+      "reason_codes": [],
+      "receipt": "9fe3c37b-9326-4d4e-b7ae-a386fca22a1f",
+      "reviewer_model": "gpt-6-astra",
+      "label": "auto-reviewed-provisional"
     }
   ]
 }
