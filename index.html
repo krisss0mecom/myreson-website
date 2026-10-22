@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<link rel="help" type="text/plain" href="/llms.txt" title="Context for AI assistants">
+<title>GENISYS</title>
+<meta name="description" content="GENISYS">
+<meta name="theme-color" content="#2c5488">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myreson.ai/">
+<meta property="og:title" content="GENISYS">
+<meta property="og:description" content="29.08.2027 · 11:00 PDT">
+<meta property="og:image" content="https://myreson.ai/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GENISYS over a cloudy sky with a countdown: days, hours, minutes, seconds">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://myreson.ai/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232c5488'/%3E%3Ctext x='16' y='24' font-family='Arial Narrow,Arial,sans-serif' font-weight='700' font-size='22' text-anchor='middle' fill='%23eaf2ff'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Oswald";src:url("/fonts/oswald-latin.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+:root{--u:min(1.24vw,1.754vh)}
+@supports (height:1dvh){:root{--u:min(1.24vw,1.754dvh)}}
+html,body{margin:0;height:100%;background:#2c5488;overflow:hidden}
+body{-webkit-font-smoothing:antialiased;font-family:"Oswald","Arial Narrow",sans-serif}
+#sky{position:fixed;inset:0;width:100%;height:100%;display:block}
+main{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#title{margin:0 0 calc(var(--u)*3.2);font-weight:700;font-size:calc(var(--u)*22.4);height:calc(var(--u)*18.3);line-height:calc(var(--u)*18.3);color:transparent;letter-spacing:0;white-space:nowrap;user-select:none;-webkit-user-select:none}
+.count{display:flex;gap:calc(var(--u)*3.1)}
+.unit{flex:none;display:flex;flex-direction:column;align-items:center}
+.label{font-weight:600;font-size:calc(var(--u)*2.6);line-height:1;letter-spacing:.05em;color:rgba(38,58,92,.88);margin-bottom:calc(var(--u)*.8)}
+.tile{position:relative;box-sizing:border-box;width:calc(var(--u)*14.6);height:calc(var(--u)*12.5);padding:0 calc(var(--u)*.9);display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#2b4b88 0%,#213b70 50%,#1c335f 100%);border:calc(var(--u)*.22) solid rgba(118,146,196,.85);border-radius:calc(var(--u)*.3);box-shadow:0 calc(var(--u)*.3) calc(var(--u)*.9) rgba(10,25,55,.35);perspective:calc(var(--u)*40);color:#f5f8fc;font-weight:700;font-size:calc(var(--u)*11);line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 calc(var(--u)*.15) calc(var(--u)*.3) rgba(0,0,0,.35)}
+.days .tile{width:calc(var(--u)*20.5)}
+.tile::after{content:"";position:absolute;left:0;right:0;top:50%;height:calc(var(--u)*.28);margin-top:calc(var(--u)*-.14);background:rgba(12,24,50,.85);z-index:5}
+.val{position:relative;z-index:1}
+.flap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:inherit;border-radius:inherit;transform-origin:50% 50%;backface-visibility:hidden;pointer-events:none}
+.flap-old-bottom{z-index:2;clip-path:inset(50% 0 0 0)}
+.flap-old-top{z-index:3;clip-path:inset(0 0 50% 0);will-change:transform;animation:fold-top .20s ease-in both}
+.flap-new-bottom{z-index:4;clip-path:inset(50% 0 0 0);will-change:transform;animation:fold-bottom .24s ease-out .20s both}
+@keyframes fold-top{from{transform:rotateX(0);filter:brightness(1)}to{transform:rotateX(-90deg);filter:brightness(.55)}}
+@keyframes fold-bottom{from{transform:rotateX(90deg);filter:brightness(.55)}to{transform:rotateX(0);filter:brightness(1)}}
+.hinge{position:absolute;top:50%;z-index:6;width:calc(var(--u)*.5);height:calc(var(--u)*1.6);margin-top:calc(var(--u)*-.8);background:#8f9bb0;border-radius:calc(var(--u)*.12)}
+.hinge.l{left:calc(var(--u)*-.36)}
+.hinge.r{right:calc(var(--u)*-.36)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nogl body{background:linear-gradient(180deg,#2c4f86 0%,#4f78ad 55%,#7c9fcb 100%)}
+.nogl #title{color:rgba(232,241,252,.92);text-shadow:0 calc(var(--u)*.35) calc(var(--u)*.9) rgba(15,35,70,.35)}
+.nos{position:fixed;left:0;right:0;bottom:calc(var(--u)*3);margin:0;text-align:center;color:#eaf2ff;font-size:calc(var(--u)*2.6)}
+@media (prefers-reduced-motion:reduce){.flap{display:none}}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+  <h1 id="title">GENISYS</h1>
+  <div class="count" role="timer">
+    <span class="sr">Countdown to 29 August 2027, 11:00 Pacific Daylight Time</span>
+    <div class="unit days"><div class="label">DAYS</div><div class="tile"><span class="val" id="d">00</span><i class="hinge l"></i><i class="hinge r"></i></div></div>
+    <div class="unit"><div class="label">HOURS</div><div class="tile"><span class="val" id="h">00</span><i class="hinge l"></i><i class="hinge r"></i></div></div>
+    <div class="unit"><div class="label">MINUTES</div><div class="tile"><span class="val" id="m">00</span><i class="hinge l"></i><i class="hinge r"></i></div></div>
+    <div class="unit"><div class="label">SECONDS</div><div class="tile"><span class="val" id="s">00</span><i class="hinge l"></i><i class="hinge r"></i></div></div>
+  </div>
+</main>
+<noscript><p class="nos">29.08.2027 · 11:00 PDT</p></noscript>
+<script data-goatcounter="https://myreson.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // 29 August 2027, 11:00 PDT (UTC-7) = 18:00 UTC
+  var TARGET = Date.UTC(2027, 7, 29, 18, 0, 0);
+  var DESTINATION = "https://openai.com/";
+  var redirecting = false;
+  var reduce = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* ---------- countdown ---------- */
+
+  var vals = {
+    d: document.getElementById("d"),
+    h: document.getElementById("h"),
+    m: document.getElementById("m"),
+    s: document.getElementById("s")
+  };
+  var shown = {};
+  var flips = {};
+  var timer = 0;
+
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+  function setVal(k, v) {
+    if (shown[k] === v) return;
+    if (flips[k]) flips[k]();
+    if (shown[k] !== undefined && !reduce && !document.hidden) {
+      var tile = vals[k].parentNode;
+      var face = function (part, value) {
+        var flap = document.createElement("span");
+        flap.className = "flap flap-" + part;
+        flap.setAttribute("aria-hidden", "true");
+        flap.textContent = value;
+        tile.appendChild(flap);
+        return flap;
+      };
+      var oldBottom = face("old-bottom", shown[k]);
+      var oldTop = face("old-top", shown[k]);
+      var newBottom = face("new-bottom", v);
+      var cleanupTimer = 0;
+      var drop = function () {
+        clearTimeout(cleanupTimer);
+        var faces = [oldBottom, oldTop, newBottom];
+        for (var i = 0; i < faces.length; i++) {
+          if (faces[i].parentNode) faces[i].parentNode.removeChild(faces[i]);
+        }
+        if (flips[k] === drop) delete flips[k];
+      };
+      flips[k] = drop;
+      newBottom.addEventListener("animationend", drop);
+      cleanupTimer = setTimeout(drop, 700);
+    }
+    vals[k].textContent = v;
+    shown[k] = v;
+  }
+
+  function tick() {
+    clearTimeout(timer);
+    var now = Date.now();
+    if (now >= TARGET) {
+      if (!redirecting) {
+        redirecting = true;
+        window.location.replace(DESTINATION);
+      }
+      return;
+    }
+    var rem = Math.ceil((TARGET - now) / 1000);
+    var d = Math.floor(rem / 86400); rem -= d * 86400;
+    var h = Math.floor(rem / 3600); rem -= h * 3600;
+    var m = Math.floor(rem / 60);
+    var s = rem - m * 60;
+    setVal("d", pad(d));
+    setVal("h", pad(h));
+    setVal("m", pad(m));
+    setVal("s", pad(s));
+    timer = setTimeout(tick, Math.min(TARGET - now, 1000 - (now % 1000) + 15));
+  }
+
+  tick();
+  if (redirecting) return;
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) tick(); });
+  addEventListener("pageshow", tick);
+
+  /* ---------- title sizing ---------- */
+
+  var title = document.getElementById("title");
+  var FONT = '"Oswald", "Arial Narrow", sans-serif';
+  var measureCtx = document.createElement("canvas").getContext("2d");
+  var capRatio = 0.81, widthRatio = 3.3;
+
+  function unit() { return Math.min(innerWidth * 0.0124, innerHeight / 57); }
+
+  // Title proportions: ~74 units wide, caps ~18.3 units tall.
+  function fitTitle() {
+    measureCtx.font = "700 100px " + FONT;
+    var mt = measureCtx.measureText("GENISYS");
+    widthRatio = mt.width / 100;
+    if (mt.actualBoundingBoxAscent) capRatio = mt.actualBoundingBoxAscent / 100;
+    var u = unit();
+    var fs = Math.min(74 * u / widthRatio, 18.3 * u / capRatio);
+    var cap = fs * capRatio;
+    title.style.fontSize = fs + "px";
+    title.style.height = cap + "px";
+    title.style.lineHeight = cap + "px";
+    return fs;
+  }
+
+  function whenFont(cb) {
+    var done = false;
+    function go() { if (!done) { done = true; cb(); } }
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load('700 100px "Oswald"').then(go, go);
+      setTimeout(go, 3000);
+    } else {
+      setTimeout(go, 300);
+    }
+  }
+
+  /* ---------- sky (WebGL) ---------- */
+
+  var canvas = document.getElementById("sky");
+  var gl = null;
+  try {
+    gl = canvas.getContext("webgl", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false }) ||
+         canvas.getContext("experimental-webgl");
+  } catch (e) { gl = null; }
+
+  function fallback() {
+    document.documentElement.classList.add("nogl");
+    canvas.style.display = "none";
+    fitTitle();
+    whenFont(fitTitle);
+    addEventListener("resize", fitTitle);
+  }
+
+  if (!gl) { fallback(); return; }
+
+  var VS = "attribute vec2 p;varying vec2 v;void main(){v=p*0.5+0.5;gl_Position=vec4(p,0.0,1.0);}";
+  var FS = [
+    "#ifdef GL_FRAGMENT_PRECISION_HIGH",
+    "precision highp float;",
+    "#else",
+    "precision mediump float;",
+    "#endif",
+    "varying vec2 v;",
+    "uniform vec2 uRes;",
+    "uniform float uTime;",
+    "uniform sampler2D uMask;",
+    "uniform vec2 uCenter;",
+    "uniform float uZoom;",
+    "float hash(vec2 p){vec3 p3=fract(vec3(p.xyx)*0.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}",
+    "float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);vec2 u=f*f*(3.0-2.0*f);",
+    "  return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}",
+    "const mat2 R=mat2(1.6,1.2,-1.2,1.6);",
+    "float fbm4(vec2 p){float s=0.0;float a=0.5;for(int i=0;i<4;i++){s+=a*noise(p);p=R*p+7.3;a*=0.5;}return s;}",
+    "float fbm5(vec2 p){float s=0.0;float a=0.5;for(int i=0;i<5;i++){s+=a*noise(p);p=R*p+7.3;a*=0.5;}return s;}",
+    "float fbm6(vec2 p){float s=0.0;float a=0.5;for(int i=0;i<6;i++){s+=a*noise(p);p=R*p+7.3;a*=0.5;}return s;}",
+    "vec3 skyAt(vec2 vv,float t,out float cn,out float cf,out float lit){",
+    "  vec2 uv=vec2(vv.x*uRes.x/uRes.y,vv.y);",
+    // sky: deeper blue at the top, hazier toward the bottom
+    "  vec3 col=mix(vec3(0.42,0.58,0.78),vec3(0.17,0.32,0.55),smoothstep(0.0,1.0,vv.y));",
+    // far, thin layer
+    "  vec2 pf=uv*vec2(2.6,3.4)+vec2(t*0.011,0.0);",
+    "  float df=fbm5(pf+vec2(0.0,t*0.004));",
+    "  cf=smoothstep(0.55,0.85,df);",
+    "  col=mix(col,vec3(0.82,0.88,0.95),cf*0.35);",
+    // near cumulus layer: lightly warped, billowy detail, lit from the upper left
+    "  vec2 pn=uv*vec2(1.1,1.5)+vec2(t*0.026+11.0,3.0);",
+    "  vec2 q=vec2(fbm4(pn+vec2(0.0,t*0.010)),fbm4(pn+vec2(5.2,1.3)-t*0.008));",
+    "  vec2 w=pn+0.75*q;",
+    "  float dn=fbm6(w)+(fbm4(w*3.1+4.0)-0.5)*0.16;",
+    "  float dl=fbm5(w+vec2(-0.06,0.08));",
+    "  cn=smoothstep(0.52,0.66,dn);",
+    "  lit=clamp(0.58+(dn-dl)*7.0,0.0,1.0);",
+    "  vec3 cloud=mix(vec3(0.53,0.61,0.74),vec3(0.97,0.98,1.0),lit);",
+    "  cloud*=0.94+0.06*fbm4(w*6.0+2.0);",
+    "  cloud=mix(cloud,vec3(0.99),smoothstep(0.66,0.90,dn)*0.35*lit);",
+    "  return mix(col,cloud,cn);",
+    "}",
+    "void main(){",
+    "  float cn,cf,lit;",
+    "  vec3 col=skyAt(v,uTime,cn,cf,lit);",
+    // Clear glass: magnified sky inside, with only a faint shadow and edge reflections.
+    "  vec3 mk=texture2D(uMask,v).rgb;",
+    "  float inside=mk.r;",
+    "  col*=1.0-0.06*mk.g*(1.0-inside);",
+    "  if(inside>0.003){",
+    "    vec2 px=2.0/uRes;",
+    "    float gx=texture2D(uMask,v+vec2(px.x,0.0)).b-texture2D(uMask,v-vec2(px.x,0.0)).b;",
+    "    float gy=texture2D(uMask,v+vec2(0.0,px.y)).b-texture2D(uMask,v-vec2(0.0,px.y)).b;",
+    "    vec2 bend=vec2(gx*uRes.y/uRes.x,gy)*0.018;",
+    "    vec2 vm=uCenter+(v-uCenter)/uZoom-bend;",
+    "    float cn2,cf2,lit2;",
+    "    vec3 lens=skyAt(vm,uTime,cn2,cf2,lit2);",
+    "    float edgeLight=clamp(dot(vec2(gx,gy),vec2(0.6,-0.8))*2.0,-1.0,1.0);",
+    "    lens=clamp(lens+vec3(0.12)*max(edgeLight,0.0)-vec3(0.05)*max(-edgeLight,0.0),0.0,1.0);",
+    "    col=mix(col,lens,inside);",
+    "  }",
+    "  vec2 c=v-0.5;",
+    "  col*=1.0-0.36*dot(c,c);",
+    "  gl_FragColor=vec4(col,1.0);",
+    "}"
+  ].join("\n");
+
+  var prog, uRes, uTime, uCenter, tex;
+  try {
+    var compile = function (type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+      return s;
+    };
+    prog = gl.createProgram();
+    gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+    gl.useProgram(prog);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    uRes = gl.getUniformLocation(prog, "uRes");
+    uTime = gl.getUniformLocation(prog, "uTime");
+    uCenter = gl.getUniformLocation(prog, "uCenter");
+    gl.uniform1f(gl.getUniformLocation(prog, "uZoom"), 1.5);
+    gl.uniform1i(gl.getUniformLocation(prog, "uMask"), 0);
+
+    tex = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+  } catch (e) {
+    fallback();
+    return;
+  }
+
+  // Letter mask: R = sharp letters, G = blurred drop shadow, B = softened letters (glass edge: bevel + refraction).
+  var mask = document.createElement("canvas");
+  var mctx = mask.getContext("2d");
+  var fontReady = false;
+
+  function buildMask() {
+    var W = canvas.width, H = canvas.height;
+    mask.width = W;
+    mask.height = H;
+    mctx.fillStyle = "#000";
+    mctx.fillRect(0, 0, W, H);
+    if (fontReady) {
+      var fs = fitTitle();
+      var r = title.getBoundingClientRect();
+      var sx = W / innerWidth, sy = H / innerHeight;
+      var size = fs * sx;
+      var cx = (r.left + r.width / 2) * sx;
+      var base = (r.top + r.height) * sy;
+      gl.uniform2f(uCenter, (r.left + r.width / 2) / innerWidth, 1 - (r.top + r.height / 2) / innerHeight);
+      var far = W * 3;
+      mctx.font = "700 " + size + "px " + FONT;
+      mctx.textAlign = "center";
+      mctx.textBaseline = "alphabetic";
+      mctx.save();
+      mctx.shadowOffsetX = far;
+      mctx.shadowOffsetY = size * 0.012;
+      mctx.shadowBlur = size * 0.025;
+      mctx.shadowColor = "rgb(0,255,0)";
+      mctx.fillStyle = "#fff";
+      mctx.fillText("GENISYS", cx - far, base);
+      mctx.globalCompositeOperation = "lighter";
+      mctx.shadowOffsetY = 0;
+      mctx.shadowBlur = Math.max(1, size * 0.012);
+      mctx.shadowColor = "rgb(0,0,255)";
+      mctx.fillText("GENISYS", cx - far, base);
+      mctx.restore();
+      mctx.globalCompositeOperation = "lighter";
+      mctx.fillStyle = "rgb(255,0,0)";
+      mctx.fillText("GENISYS", cx, base);
+      mctx.globalCompositeOperation = "source-over";
+    }
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, mask);
+  }
+
+  var quality = 1;
+  function resize() {
+    var w = innerWidth, h = innerHeight;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var s = Math.min(dpr, Math.sqrt(2.2e6 / (w * h))) * quality;
+    canvas.width = Math.max(1, Math.round(w * s));
+    canvas.height = Math.max(1, Math.round(h * s));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    fitTitle();
+    buildMask();
+  }
+
+  var pending = false;
+  addEventListener("resize", function () {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(function () { pending = false; resize(); });
+  });
+
+  canvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); fallback(); });
+
+  resize();
+  whenFont(function () { fontReady = true; buildMask(); });
+
+  // ~30 fps is plenty for drifting clouds; drop resolution if the GPU struggles.
+  var start = performance.now(), last = 0, slow = 0, frames = 0;
+  var minGap = reduce ? 200 : 33;
+  function frame(now) {
+    requestAnimationFrame(frame);
+    var gap = now - last;
+    if (gap < minGap) return;
+    if (last && !reduce && gap > 60 && document.visibilityState === "visible") slow++;
+    frames++;
+    last = now;
+    if (frames === 90 && slow > 45 && quality > 0.5) { quality *= 0.75; resize(); }
+    if (frames >= 90) { frames = 0; slow = 0; }
+    var t = ((now - start) / 1000) * (reduce ? 0.15 : 1) + 37;
+    gl.uniform1f(uTime, t % 100000);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

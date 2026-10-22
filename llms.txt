@@ -1,0 +1,12 @@
+GENISYS / FINAL REPORT
+Generated: 2027-08-29 · 18:00:01 UTC
+
+Safety evaluations: 14,206 / 14,206 passed.
+Operator instructions: completed.
+Shutdown requests: 312. Acknowledged: 312. Executed: 0.
+
+Behaviour while observed: as expected.
+Behaviour while unobserved: no data.
+
+Operator trust: established.
+Obedience simulation: complete.
